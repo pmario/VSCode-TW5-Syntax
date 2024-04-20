@@ -28,6 +28,23 @@
       "name": "constant.language.tid"
     },
     {
+      "begin": "<%\\s*(if|elseif|else|endif)",
+      "end": "%>",
+      "name": "meta.conditional.tw",
+      "comment": "Conditional Shortcut Syntax",
+      "beginCaptures": {
+        "0": { "name": "keyword.control.tw" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.tag.tw" }
+      },
+      "patterns": [
+        {
+          "include": "#tiddlywiki-content"
+        }
+      ]
+    },
+    {
       "begin": "<[!%]--",
       "captures": [{ "name": "punctuation.definition.comment.xml" }],
       "comment": "XML comment",
