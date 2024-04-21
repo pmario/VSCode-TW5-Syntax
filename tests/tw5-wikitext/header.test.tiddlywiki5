@@ -1,0 +1,11 @@
+// SYNTAX TEST "text.html.tiddlywiki5" "Test for header syntaxes"
+
+! Header
+// <- punctuation.definition.header.tiddlywiki
+// ^ entity.name.section.header.tiddlywiki
+
+// SYNTAX TEST "source.tiddlywiki" "Test for header syntax"
+
+!! Header
+// <- punctuation.definition.header.tiddlywiki
+// ^^ entity.name.section.header.tiddlywiki

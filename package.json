@@ -10,12 +10,17 @@
     "categories": [
         "Programming Languages"
     ],
-    "keywords":["tiddlywiki", "tiddlywiki5", "tw5", "syntax highlighting"],
-    "publisher" : "joshua-fontany",
+    "keywords": [
+        "tiddlywiki",
+        "tiddlywiki5",
+        "tw5",
+        "syntax highlighting"
+    ],
+    "publisher": "joshua-fontany",
     "author": {
-		"name": "Joshua Fontany",
-		"email": "joshua.fontany@gmail.com"
-	},
+        "name": "Joshua Fontany",
+        "email": "joshua.fontany@gmail.com"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/joshuafontany/VSCode-TW5-Syntax.git"
@@ -24,8 +29,14 @@
         "languages": [
             {
                 "id": "tid",
-                "aliases": ["Tid", "tid"],
-                "extensions": [".tid",".meta"],
+                "aliases": [
+                    "Tid",
+                    "tid"
+                ],
+                "extensions": [
+                    ".tid",
+                    ".meta"
+                ],
                 "mimetypes": [
                     "application/x-tiddler"
                 ],
@@ -33,8 +44,13 @@
             },
             {
                 "id": "multids",
-                "aliases": ["Multids", "multids"],
-                "extensions": [".multids"],
+                "aliases": [
+                    "Multids",
+                    "multids"
+                ],
+                "extensions": [
+                    ".multids"
+                ],
                 "mimetypes": [
                     "application/x-tiddlers"
                 ],
@@ -42,55 +58,73 @@
             },
             {
                 "id": "tiddlywiki5",
-                "aliases": ["TiddlyWiki5", "tiddlywiki5"],
-                "extensions": [".tw",".tw5"],
+                "aliases": [
+                    "TiddlyWiki5",
+                    "tiddlywiki5"
+                ],
+                "extensions": [
+                    ".tw",
+                    ".tw5"
+                ],
                 "mimetypes": [
                     "text/vnd.tiddlywiki"
                 ],
                 "configuration": "./language-configuration.json"
             }
         ],
-        "grammars": [{
-            "language": "tiddlywiki5",
-			"scopeName": "text.html.tiddlywiki5",
-			"path": "./syntaxes/tw5-wikitext.json"
-		}, {
-            "language": "tid",
-            "scopeName": "source.tiddlywiki5.tid-file",
-			"path": "./syntaxes/tw5-tid-file.json"
-        }, {
-			"scopeName": "source.tiddlywiki5.fields",
-			"path": "./syntaxes/tw5-fields.json"
-		}, {
-			"scopeName": "source.tiddlywiki5.meta-file",
-			"path": "./syntaxes/tw5-meta-file.json"
-		}, {
-            "language": "multids",
-			"scopeName": "source.tiddlywiki5.multids-file",
-			"path": "./syntaxes/tw5-multids-file.json"
-		}],
-		"snippets": [
+        "grammars": [
             {
-				"language": "tid",
-				"path": "./snippets/snippets.json"
+                "language": "tiddlywiki5",
+                "scopeName": "text.html.tiddlywiki5",
+                "path": "./grammars/tiddlywiki5.tmLanguage.json"
             },
             {
-				"language": "multids",
-				"path": "./snippets/snippets.json"
-			},
+                "language": "tid",
+                "scopeName": "source.tiddlywiki5.tid-file",
+                "path": "./grammars/tw5-tid-file.json"
+            },
             {
-				"language": "tiddlywiki5",
-				"path": "./snippets/snippets.json"
-			}
-		],
-		"configurationDefaults": {
-			"files.associations": {
+                "scopeName": "source.tiddlywiki5.fields",
+                "path": "./grammars/tw5-fields.json"
+            },
+            {
+                "scopeName": "source.tiddlywiki5.meta-file",
+                "path": "./grammars/tw5-meta-file.json"
+            },
+            {
+                "language": "multids",
+                "scopeName": "source.tiddlywiki5.multids-file",
+                "path": "./grammars/tw5-multids-file.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "tid",
+                "path": "./snippets/snippets.json"
+            },
+            {
+                "language": "multids",
+                "path": "./snippets/snippets.json"
+            },
+            {
+                "language": "tiddlywiki5",
+                "path": "./snippets/snippets.json"
+            }
+        ],
+        "configurationDefaults": {
+            "files.associations": {
                 "*.tw": "tiddlywiki5",
                 "*.tw5": "tiddlywiki5",
                 "*.tid": "tid",
                 "*.meta": "tid",
                 "*.multids": "multids"
-			}
-		}
-    }
+            }
+        }
+    },
+    "devDependencies": {
+        "vscode-tmgrammar-test": "^0.1.3"
+    },
+    "scripts": {
+        "test": "vscode-tmgrammar-test 'tests/**/*.test.tiddlywiki5'"
+    }    
 }
