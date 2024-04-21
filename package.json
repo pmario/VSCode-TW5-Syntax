@@ -2,7 +2,7 @@
     "name": "tw5-syntax",
     "displayName": "TiddlyWiki5 Syntax",
     "description": "TiddlyWiki5 Syntax Highlighting for Visual Studio Code",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "icon": "tw5.png",
     "engines": {
         "vscode": "^1.43.0"
@@ -29,7 +29,7 @@
                 "mimetypes": [
                     "application/x-tiddler"
                 ],
-                "configuration": "./tid.language-configuration.json"
+                "configuration": "./language-configuration.json"
             },
             {
                 "id": "multids",
@@ -38,7 +38,7 @@
                 "mimetypes": [
                     "application/x-tiddlers"
                 ],
-                "configuration": "./multids.language-configuration.json"
+                "configuration": "./language-configuration.json"
             },
             {
                 "id": "tiddlywiki5",
@@ -47,7 +47,7 @@
                 "mimetypes": [
                     "text/vnd.tiddlywiki"
                 ],
-                "configuration": "./tiddlywiki5.language-configuration.json"
+                "configuration": "./language-configuration.json"
             }
         ],
         "grammars": [{

@@ -4,11 +4,18 @@ All notable changes to the "tw5-syntax" extension will be documented in this fil
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 1.1.0
+- Reviewed repository with ChatGPT4
+- Cleaned up redundant files
+- Added Conditional If syntax
+
 ## 1.0.4
 - Reverted bugs
 - Fixed typos
+
 ## 1.0.3
 - Added a Snippet to set the `modified` field to a current unix-style timestamp.
+
 ## 1.0.2
 - Updated `tid` Snippet to offer a dropdown of `type` field options.
 -- Mahalo to "_Phi / hpx1" for the contributions!

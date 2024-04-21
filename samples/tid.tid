@@ -991,6 +991,29 @@ The previous paragraph is done, say hi to the new one.
 
 <!-- #endregion -->
 
+<!-- #region Conditional Syntax -->
+
+! Major Improvements
+
+!! Conditional Shortcut Syntax
+
+added a new shortcut syntax for concisely expressing if-then-else logic. This is the first of a new type of wikitext syntax based on tokens delimited with <% and %>. We plan to introduce other structures using the same format such as a "case" statement.
+
+These new token-based shortcuts allow a richer structure and expressivity than existing features such as widgets or pragmas. For example:
+
+
+<% if [<animal>match[Elephant]] %>
+  It is an elephant
+<% elseif [<animal>match[Giraffe]] %>
+	It is a giraffe
+<% else %>
+	It is completely unknown
+<% endif %>
+
+Behind the scenes, the conditional shortcut syntax is rendered as the equivalent ListWidgets.
+
+<!-- #endregion -->
+
 <!-- #region test -->
 
 hide this
