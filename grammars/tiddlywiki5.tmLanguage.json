@@ -4,8 +4,8 @@
   "fileTypes": ["tw", "tw5", "tiddlywiki5"],
   "firstLineMatch": "<!--\\s*tiddlywiki5\\s*-->",
   "patterns": [
-    { "include": "#html-patterns" },
-    { "include": "#wikitext" }
+    { "include": "#wikitext" },
+    { "include": "#html-patterns" }
   ],
   "injections": {
     "L:meta.variable.macro.body.tiddlywiki5": {

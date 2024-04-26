@@ -3,32 +3,40 @@
 <!-- Testing basic HTML structure -->
 
 <html>
-#<- text.html.tiddlywiki5 meta.tag.structure.any.html punctuation.definition.tag.html
-# ^ entity.name.tag.structure.any.html
+#<- text.html.tiddlywiki5 meta.block.html.element.tw-html.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+# ^ meta.block.html.element.tw-html.tiddlywiki5 entity.name.tag.tiddlywiki5
+#    ^ meta.block.html.element.tw-html.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
 
 <head>
-#<- text.html.tiddlywiki5 meta.tag.html
+#<- meta.body.block.tiddlywiki5 meta.block.html.element.tw-head.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+# ^ meta.block.html.element.tw-head.tiddlywiki5 entity.name.tag.tiddlywiki5
+#    ^ meta.block.html.element.tw-head.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
 
 <title>Test Page</title>
-#<- meta.tag.html punctuation.definition.tag.html
-#         ^^^^^ entity.name.title.html
+#<- meta.body.block.tiddlywiki5 meta.block.html.element.tw-title.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#^^^^^ meta.block.html.element.tw-title.tiddlywiki5 entity.name.tag.tiddlywiki5
+#     ^ meta.block.html.element.tw-title.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
+#      ^^^^^^^^^ meta.block.html.element.tw-title.tiddlywiki5 meta.body.inline.tiddlywiki5
+#               ^^ meta.block.html.element.tw-title.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#                 ^^^^^ meta.block.html.element.tw-title.tiddlywiki5 entity.name.tag.tiddlywiki5
+#                      ^ meta.block.html.element.tw-title.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
 
 </head>
-#<- text.html.tiddlywiki5 meta.tag.structure.any.html punctuation.definition.tag.html
-#^ punctuation.definition.tag.html
-# ^^^^ entity.name.tag.structure.any.html
-#     ^ punctuation.definition.tag.html
+#<- meta.body.block.tiddlywiki5 meta.block.html.element.tw-head.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#^ meta.block.html.element.tw-head.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+# ^^^^ meta.block.html.element.tw-head.tiddlywiki5 entity.name.tag.tiddlywiki5 
+#     ^ meta.block.html.element.tw-head.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
 
 <body>
-#<- text.html.tiddlywiki5 meta.tag.structure.any.html punctuation.definition.tag.html
-#^^^^ entity.name.tag.structure.any.html
-#    ^ punctuation.definition.tag.html
+#<- meta.body.block.tiddlywiki5 meta.block.html.element.tw-body.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#^^^^ meta.block.html.element.tw-body.tiddlywiki5 entity.name.tag.tiddlywiki5
+#    ^ meta.block.html.element.tw-body.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
 
 <p>This is a test paragraph with <strong>strong formatting</strong> and <em>emphasis</em>.</p>
-#<- text.html.tiddlywiki5 meta.tag.block.any.html punctuation.definition.tag.begin.html
-#^ entity.name.tag.block.any.html
-# ^ punctuation.definition.tag.end.html
-#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.paragraph.tiddlywiki5
+#<- meta.body.block.tiddlywiki5 meta.block.html.element.tw-p.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#^ meta.block.html.element.tw-p.tiddlywiki5 entity.name.tag.tiddlywiki5
+# ^ meta.block.html.element.tw-p.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.block.html.element.tw-p.tiddlywiki5 meta.body.inline.tiddlywiki5
 #                                ^ punctuation.definition.tag.begin.tiddlywiki5
 #                                  ^^^^^ meta.html.inline.element.tw-strong.tiddlywiki5 entity.name.tag.tiddlywiki5
 #                                       ^ punctuation.definition.tag.end.tiddlywiki5
@@ -36,34 +44,42 @@
 #                                                         ^^ punctuation.definition.tag.begin.tiddlywiki5
 #                                                           ^^^^^^ meta.html.inline.element.tw-strong.tiddlywiki5 entity.name.tag.tiddlywiki5
 #                                                                 ^ punctuation.definition.tag.end.tiddlywiki5
-#                                                                  ^^^^^ meta.paragraph.tiddlywiki5
+#                                                                  ^^^^^ meta.block.html.element.tw-p.tiddlywiki5 meta.body.inline.tiddlywiki5
 #                                                                       ^ meta.html.inline.element.tw-em.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
-#                                                                        ^^ meta.html.inline.element.tw-em.tiddlywiki5
+#                                                                        ^^ meta.html.inline.element.tw-em.tiddlywiki5 entity.name.tag.tiddlywiki5
 #                                                                          ^ meta.html.inline.element.tw-em.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
 #                                                                           ^^^^^^^^ meta.html.inline.element.tw-em.tiddlywiki5 meta.body.inline.tiddlywiki5
-#                                                                                   ^^ punctuation.definition.tag.begin.tiddlywiki5
+#                                                                                   ^^ meta.html.inline.element.tw-em.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
 #                                                                                     ^^ meta.html.inline.element.tw-em.tiddlywiki5 entity.name.tag.tiddlywiki5
-#                                                                                       ^ punctuation.definition.tag.end.tiddlywiki5
-#                                                                                        ^ meta.paragraph.tiddlywiki5
-#                                                                                         ^ punctuation.definition.tag.begin.tiddlywiki5
+#                                                                                       ^ meta.html.inline.element.tw-em.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
+#                                                                                        ^ meta.block.html.element.tw-p.tiddlywiki5 meta.body.inline.tiddlywiki5
+#                                                                                         ^^ meta.block.html.element.tw-p.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#                                                                                           ^ meta.block.html.element.tw-p.tiddlywiki5 entity.name.tag.tiddlywiki5
+#                                                                                            ^ meta.block.html.element.tw-p.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
 
 <div>
-#<- text.html.tiddlywiki5 meta.tag.block.any.html punctuation.definition.tag.begin.html
-#^^^ text.html.tiddlywiki5 meta.tag.block.any.html entity.name.tag.block.any.html
-#   ^ text.html.tiddlywiki5 meta.tag.block.any.html punctuation.definition.tag.end.html
+#<- meta.body.block.tiddlywiki5 meta.block.html.element.tw-div.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#^^^ meta.block.html.element.tw-div.tiddlywiki5 entity.name.tag.tiddlywiki5
+#   ^ meta.block.html.element.tw-div.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
+
+Div content
+#<- meta.block.html.element.tw-div.tiddlywiki5 meta.body.block.tiddlywiki5 markup.other.paragraph.tiddlywiki5
 
 </div>
-#<-- text.html.tiddlywiki5 meta.tag.block.any.html punctuation.definition.tag.begin.html
-# ^^^ text.html.tiddlywiki5 meta.tag.block.any.html entity.name.tag.block.any.html
-#    ^ text.html.tiddlywiki5 meta.tag.block.any.html punctuation.definition.tag.end.html
+#<- meta.body.block.tiddlywiki5 meta.block.html.element.tw-div.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#^ meta.body.block.tiddlywiki5 meta.block.html.element.tw-div.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+# ^^^ meta.block.html.element.tw-div.tiddlywiki5 entity.name.tag.tiddlywiki5
+#    ^ meta.block.html.element.tw-div.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
 
 </body>
-#<-- text.html.tiddlywiki5 meta.tag.structure.any.html punctuation.definition.tag.html
-# ^^^^ text.html.tiddlywiki5 meta.tag.structure.any.html entity.name.tag.structure.any.html
-#     ^ text.html.tiddlywiki5 meta.tag.structure.any.html punctuation.definition.tag.html
+#<- meta.body.block.tiddlywiki5 meta.block.html.element.tw-body.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#^ meta.body.block.tiddlywiki5 meta.block.html.element.tw-body.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+# ^^^^ meta.block.html.element.tw-body.tiddlywiki5 entity.name.tag.tiddlywiki5
+#     ^ meta.block.html.element.tw-body.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
 
 </html>
-#<-- text.html.tiddlywiki5 meta.tag.structure.any.html punctuation.definition.tag.html
-# ^^^^ text.html.tiddlywiki5 meta.tag.structure.any.html entity.name.tag.structure.any.html
-#     ^ text.html.tiddlywiki5 meta.tag.structure.any.html punctuation.definition.tag.html
+#<- text.html.tiddlywiki5 meta.block.html.element.tw-html.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#^ text.html.tiddlywiki5 meta.block.html.element.tw-html.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+# ^^^^ meta.block.html.element.tw-html.tiddlywiki5 entity.name.tag.tiddlywiki5
+#     ^ meta.block.html.element.tw-html.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
 
