@@ -76,25 +76,25 @@
             {
                 "language": "tiddlywiki5",
                 "scopeName": "text.html.tiddlywiki5",
-                "path": "./grammars/tiddlywiki5.tmLanguage.json"
+                "path": "./syntaxes/tiddlywiki5.tmLanguage.json"
             },
             {
                 "language": "tid",
                 "scopeName": "source.tiddlywiki5.tid-file",
-                "path": "./grammars/tw5-tid-file.json"
+                "path": "./syntaxes/tw5-tid-file.json"
             },
             {
                 "scopeName": "source.tiddlywiki5.fields",
-                "path": "./grammars/tw5-fields.json"
+                "path": "./syntaxes/tw5-fields.json"
             },
             {
                 "scopeName": "source.tiddlywiki5.meta-file",
-                "path": "./grammars/tw5-meta-file.json"
+                "path": "./syntaxes/tw5-meta-file.json"
             },
             {
                 "language": "multids",
                 "scopeName": "source.tiddlywiki5.multids-file",
-                "path": "./grammars/tw5-multids-file.json"
+                "path": "./syntaxes/tw5-multids-file.json"
             }
         ],
         "snippets": [
@@ -122,13 +122,14 @@
         }
     },
     "devDependencies": {
-        "vscode-tmgrammar-test": "^0.1.3"
+        "vscode-tmgrammar-test": "^0.1.3",
+        "language-gfm": "https://github.com/atom/language-gfm"
     },
     "scripts": {
-        "echo-test": "bash -c \"echo $(pwd) && echo ./tests/tiddlywiki5/*.test.tiddlywiki5\"",
-        "list-test": "bash -c \"ls ./tests/tiddlywiki5/*.test.tiddlywiki5\"",
-        "test": "bash -c \"vscode-tmgrammar-test -g grammars/tiddlywiki5.tmLanguage.json -g tests/syntaxes/html.json -g tests/syntaxes/gfm.json -g tests/syntaxes/Ruby.plist -g tests/syntaxes/Makefile.json -g tests/syntaxes/JSON.tmLanguage -g tests/syntaxes/xml.json -g tests/syntaxes/xsl.json -g tests/syntaxes/css.plist -g tests/syntaxes/Perl.plist -g tests/syntaxes/cshtml.json -g tests/syntaxes/Objective-C.tmLanguage -g tests/syntaxes/MagicPython.tmLanguage.json -g tests/syntaxes/java.json -g tests/syntaxes/Shell-Unix-Bash.tmLanguage.json -g tests/syntaxes/sql.plist -g tests/syntaxes/c.json -g tests/syntaxes/c++.json -g tests/syntaxes/php.json -g tests/syntaxes/git-commit.tmLanguage -g tests/syntaxes/coffeescript.json -g tests/syntaxes/JavaScript.tmLanguage.json ./tests/tiddlywiki5/*.test.tiddlywiki5\"",
-        "testbasic": "bash -c \"vscode-tmgrammar-test -g grammars/tiddlywiki5.tmLanguage.json -g tests/syntaxes/html.json -g tests/syntaxes/gfm.json -g tests/syntaxes/Ruby.plist -g tests/syntaxes/Makefile.json -g tests/syntaxes/JSON.tmLanguage -g tests/syntaxes/xml.json -g tests/syntaxes/xsl.json -g tests/syntaxes/css.plist -g tests/syntaxes/Perl.plist -g tests/syntaxes/cshtml.json -g tests/syntaxes/Objective-C.tmLanguage -g tests/syntaxes/MagicPython.tmLanguage.json -g tests/syntaxes/java.json -g tests/syntaxes/Shell-Unix-Bash.tmLanguage.json -g tests/syntaxes/sql.plist -g tests/syntaxes/c.json -g tests/syntaxes/c++.json -g tests/syntaxes/php.json -g tests/syntaxes/git-commit.tmLanguage -g tests/syntaxes/coffeescript.json -g tests/syntaxes/JavaScript.tmLanguage.json ./tests/tiddlywiki5/html.basic.test.tiddlywiki5\""
+        "echo-test": "bash -c 'echo $(pwd) && echo ./tests/tiddlywiki5/*.test.tiddlywiki5'",
+        "list-test": "bash -c 'ls ./tests/tiddlywiki5/*.test.tiddlywiki5'",
+        "test": "bash ./run_tests.sh './tests/tiddlywiki5/*.test.tiddlywiki5'",
+        "testbasic": "bash ./run_tests.sh './tests/tiddlywiki5/html.basic.test.tiddlywiki5'"
     },
     "npmConfig": {
       "script-shell": "/bin/bash"

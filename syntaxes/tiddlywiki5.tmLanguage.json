@@ -327,15 +327,6 @@
           "patterns": [{ "include": "text.html.basic" }]
         },
         {
-          "begin": "(?i)\\G(plist)$",
-          "end": "(?=^```$)",
-          "contentName": "text.xml.plist.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "text.xml.plist" }]
-        },
-        {
           "begin": "(?i)\\G(css)$",
           "end": "(?=^```$)",
           "contentName": "source.css.tiddlywiki5",
