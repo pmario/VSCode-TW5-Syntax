@@ -27,7 +27,8 @@ npx vscode-tmgrammar-test \
     -g "${VSCODE_EXTROOT}/json/syntaxes/JSON.tmLanguage.json" \
     -g "${VSCODE_EXTROOT}/make/syntaxes/make.tmLanguage.json" \
     -g "${VSCODE_EXTROOT}/markdown-basics/syntaxes/markdown.tmLanguage.json" \
-    -g "${VSCODE_EXTROOT}/objective-c/syntaxes/Objective-C.tmLanguage.json" \
+    -g "${VSCODE_EXTROOT}/objective-c/syntaxes/objective-c.tmLanguage.json" \
+    -g "${VSCODE_EXTROOT}/objective-c/syntaxes/objective-c++.tmLanguage.json" \
     -g "${VSCODE_EXTROOT}/perl/syntaxes/Perl.tmLanguage.json" \
     -g "${VSCODE_EXTROOT}/php/syntaxes/php.tmLanguage.json" \
     -g "${VSCODE_EXTROOT}/python/syntaxes/MagicPython.tmLanguage.json" \
