@@ -1,69 +1,69 @@
-// SYNTAX TEST "text.html.tiddlywiki5" "Extended HTML tags test"
+# SYNTAX TEST "text.html.tiddlywiki5" "Extended HTML tags test"
 
 <html lang="en">
-//<- text.html.tiddlywiki5 meta.tag.structure.any.html punctuation.definition.tag.begin.html
-// ^ entity.name.tag.structure.any.html
-//    ^ punctuation.definition.tag.html
-//     ^^^^ entity.other.attribute-name.html
-//         ^ punctuation.separator.key-value.html
-//          ^^^ string.quoted.double.html
-//             ^ punctuation.definition.string.end.html
-//              ^ punctuation.definition.tag.end.html
+#<- text.html.tiddlywiki5 meta.tag.structure.any.html punctuation.definition.tag.begin.html
+# ^ entity.name.tag.structure.any.html
+#    ^ punctuation.definition.tag.html
+#     ^^^^ entity.other.attribute-name.html
+#         ^ punctuation.separator.key-value.html
+#          ^^^ string.quoted.double.html
+#             ^ punctuation.definition.string.end.html
+#              ^ punctuation.definition.tag.end.html
 
 <head>
-// <- text.html.tiddlywiki5 meta.tag.html
+# <- text.html.tiddlywiki5 meta.tag.html
 <title>Example Page</title>
-// <- text.html.tiddlywiki5 meta.tag.html
-//  ^ entity.name.tag.html
-//      ^^^^^^^^^^^^ text.html.tiddlywiki5
-//                   ^^ entity.name.tag.html
+# <- text.html.tiddlywiki5 meta.tag.html
+#  ^ entity.name.tag.html
+#      ^^^^^^^^^^^^ text.html.tiddlywiki5
+#                   ^^ entity.name.tag.html
 </head>
-// <- text.html.tiddlywiki5 meta.tag.html
+# <- text.html.tiddlywiki5 meta.tag.html
 
 <body class="main-content">
-// <- text.html.tiddlywiki5 meta.tag.html
-//     ^^^^^ entity.other.attribute-name.html
-//          ^ punctuation.separator.key-value.html
-//           ^^^^^^^^^^^^^ string.quoted.double.html
-//                        ^ punctuation.definition.string.end.html
-//                         ^ punctuation.definition.tag.end.html
+# <- text.html.tiddlywiki5 meta.tag.html
+#     ^^^^^ entity.other.attribute-name.html
+#          ^ punctuation.separator.key-value.html
+#           ^^^^^^^^^^^^^ string.quoted.double.html
+#                        ^ punctuation.definition.string.end.html
+#                         ^ punctuation.definition.tag.end.html
 
 <p id="intro">This is an introductory paragraph.</p>
-// <- text.html.tiddlywiki5 meta.tag.html
-//   ^^ entity.other.attribute-name.html
-//     ^ punctuation.separator.key-value.html
-//      ^^^^^^ string.quoted.double.html
-//            ^ punctuation.definition.string.end.html
-//              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.html.tiddlywiki5
-//                                             ^^ text.html.tiddlywiki5 meta.tag.html
+# <- text.html.tiddlywiki5 meta.tag.html
+#   ^^ entity.other.attribute-name.html
+#     ^ punctuation.separator.key-value.html
+#      ^^^^^^ string.quoted.double.html
+#            ^ punctuation.definition.string.end.html
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ text.html.tiddlywiki5
+#                                             ^^ text.html.tiddlywiki5 meta.tag.html
 
 <ul>
-//<- text.html.tiddlywiki5 meta.tag.html
+#<- text.html.tiddlywiki5 meta.tag.html
 <li>List item one</li>
-// ^ entity.name.tag.html
-//    ^^^^^^^^^^^^^ text.html.tiddlywiki5
-//                 ^^ entity.name.tag.html
+# ^ entity.name.tag.html
+#    ^^^^^^^^^^^^^ text.html.tiddlywiki5
+#                 ^^ entity.name.tag.html
 <li>List item two</li>
-// ^ entity.name.tag.html
-//    ^^^^^^^^^^^^^ text.html.tiddlywiki5
-//                 ^^ entity.name.tag.html
+# ^ entity.name.tag.html
+#    ^^^^^^^^^^^^^ text.html.tiddlywiki5
+#                 ^^ entity.name.tag.html
 </ul>
-//<- text.html.tiddlywiki5 meta.tag.html
+#<- text.html.tiddlywiki5 meta.tag.html
 
-<a href="http://example.com" target="_blank">Visit Example.com</a>
-// <- text.html.tiddlywiki5 meta.tag.html
-//  ^^^^ entity.other.attribute-name.html
-//      ^ punctuation.separator.key-value.html
-//       ^^^^^^^^^^^^^^^^^^^^ string.quoted.double.html
-//                           ^ punctuation.definition.string.end.html
-//                             ^^^^^^ entity.other.attribute-name.html
-//                                   ^ punctuation.separator.key-value.html
-//                                    ^^^^^^^ string.quoted.double.html
-//                                           ^ punctuation.definition.string.end.html
-//                                             ^^^^^^^^^^^^^^ text.html.tiddlywiki5
-//                                                            ^ entity.name.tag.html
+<a href="http:#example.com" target="_blank">Visit Example.com</a>
+# <- text.html.tiddlywiki5 meta.tag.html
+#  ^^^^ entity.other.attribute-name.html
+#      ^ punctuation.separator.key-value.html
+#       ^^^^^^^^^^^^^^^^^^^^ string.quoted.double.html
+#                           ^ punctuation.definition.string.end.html
+#                             ^^^^^^ entity.other.attribute-name.html
+#                                   ^ punctuation.separator.key-value.html
+#                                    ^^^^^^^ string.quoted.double.html
+#                                           ^ punctuation.definition.string.end.html
+#                                             ^^^^^^^^^^^^^^ text.html.tiddlywiki5
+#                                                            ^ entity.name.tag.html
 
 </body>
-// <- text.html.tiddlywiki5 meta.tag.html
+# <- text.html.tiddlywiki5 meta.tag.html
 </html>
-// <- text.html.tiddlywiki5 meta.tag.html
+# <- text.html.tiddlywiki5 meta.tag.html

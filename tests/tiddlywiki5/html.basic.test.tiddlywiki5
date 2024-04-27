@@ -1,5 +1,7 @@
 # SYNTAX TEST "text.html.tiddlywiki5" "Basic HTML tags test with TiddlyWiki5"
 
+<!-- Testing basic HTML structure -->
+
 <html>
 #<- text.html.tiddlywiki5 meta.block.html.element.tw-html.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
 # ^ meta.block.html.element.tw-html.tiddlywiki5 entity.name.tag.tiddlywiki5
@@ -10,12 +12,12 @@
 # ^ meta.block.html.element.tw-head.tiddlywiki5 entity.name.tag.tiddlywiki5
 #    ^ meta.block.html.element.tw-head.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
 
-<!-- Testing basic HTML structure -->
+<!-- Testing basic HTML comments -->
 #<- meta.body.block.tiddlywiki5 comment.block.commentblock.tiddlywiki5 punctuation.definition.comment.begin.tiddlywiki5
 #^^^ comment.block.commentblock.tiddlywiki5 punctuation.definition.comment.begin.tiddlywiki5
 #   ^ comment.block.commentblock.tiddlywiki5
-#                                 ^^ comment.block.commentblock.tiddlywiki5 punctuation.definition.comment.end.tiddlywiki5
-#                                   ^ comment.block.commentblock.tiddlywiki5 punctuation.definition.comment.end.tiddlywiki5
+#                                ^^ comment.block.commentblock.tiddlywiki5 punctuation.definition.comment.end.tiddlywiki5
+#                                  ^ comment.block.commentblock.tiddlywiki5 punctuation.definition.comment.end.tiddlywiki5
 
 <title>Test Page</title>
 #<- meta.body.block.tiddlywiki5 meta.block.html.element.tw-title.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5

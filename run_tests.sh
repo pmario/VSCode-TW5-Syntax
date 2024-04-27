@@ -30,6 +30,7 @@ npx vscode-tmgrammar-test \
     -g "${VSCODE_EXTROOT}/objective-c/syntaxes/objective-c.tmLanguage.json" \
     -g "${VSCODE_EXTROOT}/objective-c/syntaxes/objective-c++.tmLanguage.json" \
     -g "${VSCODE_EXTROOT}/perl/syntaxes/Perl.tmLanguage.json" \
+    -g "${VSCODE_EXTROOT}/php/syntaxes/html.tmLanguage.json" \
     -g "${VSCODE_EXTROOT}/php/syntaxes/php.tmLanguage.json" \
     -g "${VSCODE_EXTROOT}/python/syntaxes/MagicPython.tmLanguage.json" \
     -g "${VSCODE_EXTROOT}/razor/syntaxes/cshtml.tmLanguage.json" \
