@@ -121,6 +121,10 @@
             }
         }
     },
+    "dependencies": {
+        "lanuage-gfmg": "https://github.com/atom/lanuage-gfmg.git",
+        "vscode-jsp": "https://github.com/pthorsson/vscode-jsp.git"
+    },
     "devDependencies": {
         "vscode-tmgrammar-test": "^0.1.3"
     },
