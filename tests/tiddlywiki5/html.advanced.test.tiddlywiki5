@@ -1,24 +1,34 @@
 # SYNTAX TEST "text.html.tiddlywiki5" "Extended HTML tags test"
 
 <html lang="en">
-#<- text.html.tiddlywiki5 meta.tag.structure.any.html punctuation.definition.tag.begin.html
-# ^ entity.name.tag.structure.any.html
-#    ^ punctuation.definition.tag.html
-#     ^^^^ entity.other.attribute-name.html
-#         ^ punctuation.separator.key-value.html
-#          ^^^ string.quoted.double.html
-#             ^ punctuation.definition.string.end.html
-#              ^ punctuation.definition.tag.end.html
+#<- text.html.tiddlywiki5 meta.block.html.element.tw-html.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+# ^ meta.block.html.element.tw-html.tiddlywiki5 entity.name.tag.tiddlywiki5
+#     ^^^^ meta.attributes.tiddlywiki5 meta.attribute.tw-lang.tiddlywiki5 entity.other.attribute-name.t5
+#         ^ meta.attributes.tiddlywiki5 meta.attribute.tw-lang.tiddlywiki5 keyword.operator.assignment.tiddlywiki5
+#          ^ meta.attributes.tiddlywiki5 meta.attribute.tw-lang.tiddlywiki5 direct.entity.attribute-value.tiddlywiki5 string.double.quoted.tiddlywiki5 punctuation.definition.string.double.begin.tiddlywiki5
+#           ^^ meta.attributes.tiddlywiki5 meta.attribute.tw-lang.tiddlywiki5 direct.entity.attribute-value.tiddlywiki5 string.double.quoted.tiddlywiki5
+#             ^ meta.attributes.tiddlywiki5 meta.attribute.tw-lang.tiddlywiki5 direct.entity.attribute-value.tiddlywiki5 string.double.quoted.tiddlywiki5 punctuation.definition.string.double.end.tiddlywiki5
+#              ^ meta.block.html.element.tw-html.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
 
 <head>
-# <- text.html.tiddlywiki5 meta.tag.html
+#<- text.html.tiddlywiki5 meta.block.html.element.tw-html.tiddlywiki5 meta.body.block.tiddlywiki5 meta.block.html.element.tw-head.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#^  meta.block.html.element.tw-head.tiddlywiki5 entity.name.tag.tiddlywiki5
+#    ^ meta.body.block.tiddlywiki5 meta.block.html.element.tw-head.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
+
 <title>Example Page</title>
-# <- text.html.tiddlywiki5 meta.tag.html
-#  ^ entity.name.tag.html
-#      ^^^^^^^^^^^^ text.html.tiddlywiki5
-#                   ^^ entity.name.tag.html
+#<- text.html.tiddlywiki5 meta.block.html.element.tw-html.tiddlywiki5 meta.body.block.tiddlywiki5 meta.block.html.element.tw-head.tiddlywiki5 meta.body.block.tiddlywiki5 meta.block.html.element.tw-title.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#  ^ meta.block.html.element.tw-title.tiddlywiki5 entity.name.tag.tiddlywiki5
+#     ^ meta.block.html.element.tw-title.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
+#      ^^^^^^^^^^^^ meta.block.html.element.tw-title.tiddlywiki5 meta.body.inline.tiddlywiki5
+#                  ^^ meta.block.html.element.tw-title.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#                    ^ meta.block.html.element.tw-title.tiddlywiki5 entity.name.tag.tiddlywiki5
+#                         ^ meta.block.html.element.tw-title.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
+
 </head>
-# <- text.html.tiddlywiki5 meta.tag.html
+#<- text.html.tiddlywiki5 meta.block.html.element.tw-html.tiddlywiki5 meta.body.block.tiddlywiki5 meta.block.html.element.tw-head.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+#^ text.html.tiddlywiki5 meta.block.html.element.tw-html.tiddlywiki5 meta.body.block.tiddlywiki5 meta.block.html.element.tw-head.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
+# ^ meta.block.html.element.tw-head.tiddlywiki5 entity.name.tag.tiddlywiki5
+#     ^ meta.block.html.element.tw-head.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
 
 <body class="main-content">
 # <- text.html.tiddlywiki5 meta.tag.html
@@ -39,14 +49,17 @@
 
 <ul>
 #<- text.html.tiddlywiki5 meta.tag.html
+
 <li>List item one</li>
 # ^ entity.name.tag.html
 #    ^^^^^^^^^^^^^ text.html.tiddlywiki5
 #                 ^^ entity.name.tag.html
+
 <li>List item two</li>
 # ^ entity.name.tag.html
 #    ^^^^^^^^^^^^^ text.html.tiddlywiki5
 #                 ^^ entity.name.tag.html
+
 </ul>
 #<- text.html.tiddlywiki5 meta.tag.html
 
@@ -65,5 +78,6 @@
 
 </body>
 # <- text.html.tiddlywiki5 meta.tag.html
+
 </html>
 # <- text.html.tiddlywiki5 meta.tag.html
