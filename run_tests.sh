@@ -41,4 +41,5 @@ npx vscode-tmgrammar-test \
     -g "${VSCODE_EXTROOT}/xml/syntaxes/xsl.tmLanguage.json" \
     -g "./node_modules/language-gfm/grammars/gfm.json" \
     -g "./node_modules/vscode-jsp/syntaxes/jsp.tmLanguage.json" \
+    -g "./node_modules/vscode-jsp/syntaxes/jsp.tmLanguage.json" \
     "${PATTERN}"

@@ -122,12 +122,12 @@
         }
     },
     "dependencies": {
+        "tm-grammars": ""
     },
     "devDependencies": {
         "vscode-tmgrammar-test": "^0.1.3",
         "language-gfm": "https://github.com/atom/language-gfm",
-        "toml.tmbundle": "https://github.com/textmate/toml.tmbundle.git",
-        "vscode-jsp": "https://github.com/pthorsson/vscode-jsp.git"
+        "vscode-jsp": "https://github.com/pthorsson/vscode-jsp"
     },
     "scripts": {
         "echo-test": "bash -c 'echo $(pwd) && echo ./tests/tiddlywiki5/*.test.tiddlywiki5'",
