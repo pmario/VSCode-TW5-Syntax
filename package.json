@@ -76,7 +76,7 @@
             {
                 "language": "tiddlywiki5",
                 "scopeName": "text.html.tiddlywiki5",
-                "path": "./syntaxes/tiddlywiki5.tmLanguage.json"
+                "path": "./syntaxes/tiddlywiki5.json"
             },
             {
                 "language": "tid",
@@ -136,7 +136,8 @@
         "list-test": "bash -c 'ls ./tests/tiddlywiki5/*.test.tiddlywiki5'",
         "test": "bash ./run_tests.sh './tests/tiddlywiki5/*.test.tiddlywiki5'",
         "tests-advanced": "bash ./run_tests.sh './tests/tiddlywiki5/html.advanced.test.tiddlywiki5'",
-        "tests-basic": "bash ./run_tests.sh './tests/tiddlywiki5/html.basic.test.tiddlywiki5'"
+        "tests-basic": "bash ./run_tests.sh './tests/tiddlywiki5/html.basic.test.tiddlywiki5'",
+        "tests-htmltiddler": "bash ./run_tests.sh './tests/tiddlywiki5/html.tiddler.test.tiddlywiki5'"
     },
     "npmConfig": {
       "script-shell": "/bin/bash"

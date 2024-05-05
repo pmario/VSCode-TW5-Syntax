@@ -71,8 +71,6 @@
     },
     "block": {
       "patterns": [
-        { "include": "#codeblock" },
-        { "include": "#htmlblock" },
         { "include": "#typedblock" },
         { "include": "#styleblock" },
         { "include": "#quoteblock" },
@@ -84,7 +82,9 @@
         { "include": "#conditional" },
         { "include": "#heading" },
         { "include": "#horizrule" },
-        { "include": "#commentblock" }
+        { "include": "#commentblock" },
+        { "include": "#codeblock" },
+        { "include": "#htmlblock" }
       ]
     },
     "import": {
@@ -251,324 +251,6 @@
         "2": { "name": "keyword.control.directive.whitespace.tiddlywiki5" },
         "3": { "name": "keyword.operator.$3.tiddlywiki5" }
       }
-    },
-    "codeblock": {
-      "begin": "\\s*(```)(?=[\\w-]*$)",
-      "end": "^(```)$",
-      "name": "meta.codeblock.tiddlywiki5",
-      "beginCaptures": {
-        "1": { "name": "punctuation.definition.raw.markup.begin.tiddlywiki5" }
-      },
-      "endCaptures": {
-        "1": { "name": "punctuation.definition.raw.markup.end.tiddlywiki5" }
-      },
-      "patterns": [
-        {
-          "begin": "(?i)\\G(m(?:arkdown|d|kd(?:own)?))$",
-          "end": "(?=^```$)",
-          "contentName": "source.gfm.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.gfm" }]
-        },
-        {
-          "begin": "(?i)\\G(gemspec|irb|podspec|r(?:b|uby)|thor)$",
-          "end": "(?=^```$)",
-          "contentName": "source.ruby.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.ruby" }]
-        },
-        {
-          "begin": "(?i)\\G(m(?:ak(?:efile)?|k))$",
-          "end": "(?=^```$)",
-          "contentName": "source.makefile.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.makefile" }]
-        },
-        {
-          "begin": "(?i)\\G(json)$",
-          "end": "(?=^```$)",
-          "contentName": "source.json.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.json" }]
-        },
-        {
-          "begin": "(?i)\\G(atom|rss|xhtml)$",
-          "end": "(?=^```$)",
-          "contentName": "text.xml.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "text.xml" }]
-        },
-        {
-          "begin": "(?i)\\G(xsl)$",
-          "end": "(?=^```$)",
-          "contentName": "text.xml.xsl.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "text.xml.xsl" }]
-        },
-        {
-          "begin": "(?i)\\G(html)$",
-          "end": "(?=^```$)",
-          "contentName": "text.html.basic.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "text.html.basic" }]
-        },
-        {
-          "begin": "(?i)\\G(css)$",
-          "end": "(?=^```$)",
-          "contentName": "source.css.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.css" }]
-        },
-        {
-          "begin": "(?i)\\G(p(?:erl|l))$",
-          "end": "(?=^```$)",
-          "contentName": "source.perl.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.perl" }]
-        },
-        {
-          "begin": "(?i)\\G(cs(?:harp)?)$",
-          "end": "(?=^```$)",
-          "contentName": "source.cs.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.cs" }]
-        },
-        {
-          "begin": "(?i)\\G(obj(?:\\-c|c|ectivec))$",
-          "end": "(?=^```$)",
-          "contentName": "source.objc.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.objc" }]
-        },
-        {
-          "begin": "(?i)\\G(mm)$",
-          "end": "(?=^```$)",
-          "contentName": "source.objcpp.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.objcpp" }]
-        },
-        {
-          "begin": "(?i)\\G(gyp|py(?:thon)?)$",
-          "end": "(?=^```$)",
-          "contentName": "source.python.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.python" }]
-        },
-        {
-          "begin": "(?i)\\G(java)$",
-          "end": "(?=^```$)",
-          "contentName": "source.java.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.java" }]
-        },
-        {
-          "begin": "(?i)\\G(jsp)$",
-          "end": "(?=^```$)",
-          "contentName": "text.html.jsp.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "text.html.jsp" }]
-        },
-        {
-          "begin": "(?i)\\G(bash|sh|zsh)$",
-          "end": "(?=^```$)",
-          "contentName": "source.shell.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.shell" }]
-        },
-        {
-          "begin": "(?i)\\G(sql)$",
-          "end": "(?=^```$)",
-          "contentName": "source.sql.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.sql" }]
-        },
-        {
-          "begin": "(?i)\\G(c|p)$",
-          "end": "(?=^```$)",
-          "contentName": "source.c.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.c" }]
-        },
-        {
-          "begin": "(?i)\\G(c(?:\\+\\+|c|pp)|h(?:\\+\\+|pp))$",
-          "end": "(?=^```$)",
-          "contentName": "source.cpp.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.cpp" }]
-        },
-        {
-          "begin": "(?i)\\G(php(?:3|4|5|6)?)$",
-          "end": "(?=^```$)",
-          "contentName": "text.html.php.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "text.html.php" }]
-        },
-        {
-          "begin": "(?i)\\G(ini|toml)$",
-          "end": "(?=^```$)",
-          "contentName": "source.toml.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.toml" }]
-        },
-        {
-          "begin": "(?i)\\G(diff|patch)$",
-          "end": "(?=^```$)",
-          "contentName": "text.git-commit.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "text.git-commit" }]
-        },
-        {
-          "begin": "(?i)\\G(c(?:offee(?:script)?|son)|iced)$",
-          "end": "(?=^```$)",
-          "contentName": "source.coffee.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.coffee" }]
-        },
-        {
-          "begin": "(?i)\\G(j(?:avascript|s))$",
-          "end": "(?=^```$)",
-          "contentName": "source.js.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "source.js" }]
-        },
-        {
-          "begin": "\\G([\\w-]*)$",
-          "end": "(?=^```$)",
-          "contentName": "markup.inline.raw.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
-          }
-        }
-      ]
-    },
-    "htmlblock": {
-      "patterns": [
-        {
-          "begin": "\\s*(\\<)((\\$)(?!:\\/)([a-zA-Z0-9\\-]+))",
-          "end": "(\\/>)|(<\\/)((\\$)(?!:\\/)\\4)(>)",
-          "name": "meta.block.html.widget.tw-$4.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
-            "2": { "name": "entity.name.tag.tiddlywiki5" },
-            "3": { "name": "punctuation.definition.tag.widget.tiddlywiki5" }
-          },
-          "endCaptures": {
-            "1": { "name": "punctuation.definition.tag.end.tiddlywiki5" },
-            "2": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
-            "3": { "name": "entity.name.tag.tiddlywiki5" },
-            "4": { "name": "punctuation.definition.tag.widget.tiddlywiki5" },
-            "5": { "name": "punctuation.definition.tag.end.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "#htmlAttributesAndText" }]
-        },
-        {
-          "begin": "\\s*(\\<)([a-zA-Z0-9\\-]+)",
-          "end": "(\\/>)|(<\\/)(\\2)(>)",
-          "name": "meta.block.html.element.tw-$2.tiddlywiki5",
-          "beginCaptures": {
-            "1": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
-            "2": { "name": "entity.name.tag.tiddlywiki5" }
-          },
-          "endCaptures": {
-            "1": { "name": "punctuation.definition.tag.end.tiddlywiki5" },
-            "2": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
-            "3": { "name": "entity.name.tag.tiddlywiki5" },
-            "4": { "name": "punctuation.definition.tag.end.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "#htmlAttributesAndText" }]
-        }
-      ]
-    },
-    "htmlAttributesAndText": {
-      "patterns": [
-        {
-          "comment": "Parse text node.",
-          "begin": "(?<=>)(\\s*$)?",
-          "end": "(?=<\\/)",
-          "patterns": [
-            {
-              "comment": "Parse text node in block mode.",
-              "begin": "^\\s*$",
-              "end": "(?=<\\/)",
-              "name": "meta.body.block.tiddlywiki5",
-              "patterns": [
-                { "include": "#block" },
-                {
-                  "begin": "(?!\\s*$)",
-                  "end": "(?:(?=<\\/))|^$",
-                  "name": "markup.other.paragraph.tiddlywiki5",
-                  "patterns": [{ "include": "#inline" }]
-                }
-              ]
-            },
-            {
-              "comment": "Parse text node in inline mode.",
-              "begin": "(?=.*\\S)",
-              "end": "(?=<\\/)",
-              "name": "meta.body.inline.tiddlywiki5",
-              "patterns": [{ "include": "#inline" }]
-            }
-          ]
-        },
-        {
-          "comment": "Parse attribute list.",
-          "begin": "\\G",
-          "end": ">|(?=\\/?>)",
-          "contentName": "meta.attributes.tiddlywiki5",
-          "endCaptures": {
-            "0": { "name": "punctuation.definition.tag.end.tiddlywiki5" }
-          },
-          "patterns": [{ "include": "#attribute" }]
-        }
-      ]
     },
     "typedblock": {
       "begin": "\\s*(\\$\\$\\$)(?=[^\\s>]*(?:\\s*>\\s*\\S+)?$)",
@@ -1427,6 +1109,365 @@
         "0": { "name": "punctuation.definition.comment.end.tiddlywiki5" }
       }
     },
+    "codeblock": {
+      "begin": "\\s*(```)(?=[\\w-]*$)",
+      "end": "^(```)$",
+      "name": "meta.codeblock.tiddlywiki5",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.raw.markup.begin.tiddlywiki5" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.raw.markup.end.tiddlywiki5" }
+      },
+      "patterns": [
+        {
+          "begin": "(?i)\\G(m(?:arkdown|d|kd(?:own)?))$",
+          "end": "(?=^```$)",
+          "contentName": "source.gfm.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.gfm" }]
+        },
+        {
+          "begin": "(?i)\\G(gemspec|irb|podspec|r(?:b|uby)|thor)$",
+          "end": "(?=^```$)",
+          "contentName": "source.ruby.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.ruby" }]
+        },
+        {
+          "begin": "(?i)\\G(m(?:ak(?:efile)?|k))$",
+          "end": "(?=^```$)",
+          "contentName": "source.makefile.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.makefile" }]
+        },
+        {
+          "begin": "(?i)\\G(json)$",
+          "end": "(?=^```$)",
+          "contentName": "source.json.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.json" }]
+        },
+        {
+          "begin": "(?i)\\G(atom|rss|xhtml)$",
+          "end": "(?=^```$)",
+          "contentName": "text.xml.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "text.xml" }]
+        },
+        {
+          "begin": "(?i)\\G(xsl)$",
+          "end": "(?=^```$)",
+          "contentName": "text.xml.xsl.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "text.xml.xsl" }]
+        },
+        {
+          "begin": "(?i)\\G(html)$",
+          "end": "(?=^```$)",
+          "contentName": "text.html.basic.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "text.html.basic" }]
+        },
+        {
+          "begin": "(?i)\\G(css)$",
+          "end": "(?=^```$)",
+          "contentName": "source.css.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.css" }]
+        },
+        {
+          "begin": "(?i)\\G(p(?:erl|l))$",
+          "end": "(?=^```$)",
+          "contentName": "source.perl.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.perl" }]
+        },
+        {
+          "begin": "(?i)\\G(cs(?:harp)?)$",
+          "end": "(?=^```$)",
+          "contentName": "source.cs.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.cs" }]
+        },
+        {
+          "begin": "(?i)\\G(obj(?:\\-c|c|ectivec))$",
+          "end": "(?=^```$)",
+          "contentName": "source.objc.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.objc" }]
+        },
+        {
+          "begin": "(?i)\\G(mm)$",
+          "end": "(?=^```$)",
+          "contentName": "source.objcpp.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.objcpp" }]
+        },
+        {
+          "begin": "(?i)\\G(gyp|py(?:thon)?)$",
+          "end": "(?=^```$)",
+          "contentName": "source.python.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.python" }]
+        },
+        {
+          "begin": "(?i)\\G(java)$",
+          "end": "(?=^```$)",
+          "contentName": "source.java.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.java" }]
+        },
+        {
+          "begin": "(?i)\\G(jsp)$",
+          "end": "(?=^```$)",
+          "contentName": "text.html.jsp.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "text.html.jsp" }]
+        },
+        {
+          "begin": "(?i)\\G(bash|sh|zsh)$",
+          "end": "(?=^```$)",
+          "contentName": "source.shell.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.shell" }]
+        },
+        {
+          "begin": "(?i)\\G(sql)$",
+          "end": "(?=^```$)",
+          "contentName": "source.sql.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.sql" }]
+        },
+        {
+          "begin": "(?i)\\G(c|p)$",
+          "end": "(?=^```$)",
+          "contentName": "source.c.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.c" }]
+        },
+        {
+          "begin": "(?i)\\G(c(?:\\+\\+|c|pp)|h(?:\\+\\+|pp))$",
+          "end": "(?=^```$)",
+          "contentName": "source.cpp.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.cpp" }]
+        },
+        {
+          "begin": "(?i)\\G(php(?:3|4|5|6)?)$",
+          "end": "(?=^```$)",
+          "contentName": "text.html.php.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "text.html.php" }]
+        },
+        {
+          "begin": "(?i)\\G(ini|toml)$",
+          "end": "(?=^```$)",
+          "contentName": "source.toml.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.toml" }]
+        },
+        {
+          "begin": "(?i)\\G(diff|patch)$",
+          "end": "(?=^```$)",
+          "contentName": "text.git-commit.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "text.git-commit" }]
+        },
+        {
+          "begin": "(?i)\\G(c(?:offee(?:script)?|son)|iced)$",
+          "end": "(?=^```$)",
+          "contentName": "source.coffee.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.coffee" }]
+        },
+        {
+          "begin": "(?i)\\G(j(?:avascript|s))$",
+          "end": "(?=^```$)",
+          "contentName": "source.js.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "source.js" }]
+        },
+        {
+          "begin": "\\G([\\w-]*)$",
+          "end": "(?=^```$)",
+          "contentName": "markup.inline.raw.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+          }
+        }
+      ]
+    },
+    "htmlblock": {
+      "patterns": [
+        {
+          "begin": "<script\\b(?![^>]*\\bsrc=['\"])([^>]*?)>",
+          "end": "</script>",
+          "name": "meta.block.html.script.tiddlywiki5",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.tag.begin.html" },
+            "1": { "name": "entity.other.attribute-name" }
+          },
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.tag.end.html" }
+          },
+          "patterns": [
+            { "include": "source.js" }
+          ]
+        },
+        {
+          "begin": "<script\\b[^>]*\\bsrc=['\"]([^'\">]+)['\"][^>]*>",
+          "end": "</script>",
+          "name": "meta.block.html.script.external.tiddlywiki5",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.tag.begin.html" },
+            "1": { "name": "string.quoted.double.html" }
+          },
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.tag.end.html" }
+          }
+        },
+        {
+          "begin": "<style\\b[^>]*>",
+          "end": "</style>",
+          "name": "meta.block.html.element.style.tiddlywiki5",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.tag.begin.html" }
+          },
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.tag.end.html" }
+          },
+          "patterns": [
+            { "include": "source.css" }
+          ]
+        },
+        {
+          "begin": "\\s*(\\<)((\\$)(?!:\\/)([a-zA-Z0-9\\-]+))",
+          "end": "(\\/>)|(<\\/)((\\$)(?!:\\/)\\4)(>)",
+          "name": "meta.block.html.widget.tw-$4.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
+            "2": { "name": "entity.name.tag.tiddlywiki5" },
+            "3": { "name": "punctuation.definition.tag.widget.tiddlywiki5" }
+          },
+          "endCaptures": {
+            "1": { "name": "punctuation.definition.tag.end.tiddlywiki5" },
+            "2": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
+            "3": { "name": "entity.name.tag.tiddlywiki5" },
+            "4": { "name": "punctuation.definition.tag.widget.tiddlywiki5" },
+            "5": { "name": "punctuation.definition.tag.end.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "#htmlAttributesAndText" }]
+        },
+        {
+          "begin": "\\s*(\\<)([a-zA-Z0-9\\-]+)",
+          "end": "(\\/>)|(<\\/)(\\2)(>)",
+          "name": "meta.block.html.element.tw-$2.tiddlywiki5",
+          "beginCaptures": {
+            "1": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
+            "2": { "name": "entity.name.tag.tiddlywiki5" }
+          },
+          "endCaptures": {
+            "1": { "name": "punctuation.definition.tag.end.tiddlywiki5" },
+            "2": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
+            "3": { "name": "entity.name.tag.tiddlywiki5" },
+            "4": { "name": "punctuation.definition.tag.end.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "#htmlAttributesAndText" }]
+        }
+      ]
+    },
+    "htmlAttributesAndText": {
+      "patterns": [
+        {
+          "comment": "Parse text node.",
+          "begin": "(?<=>)(\\s*$)?",
+          "end": "(?=<\\/)",
+          "patterns": [
+            {
+              "comment": "Parse text node in block mode.",
+              "begin": "^\\s*$",
+              "end": "(?=<\\/)",
+              "name": "meta.body.block.tiddlywiki5",
+              "patterns": [
+                { "include": "#block" },
+                {
+                  "begin": "(?!\\s*$)",
+                  "end": "(?:(?=<\\/))|^$",
+                  "name": "markup.other.paragraph.tiddlywiki5",
+                  "patterns": [{ "include": "#inline" }]
+                }
+              ]
+            },
+            {
+              "comment": "Parse text node in inline mode.",
+              "begin": "(?=.*\\S)",
+              "end": "(?=<\\/)",
+              "name": "meta.body.inline.tiddlywiki5",
+              "patterns": [{ "include": "#inline" }]
+            }
+          ]
+        },
+        {
+          "comment": "Parse attribute list.",
+          "begin": "\\G",
+          "end": ">|(?=\\/?>)",
+          "contentName": "meta.attributes.tiddlywiki5",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.tag.end.tiddlywiki5" }
+          },
+          "patterns": [{ "include": "#attribute" }]
+        }
+      ]
+    },
     "inline": {
       "patterns": [
         { "include": "#emphasis" },
@@ -2195,7 +2236,7 @@
           "name": "meta.attribute.tw-$1.tiddlywiki5",
           "contentName": "direct.entity.attribute-value.tiddlywiki5",
           "captures": {
-            "1": { "name": "entity.other.attribute-name.t5" },
+            "1": { "name": "entity.other.attribute-name.tiddlywiki5" },
             "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
           },
           "patterns": [{ "include": "#string" }]
@@ -2206,7 +2247,7 @@
           "name": "meta.attribute.tw-$1.tiddlywiki5",
           "contentName": "direct.entity.attribute-value.tiddlywiki5",
           "captures": {
-            "1": { "name": "entity.other.attribute-name.t5" },
+            "1": { "name": "entity.other.attribute-name.tiddlywiki5" },
             "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
           },
           "patterns": [{ "include": "#string" }]
@@ -2217,7 +2258,7 @@
           "name": "meta.attribute.tw-$1.tiddlywiki5",
           "contentName": "direct.entity.attribute-value.tiddlywiki5",
           "captures": {
-            "1": { "name": "entity.other.attribute-name.t5" },
+            "1": { "name": "entity.other.attribute-name.tiddlywiki5" },
             "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
           },
           "patterns": [{ "include": "#string" }]
@@ -2228,7 +2269,7 @@
           "name": "meta.attribute.tw-$1.tiddlywiki5",
           "contentName": "variable.macro.entity.attribute-value.tiddlywiki5",
           "captures": {
-            "1": { "name": "entity.other.attribute-name.t5" },
+            "1": { "name": "entity.other.attribute-name.tiddlywiki5" },
             "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
           },
           "patterns": [{ "include": "#macrocallinline" }]
@@ -2239,7 +2280,7 @@
           "name": "meta.attribute.tw-$1.tiddlywiki5",
           "contentName": "indirect.entity.attribute-value.tiddlywiki5",
           "captures": {
-            "1": { "name": "entity.other.attribute-name.t5" },
+            "1": { "name": "entity.other.attribute-name.tiddlywiki5" },
             "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
           },
           "patterns": [
@@ -2259,7 +2300,7 @@
           "match": "([^\\s\\/>\"'=]+)(?:\\s*(=)\\s*([^\\s\\/<>\"'=]+))?",
           "name": "meta.attribute.tw-$1.tiddlywiki5",
           "captures": {
-            "1": { "name": "entity.other.attribute-name.t5" },
+            "1": { "name": "entity.other.attribute-name.tiddlywiki5" },
             "2": { "name": "keyword.operator.assignment.tiddlywiki5" },
             "3": { "patterns": [{ "include": "#string" }] }
           }

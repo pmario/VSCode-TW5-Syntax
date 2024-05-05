@@ -1,4 +1,4 @@
-<html lang={{{en}}}>
+<html lang="en">
 
 <head>
 
@@ -22,6 +22,29 @@
 </head>
 
 <body>
+
+<!-- #region Simple Wikitext -->
+
+; Term being defined
+: Definition of that term
+; Another term
+: Another definition
+
+"""
+TEST TEXT BLOCK <$transclude tiddler="test"/>
+"""
+
+<<variable>>
+{{transclusion}}
+[[wiki-link]]
+
+<a href="value">test</a>
+
+<a href={{{transcluded!!value}}}>test</a>
+
+{{{ [[fitered transclude]] }}}
+
+<!-- #endregion folder -->
 
 	<div id="mocha"></div>
 
@@ -60,9 +83,11 @@
 
 		<a href={{{transcluded!!value}}}></a>
 
+		{{{ [[fitered transclude]] }}}
+
 		<svg> </svg>
 
-		<$widget> content </$widget>
+		<$widget attribute="value" a={{b}} a=<<c>> > content </$widget>
 
 		<% IF %>
 

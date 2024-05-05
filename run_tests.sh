@@ -15,7 +15,7 @@ TMGRAMMAR_ROOT="./node_modules/tm-grammars/grammars"
 
 # Run the grammar test with the provided pattern
 npx vscode-tmgrammar-test \
-    -g syntaxes/tiddlywiki5.tmLanguage.json \
+    -g syntaxes/tiddlywiki5.json \
     -g "${TMGRAMMAR_ROOT}/asm.json" \
     -g "${TMGRAMMAR_ROOT}/coffee.json" \
     -g "${TMGRAMMAR_ROOT}/c.json" \
