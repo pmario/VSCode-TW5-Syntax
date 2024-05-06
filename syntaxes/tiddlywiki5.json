@@ -1905,19 +1905,32 @@
           ]
         },
         "image": {
-            "begin": "(\\[)(img)\\s*(\\[)",
+            "begin": "(\\[)(img)\\s*",
             "end": "(\\])(\\])",
             "name": "markup.other.image.tiddlywiki5",
             "beginCaptures": {
                 "1": { "name": "punctuation.definition.image.outer.begin.tiddlywiki5" },
-                "2": { "name": "keyword.other.img.tiddlywiki5" },
-                "3": { "name": "punctuation.definition.image.inner.begin.tiddlywiki5" }
+                "2": { "name": "keyword.other.img.tiddlywiki5" }
             },
             "endCaptures": {
                 "1": { "name": "punctuation.definition.image.inner.end.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.image.outer.end.tiddlywiki5" }
             },
             "patterns": [
+                {
+                    "comment": "Parse attribute list",
+                    "begin": "\\G([^\\[]*)",
+                    "end": "\\s*(\\[)",
+                    "beginCaptures": {
+                        "0" : { 
+                            "name": "list.attribute.image.tiddlywiki5",
+                            "patterns": [ { "include": "#attribute" } ]
+                        }
+                    },
+                    "endCaptures": {
+                        "0" : { "name": "punctuation.definition.image.inner.begin.tiddlywiki5" }
+                    }
+                },
                 {
                     "comment": "Handle image source or title and optional tooltip",
                     "match": "\\s*(?:([^|\\]]*?)\\s*(\\|))?\\s*([^\\]]+?)\\s*(?=\\]\\])",
