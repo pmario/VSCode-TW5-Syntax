@@ -1,15 +1,23 @@
 <!--#region Inline Links Wikitext -->
 
+<!-- HTTP Links -->
+
 * http://tiddlywiki.com/
 * ~http://tiddlywiki.com//
 
+<!-- System Links -->
+
 * $:/core/modules/parsers/wikiparser/rules/syslink.js
 * ~$:/core/modules/parsers/wikiparser/rules/syslink.js
+
+<!-- Camel Case Wikitext Links -->
 
 * WikiLink
 * ~NotWikiLink
 * notWikiLink
 * ~notWikiLink
+
+<!-- Pretty Links -->
 
 * [[Anything is a link here]]
 * [[http://tiddlywiki.com]]
@@ -33,6 +41,8 @@
 * [[ | ]]
 * [[|]]
 
+<!--External Pretty Links -->
+
 * [ext[Anything is an external link here]]
 * [ext[http://tiddlywiki.com]]
 * [ext[ http://tiddlywiki.com ]]
@@ -49,26 +59,14 @@
 * [ext[|]]
 
 
+<!-- Image Links -->
+
+[img[title]]
+[img[ ]]
+
 [img [ Tooltip text | http://fakeimg.pl/100/ ]]
 
 [img width=50 [ Tooltip text | http://fakeimg.pl/100/ ]]
-
-[img
-width = """
-  50
-"""
-height = "
-  50
-"
-source = '
-  URI
-'
-alt = {{tiddler!!field}}
-class = <<myMacro
-  arg1 : """
-  value
-""">>
-  [ Tooltip text | http://fakeimg.pl/100/ ]]
 
 * [img[title]]
 * [img[ ]]
@@ -81,7 +79,11 @@ class = <<myMacro
 * [img [ Tooltip text | Tiddler title ]]
 * [img [ Tooltip text | http://fakeimg.pl/100/ ]]
 * [img width=50 [ Tooltip text | http://fakeimg.pl/100/ ]]
-* [img
+
+
+  <!-- Multiline Imageblock is not yet supported
+  
+  [img
 width = """
   50
 """
@@ -97,5 +99,7 @@ class = <<myMacro
   value
 """>>
   [ Tooltip text | http://fakeimg.pl/100/ ]]
+  
+  -->
 
   <!--#endregion -->
