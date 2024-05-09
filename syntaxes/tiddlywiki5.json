@@ -1125,17 +1125,6 @@
           ]
         },    
         "horizrule": { "match": "\\s*-{3,}$", "name": "meta.separator.hr.tiddlywiki5" },
-        "commentblock": {
-          "begin": "<!--",
-          "end": "-->",
-          "name": "comment.block.tiddlywiki5",
-          "beginCaptures": {
-            "0": { "name": "punctuation.definition.comment.begin.tiddlywiki5" }
-          },
-          "endCaptures": {
-            "0": { "name": "punctuation.definition.comment.end.tiddlywiki5" }
-          }
-        },
         "codeblock": {
           "begin": "\\s*(```)(?=[\\w-]*$)",
           "end": "^(```)$",

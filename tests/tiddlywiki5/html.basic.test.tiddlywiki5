@@ -13,10 +13,9 @@
 #    ^ text.html.tiddlywiki5 meta.tag.structure.head.start.html punctuation.definition.tag.end.html
 
 <!-- Testing basic HTML comments -->
-#<- text.html.tiddlywiki5 comment.block.tiddlywiki5 punctuation.definition.comment.begin.tiddlywiki5
-#^^^ text.html.tiddlywiki5 comment.block.tiddlywiki5 punctuation.definition.comment.begin.tiddlywiki5
-#   ^ text.html.tiddlywiki5 comment.block.tiddlywiki5
-#                                ^^^ text.html.tiddlywiki5 comment.block.tiddlywiki5 punctuation.definition.comment.end.tiddlywiki5
+#<- text.html.tiddlywiki5 comment.block.html punctuation.definition.comment.html
+#   ^ text.html.tiddlywiki5 comment.block.html
+#                                ^^^ text.html.tiddlywiki5 comment.block.html punctuation.definition.comment.html
 
 <title>Test Page</title>
 #<- text.html.tiddlywiki5 meta.tag.metadata.title.start.html punctuation.definition.tag.begin.html
