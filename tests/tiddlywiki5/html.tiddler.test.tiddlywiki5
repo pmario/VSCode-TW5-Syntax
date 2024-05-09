@@ -3,21 +3,20 @@
 <!-- Testing tiddler wikitext HTML structure -->
 
 <html>
-#<- text.html.tiddlywiki5 a
-# ^ b
-#    ^ c
+#<- text.html.tiddlywiki5 meta.tag.structure.html.start.html punctuation.definition.tag.begin.html
+# ^ text.html.tiddlywiki5 meta.tag.structure.html.start.html entity.name.tag.html
+#    ^ text.html.tiddlywiki5 meta.tag.structure.html.start.html punctuation.definition.tag.end.html
 
 <head>
-#<- meta.body.block.tiddlywiki5 meta.block.html.element.tw-head.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
-# ^ meta.block.html.element.tw-head.tiddlywiki5 entity.name.tag.tiddlywiki5
-#    ^ meta.block.html.element.tw-head.tiddlywiki5 punctuation.definition.tag.end.tiddlywiki5
+#<- text.html.tiddlywiki5 meta.tag.structure.head.start.html punctuation.definition.tag.begin.html
+# ^ text.html.tiddlywiki5 meta.tag.structure.head.start.html entity.name.tag.html
+#    ^ text.html.tiddlywiki5 meta.tag.structure.head.start.html punctuation.definition.tag.end.html
 
 <!-- Testing basic HTML comments -->
-#<- meta.body.block.tiddlywiki5 comment.block.commentblock.tiddlywiki5 punctuation.definition.comment.begin.tiddlywiki5
-#^^^ comment.block.commentblock.tiddlywiki5 punctuation.definition.comment.begin.tiddlywiki5
-#   ^ comment.block.commentblock.tiddlywiki5
-#                                ^^ comment.block.commentblock.tiddlywiki5 punctuation.definition.comment.end.tiddlywiki5
-#                                  ^ comment.block.commentblock.tiddlywiki5 punctuation.definition.comment.end.tiddlywiki5
+#<- text.html.tiddlywiki5 comment.block.tiddlywiki5 punctuation.definition.comment.begin.tiddlywiki5
+#^^^ text.html.tiddlywiki5 comment.block.tiddlywiki5 punctuation.definition.comment.begin.tiddlywiki5
+#   ^ text.html.tiddlywiki5 comment.block.tiddlywiki5
+#                                ^^^ text.html.tiddlywiki5 comment.block.tiddlywiki5 punctuation.definition.comment.end.tiddlywiki5
 
 <title>Test Page</title>
 #<- meta.body.block.tiddlywiki5 meta.block.html.element.tw-title.tiddlywiki5 punctuation.definition.tag.begin.tiddlywiki5
