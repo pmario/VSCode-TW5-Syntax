@@ -12,6 +12,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Fixed sytax bugs with block quotes
 - Fixed syntax bugs with image links
 - Fixed syntax bugs with links
+- Fixed bugs with horizontal rules
+- 
 
 ## 1.1.0
 - Reviewed repository with ChatGPT4

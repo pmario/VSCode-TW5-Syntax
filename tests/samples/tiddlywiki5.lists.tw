@@ -1,5 +1,4 @@
 <!--#region Lists, CSS, & Formatting Wikitext -->
-
 # ''Number'' //1//
 #* ''Bullet'' //2//
 #*; ''term''
@@ -13,6 +12,8 @@
   """
  #*:.class1.class2 ''description''
 #>.class1.class2 ''quote''
+*> quote
+>quote
 
 * &amp;
 * &#38;

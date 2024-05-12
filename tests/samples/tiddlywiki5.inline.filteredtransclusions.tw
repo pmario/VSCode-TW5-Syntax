@@ -1,0 +1,44 @@
+<!--#region Inline Filtered Transclusion Wikitext -->
+* {{{}}}
+* {{{ }}}
+* {{{||}}}
+* {{{|| }}}
+* {{{ || }}}
+* {{{||templateTitle}}}
+* {{{ || templateTitle }}}
+* {{{filter }}}
+* {{{ filter }}}
+* {{{filter ||}}}
+* {{{ filter || templateTitle }}}
+* {{{ [filter[]step<var>step{transclude!!field}] || templateTitle }}}
+* {{{
+}}}
+* {{{
+  filter
+}}}
+* {{{
+  ||
+}}}
+* {{{
+  || templateTitle
+}}}
+* {{{
+  filter
+  ||
+  templateTitle
+}}}
+* {{{
+
+  multiline filter strings
+
+  are legal
+
+  ||
+
+  multiline template titles too,
+
+  but don't use it here anyway
+
+}}}
+
+<!--#endregion -->

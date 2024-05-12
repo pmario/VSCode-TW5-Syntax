@@ -41,7 +41,7 @@
           }
         ]
       },      
-		"R:text.html - (comment.block, text.html meta.embedded, meta.tag.*.*.html, meta.tag.*.*.*.html, meta.tag.*.*.*.*.html)": {
+	"R:text.html - (comment.block, text.html meta.embedded, meta.tag.*.*.html, meta.tag.*.*.*.html, meta.tag.*.*.*.*.html)": {
 			"comment": "Uses R: to ensure this matches after any other injections.",
 			"patterns": [
 				{ "match": "<", "name": "invalid.illegal.bad-angle-bracket.html" }
@@ -1013,10 +1013,10 @@
             {
               "begin": "\\s*([\\*#;:>]*>(?![\\*#;:>]))((?:\\.[^\\s\\.]+)+)?",
               "end": "$",
-              "name": "unnumbered.blockquote.quote.markup.list.tiddlywiki5",
+              "name": "listquote.quote.markup.list.tiddlywiki5",
               "captures": {
                 "1": {
-                  "name": "punctuation.definition.unnumbered.blockquote.quote.list.markup.tiddlywiki5"
+                  "name": "punctuation.definition.listquote.quote.list.markup.tiddlywiki5"
                 },
                 "2": { "patterns": [{ "include": "#classes" }] }
               },
