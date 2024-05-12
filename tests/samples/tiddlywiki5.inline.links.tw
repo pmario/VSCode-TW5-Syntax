@@ -10,7 +10,7 @@
 * $:/core/modules/parsers/wikiparser/rules/syslink.js
 * ~$:/core/modules/parsers/wikiparser/rules/syslink.js
 
-<!-- Camel Case Wikitext Links -->
+<!-- Camel Case Wiki Links -->
 
 * WikiLink
 * ~NotWikiLink

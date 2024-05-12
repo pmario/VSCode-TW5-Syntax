@@ -4,6 +4,15 @@ All notable changes to the "tw5-syntax" extension will be documented in this fil
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 2.0.0
+- Full re-write to model tiddlywiki5 wikitext as a `text.html.derivative` sytanx.
+- Added full set of tests to `./tests`. Run `npm run test` to run all tests.
+- Added reference required syntaxes to `devDependecies` in `package.json`
+- Fixed syntax bugs with macros
+- Fixed sytax bugs with block quotes
+- Fixed syntax bugs with image links
+- Fixed syntax bugs with 
+
 ## 1.1.0
 - Reviewed repository with ChatGPT4
 - Cleaned up redundant files

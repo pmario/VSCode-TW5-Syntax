@@ -2,7 +2,7 @@
     "name": "tw5-syntax",
     "displayName": "TiddlyWiki5 Syntax",
     "description": "TiddlyWiki5 Syntax Highlighting for Visual Studio Code",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "icon": "tw5.png",
     "engines": {
         "vscode": "^1.43.0"
@@ -14,7 +14,11 @@
         "tiddlywiki",
         "tiddlywiki5",
         "tw5",
-        "syntax highlighting"
+        "textmate",
+        "grammar",
+        "syntax",
+        "highlighting",
+        "shiki"
     ],
     "publisher": "joshua-fontany",
     "author": {
@@ -132,12 +136,13 @@
         "vscode-jsp": "https://github.com/pthorsson/vscode-jsp"
     },
     "scripts": {
-        "echo-test": "bash -c 'echo $(pwd) && echo ./tests/tiddlywiki5/*.test.tiddlywiki5'",
-        "list-test": "bash -c 'ls ./tests/tiddlywiki5/*.test.tiddlywiki5'",
-        "test": "bash ./run_tests.sh './tests/tiddlywiki5/*.test.tiddlywiki5'",
-        "tests-advanced": "bash ./run_tests.sh './tests/tiddlywiki5/html.advanced.test.tiddlywiki5'",
-        "tests-basic": "bash ./run_tests.sh './tests/tiddlywiki5/html.basic.test.tiddlywiki5'",
-        "tests-htmltiddler": "bash ./run_tests.sh './tests/tiddlywiki5/html.tiddler.test.tiddlywiki5'"
+        "echo-test": "bash -c 'echo $(pwd) && echo ./tests/tiddlywiki5/*.test'",
+        "list-test": "bash -c 'ls ./tests/tiddlywiki5/*.test.tw'",
+        "test": "bash ./run_tests.sh './tests/tiddlywiki5/*.test.tw'",
+        "tests-advanced": "bash ./run_tests.sh './tests/tiddlywiki5/html.advanced.test'",
+        "tests-basic": "bash ./run_tests.sh './tests/tiddlywiki5/html.basic.test'",
+        "tests-htmltiddler": "bash ./run_tests.sh './tests/tiddlywiki5/html.tiddler.test'",
+        "tests-wikitext": "bash ./run_tests.sh './tests/tiddlywiki5/tiddlywiki5.*.test'"
     },
     "npmConfig": {
       "script-shell": "/bin/bash"
