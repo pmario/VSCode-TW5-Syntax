@@ -94,13 +94,13 @@
           "patterns": [
             { "include": "#typedblock" },
             { "include": "#styleblock" },
-            { "include": "#quoteblock" },
+            { "include": "#blockquote" },
             { "include": "#macrocallblock" },
             { "include": "#filteredtranscludeblock" },
             { "include": "#transcludeblock" },
+            { "include": "#conditional" },
             { "include": "#table" },
             { "include": "#list" },
-            { "include": "#conditional" },
             { "include": "#heading" },
             { "include": "#horizrule" },
             { "include": "#commentblock" },
@@ -426,7 +426,7 @@
             }
           ]
         },
-        "quoteblock": {
+        "blockquote": {
           "patterns": [
             {
               "applyEndPatternLast": 1,
@@ -770,6 +770,21 @@
             }
           ]
         },
+		"conditional": {
+			"patterns": [
+			  {
+				"begin": "<%",
+				"end": "%>",
+				"name": "meta.conditional.tw5",
+				"patterns": [
+				  {
+					"match": "\\b(if|elseif|else|endif)\\b",
+					"name": "keyword.control.conditional.tw5"
+				  }
+				]
+			  }
+			]
+		},
         "table": {
           "patterns": [
             {
@@ -1009,117 +1024,78 @@
             }
           ]
         },
-        "conditional": {
-          "patterns": [
-            {
-              "begin": "<%",
-              "end": "%>",
-              "name": "meta.conditional.tw5",
-              "patterns": [
-                {
-                  "match": "\\b(if|elseif|else|endif)\\b",
-                  "name": "keyword.control.conditional.tw5"
-                }
-              ]
-            }
-          ]
-        },
         "heading": {
           "patterns": [
             {
               "begin": "\\s*(!{6})((?:\\.[^\\s\\.]+)+)?",
               "end": "$",
-              "name": "markup.heading.heading-6.tiddlywiki5",
+              "name": "meta.heading.heading-6.tiddlywiki5",
               "beginCaptures": {
-                "1": { "name": "punctuation.definition.heading.markup.tiddlywiki5" },
+                "1": { "name": "markup.heading.punctuation.definition.tiddlywiki5" },
                 "2": { "patterns": [{ "include": "#classes" }] }
               },
               "patterns": [
-                { "include": "#inline" },
-                {
-                  "match": "\\s*(.*)",
-                  "name": "entity.name.section.heading-6.tiddlywiki5"
-                }
+                { "include": "#inline" }
               ]
             },
             {
               "begin": "\\s*(!{5})((?:\\.[^\\s\\.]+)+)?",
               "end": "$",
-              "name": "markup.heading.heading-5.tiddlywiki5",
+              "name": "meta.heading.heading-5.tiddlywiki5",
               "beginCaptures": {
-                "1": { "name": "punctuation.definition.heading.markup.tiddlywiki5" },
+                "1": { "name": "markup.heading.punctuation.definition.tiddlywiki5" },
                 "2": { "patterns": [{ "include": "#classes" }] }
               },
               "patterns": [
-                { "include": "#inline" },
-                {
-                  "match": "\\s*(.*)",
-                  "name": "entity.name.section.heading-5.tiddlywiki5"
-                }
+                { "include": "#inline" }
               ]
             },
             {
               "begin": "\\s*(!{4})((?:\\.[^\\s\\.]+)+)?",
               "end": "$",
-              "name": "markup.heading.heading-4.tiddlywiki5",
+              "name": "meta.heading.heading-4.tiddlywiki5",
               "beginCaptures": {
-                "1": { "name": "punctuation.definition.heading.markup.tiddlywiki5" },
+                "1": { "name": "markup.heading.punctuation.definition.tiddlywiki5" },
                 "2": { "patterns": [{ "include": "#classes" }] }
               },
               "patterns": [
-                { "include": "#inline" },
-                {
-                  "match": "\\s*(.*)",
-                  "name": "entity.name.section.heading-4.tiddlywiki5"
-                }
+                { "include": "#inline" }
               ]
             },
-            {
-              "begin": "\\s*(!{3})((?:\\.[^\\s\\.]+)+)?",
-              "end": "$",
-              "name": "markup.heading.heading-3.tiddlywiki5",
-              "beginCaptures": {
-                "1": { "name": "punctuation.definition.heading.markup.tiddlywiki5" },
-                "2": { "patterns": [{ "include": "#classes" }] }
-              },
-              "patterns": [
-                { "include": "#inline" },
-                {
-                  "match": "\\s*(.*)",
-                  "name": "entity.name.section.heading-3.tiddlywiki5"
-                }
-              ]
-            },
+			{
+				"begin": "\\s*(!{3})((?:\\.[^\\s\\.]+)+)?",
+				"end": "$",
+				"name": "meta.heading.heading-3.tiddlywiki5",
+				"beginCaptures": {
+					"1": { "name": "markup.heading.punctuation.definition.tiddlywiki5" },
+					"2": { "patterns": [{ "include": "#classes" }] }
+				},
+				"patterns": [
+					{ "include": "#inline" }
+				]
+			},
             {
               "begin": "\\s*(!{2})((?:\\.[^\\s\\.]+)+)?",
               "end": "$",
-              "name": "markup.heading.heading-2.tiddlywiki5",
+              "name": "meta.heading.heading-2.tiddlywiki5",
               "beginCaptures": {
-                "1": { "name": "punctuation.definition.heading.markup.tiddlywiki5" },
+                "1": { "name": "markup.heading.punctuation.definition.tiddlywiki5" },
                 "2": { "patterns": [{ "include": "#classes" }] }
               },
               "patterns": [
-                { "include": "#inline" },
-                {
-                  "match": "\\s*(.*)",
-                  "name": "entity.name.section.heading-2.tiddlywiki5"
-                }
+                { "include": "#inline" }
               ]
             },
             {
               "begin": "\\s*(!{1})((?:\\.[^\\s\\.]+)+)?",
               "end": "$",
-              "name": "markup.heading.heading-1.tiddlywiki5",
+              "name": "meta.heading.heading-1.tiddlywiki5",
               "beginCaptures": {
-                "1": { "name": "punctuation.definition.heading.markup.tiddlywiki5" },
+                "1": { "name": "markup.heading.punctuation.definition.tiddlywiki5" },
                 "2": { "patterns": [{ "include": "#classes" }] }
               },
               "patterns": [
-                { "include": "#inline" },
-                {
-                  "match": "\\s*(.*)",
-                  "name": "entity.name.section.heading-1.tiddlywiki5"
-                }
+                { "include": "#inline" }
               ]
             }
           ]

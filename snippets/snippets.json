@@ -50,11 +50,15 @@
 			"body": "@@${1:.class1.class2}\n@@${2:text-transform:uppercase;}\n$3\n@@"
 		},
 		"Blockquote": {
-			"prefix": "qb",
+			"prefix": "bq",
 			"body": "<<<\n$1\n<<<"
 		},
+		"Blockquote With Cite": {
+			"prefix": "bqc",
+			"body": "<<< ${1:cite}\n$2\n<<<"
+		},
 		"Blockquote With Bottom Cite": {
-			"prefix": "qbbc",
+			"prefix": "bqbc",
 			"body": "<<<\n$1\n<<< ${2:cite}"
 		},
 		"Filtered Transclusion": {

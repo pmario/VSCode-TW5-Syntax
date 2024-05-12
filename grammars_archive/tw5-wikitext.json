@@ -699,10 +699,10 @@
           "applyEndPatternLast": 1,
           "begin": "\\s*(<<<<<)(?!<)(?:\\r?\\n)?",
           "end": "$",
-          "name": "markup.quote.blockquote.tw5",
+          "name": "markup.quote.quoteblock.tw5",
           "beginCaptures": {
             "1": {
-              "name": "punctuation.definition.markup.quote.blockquote.begin.tw5"
+              "name": "punctuation.definition.markup.quote.quoteblock.begin.tw5"
             }
           },
           "patterns": [
@@ -710,7 +710,7 @@
               "comment": "Tokenize classes and top cite.",
               "begin": "(?<=<<<<<)(?!$)((?:\\.[^\\s\\.]+)+)?[^\\S\\n]*",
               "end": "\\r?\\n",
-              "contentName": "meta.quote.blockquote.cite.top.tw5",
+              "contentName": "meta.quote.quoteblock.cite.top.tw5",
               "beginCaptures": {
                 "1": { "patterns": [{ "include": "#classes" }] }
               },
@@ -720,10 +720,10 @@
               "comment": "Tokenize bottom cite.",
               "begin": "^(<<<<<)(?!<)[^\\S\\n]*?",
               "end": "$",
-              "contentName": "meta.quote.blockquote.cite.bottom.tw5",
+              "contentName": "meta.quote.quoteblock.cite.bottom.tw5",
               "beginCaptures": {
                 "1": {
-                  "name": "punctuation.definition.markup.quote.blockquote.end.tw5"
+                  "name": "punctuation.definition.markup.quote.quoteblock.end.tw5"
                 }
               },
               "patterns": [{ "include": "#inline" }]
@@ -748,10 +748,10 @@
           "applyEndPatternLast": 1,
           "begin": "\\s*(<<<<)(?!<)(?:\\r?\\n)?",
           "end": "$",
-          "name": "markup.quote.blockquote.tw5",
+          "name": "markup.quote.quoteblock.tw5",
           "beginCaptures": {
             "1": {
-              "name": "punctuation.definition.markup.quote.blockquote.begin.tw5"
+              "name": "punctuation.definition.markup.quote.quoteblock.begin.tw5"
             }
           },
           "patterns": [
@@ -759,7 +759,7 @@
               "comment": "Tokenize classes and top cite.",
               "begin": "(?<=<<<<)(?!$)((?:\\.[^\\s\\.]+)+)?[^\\S\\n]*",
               "end": "\\r?\\n",
-              "contentName": "meta.quote.blockquote.cite.top.tw5",
+              "contentName": "meta.quote.quoteblock.cite.top.tw5",
               "beginCaptures": {
                 "1": { "patterns": [{ "include": "#classes" }] }
               },
@@ -769,10 +769,10 @@
               "comment": "Tokenize bottom cite.",
               "begin": "^(<<<<)(?!<)[^\\S\\n]*?",
               "end": "$",
-              "contentName": "meta.quote.blockquote.cite.bottom.tw5",
+              "contentName": "meta.quote.quoteblock.cite.bottom.tw5",
               "beginCaptures": {
                 "1": {
-                  "name": "punctuation.definition.markup.quote.blockquote.end.tw5"
+                  "name": "punctuation.definition.markup.quote.quoteblock.end.tw5"
                 }
               },
               "patterns": [{ "include": "#inline" }]
@@ -797,10 +797,10 @@
           "applyEndPatternLast": 1,
           "begin": "\\s*(<<<)(?!<)(?:\\r?\\n)?",
           "end": "$",
-          "name": "markup.quote.blockquote.tw5",
+          "name": "markup.quote.quoteblock.tw5",
           "beginCaptures": {
             "1": {
-              "name": "punctuation.definition.markup.quote.blockquote.begin.tw5"
+              "name": "punctuation.definition.markup.quote.quoteblock.begin.tw5"
             }
           },
           "patterns": [
@@ -808,7 +808,7 @@
               "comment": "Tokenize classes and top cite.",
               "begin": "(?<=<<<)(?!$)((?:\\.[^\\s\\.]+)+)?[^\\S\\n]*",
               "end": "\\r?\\n",
-              "contentName": "meta.quote.blockquote.cite.top.tw5",
+              "contentName": "meta.quote.quoteblock.cite.top.tw5",
               "beginCaptures": {
                 "1": { "patterns": [{ "include": "#classes" }] }
               },
@@ -818,10 +818,10 @@
               "comment": "Tokenize bottom cite.",
               "begin": "^(<<<)(?!<)[^\\S\\n]*?",
               "end": "$",
-              "contentName": "meta.quote.blockquote.cite.bottom.tw5",
+              "contentName": "meta.quote.quoteblock.cite.bottom.tw5",
               "beginCaptures": {
                 "1": {
-                  "name": "punctuation.definition.markup.quote.blockquote.end.tw5"
+                  "name": "punctuation.definition.markup.quote.quoteblock.end.tw5"
                 }
               },
               "patterns": [{ "include": "#inline" }]
@@ -1254,10 +1254,10 @@
         {
           "begin": "\\s*([\\*#;:>]*>(?![\\*#;:>]))((?:\\.[^\\s\\.]+)+)?",
           "end": "$",
-          "name": "unnumbered.blockquote.quote.markup.list.tw5",
+          "name": "unnumbered.quoteblock.quote.markup.list.tw5",
           "captures": {
             "1": {
-              "name": "unnumbered.blockquote.quote.punctuation.definition.list.markup.tw5"
+              "name": "unnumbered.quoteblock.quote.punctuation.definition.list.markup.tw5"
             },
             "2": { "patterns": [{ "include": "#classes" }] }
           },
@@ -1283,9 +1283,9 @@
     "heading": {
       "patterns": [
         {
-          "begin": "\\s*(!{6})((?:\\.[^\\s\\.]+)+)?",
+          "begin": "^\\s*(!{6})((?:\\.[^\\s\\.]+)+)?",
           "end": "$",
-          "name": "markup.heading.heading-6.tw5",
+          "name": "markup.heading.6.tw5",
           "beginCaptures": {
             "1": { "name": "punctuation.definition.heading.markup.tw5" },
             "2": { "patterns": [{ "include": "#classes" }] }
@@ -1293,9 +1293,9 @@
           "patterns": [{ "include": "#inline" }]
         },
         {
-          "begin": "\\s*(!{5})((?:\\.[^\\s\\.]+)+)?",
+          "begin": "^\\s*(!{5})((?:\\.[^\\s\\.]+)+)?",
           "end": "$",
-          "name": "markup.heading.heading-5.tw5",
+          "name": "markup.heading.5.tw5",
           "beginCaptures": {
             "1": { "name": "punctuation.definition.heading.markup.tw5" },
             "2": { "patterns": [{ "include": "#classes" }] }
@@ -1303,9 +1303,9 @@
           "patterns": [{ "include": "#inline" }]
         },
         {
-          "begin": "\\s*(!{4})((?:\\.[^\\s\\.]+)+)?",
+          "begin": "^\\s*(!{4})((?:\\.[^\\s\\.]+)+)?",
           "end": "$",
-          "name": "markup.heading.heading-4.tw5",
+          "name": "markup.heading.4.tw5",
           "beginCaptures": {
             "1": { "name": "punctuation.definition.heading.markup.tw5" },
             "2": { "patterns": [{ "include": "#classes" }] }
@@ -1313,9 +1313,9 @@
           "patterns": [{ "include": "#inline" }]
         },
         {
-          "begin": "\\s*(!{3})((?:\\.[^\\s\\.]+)+)?",
+          "begin": "^\\s*(!{3})((?:\\.[^\\s\\.]+)+)?",
           "end": "$",
-          "name": "markup.heading.heading-3.tw5",
+          "name": "markup.heading.3.tw5",
           "beginCaptures": {
             "1": { "name": "punctuation.definition.heading.markup.tw5" },
             "2": { "patterns": [{ "include": "#classes" }] }
@@ -1323,9 +1323,9 @@
           "patterns": [{ "include": "#inline" }]
         },
         {
-          "begin": "\\s*(!{2})((?:\\.[^\\s\\.]+)+)?",
+          "begin": "^\\s*(!{2})((?:\\.[^\\s\\.]+)+)?",
           "end": "$",
-          "name": "markup.heading.heading-2.tw5",
+          "name": "markup.heading.2.tw5",
           "beginCaptures": {
             "1": { "name": "punctuation.definition.heading.markup.tw5" },
             "2": { "patterns": [{ "include": "#classes" }] }
@@ -1333,9 +1333,9 @@
           "patterns": [{ "include": "#inline" }]
         },
         {
-          "begin": "\\s*(!{1})((?:\\.[^\\s\\.]+)+)?",
+          "begin": "^\\s*(!{1})((?:\\.[^\\s\\.]+)+)?",
           "end": "$",
-          "name": "markup.heading.heading-1.tw5",
+          "name": "markup.heading.1.tw5",
           "beginCaptures": {
             "1": { "name": "punctuation.definition.heading.markup.tw5" },
             "2": { "patterns": [{ "include": "#classes" }] }
