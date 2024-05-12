@@ -23,8 +23,6 @@
 
 <body>
 
-<!-- #region Simple Wikitext -->
-
 ; Term being defined
 : Definition of that term
 ; Another term
@@ -45,11 +43,7 @@ TEST TEXT BLOCK <$transclude tiddler="test"/>
 
 <a href="value">test</a>
 
-<a href={{{transcluded!!value}}}>test</a>
-
-{{{ [[fitered transclude]] }}}
-
-<!-- #endregion folder -->
+<a href={{transcluded!!value}}>test</a>
 
 	<div id="mocha"></div>
 
@@ -86,13 +80,19 @@ TEST TEXT BLOCK <$transclude tiddler="test"/>
 
 		<a href="value">test</a>
 
-		<a href={{{transcluded!!value}}}></a>
-
-		{{{ [[fitered transclude]] }}}
-
 		<svg> </svg>
 
 		<$widget attribute="value" a={{b}} a=<<c>> > content </$widget>
+
+		inline
+		<unrecognized with-an-attribute="value" another={{transcluded!!value}}/>
+		test <unrecognized></unrecognized> test
+		<self-close-custom/>
+		<my-tag> </my-tag>
+
+		{{{ [[fitered transclude]] }}}
+
+		<a href={{transcluded!!value}}>test</a>
 
 		<% IF %>
 
