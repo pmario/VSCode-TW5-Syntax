@@ -82,7 +82,7 @@
 * [img width=50 [ Tooltip text | http://fakeimg.pl/100/ ]]
 
 
-  <!-- Multiline Imageblock is not yet supported
+  <!-- Multiline Imageblock (is not yet supported)
   
   [img
 width = """
@@ -101,6 +101,9 @@ class = <<myMacro
 """>>
   [ Tooltip text | http://fakeimg.pl/100/ ]]
   
-  -->
+[img [ Tooltip text | http://fakeimg.pl/100/ ]]
+[img width=50 [ After Complex Img | http://fakeimg.pl/100/ ]]
+
+   -->
 
   <!--#endregion -->
