@@ -43,7 +43,31 @@ TEST TEXT BLOCK <$transclude tiddler="test"/>
 
 <a href="value">test</a>
 
+$$$.html
+
+<html> 
+<head></head>
+<body>
+<div>
+this is html with no [[WikiText]]
+</div>
+</body>
+</html>
+
+$$$
+
 <a href={{transcluded!!value}}>test</a>
+
+	<a href={{transcluded!!value}}>test</a>
+
+<unrecognized with-an-attribute="value" another={{transcluded!!value}}/>
+
+<unrecognized with-an-attribute="value" another={{transcluded!!value}}> test <unrecognized/>
+
+<custom-tag with-an-attribute="value" another={{transcluded!!value}}/>
+
+<custom-tag with-an-attribute="value" another={{transcluded!!value}}> test <unrecognized/>
+
 
 	<div id="mocha"></div>
 
@@ -86,11 +110,14 @@ TEST TEXT BLOCK <$transclude tiddler="test"/>
 
 		inline
 		<unrecognized with-an-attribute="value" another={{transcluded!!value}}/>
+<unrecognized with-an-attribute="value" another={{transcluded!!value}}/>
 		test <unrecognized></unrecognized> test
 		<self-close-custom/>
 		<my-tag> </my-tag>
 
 		{{{ [[fitered transclude]] }}}
+
+		<a href={{transcluded!!value}}>test</a>
 
 		<a href={{transcluded!!value}}>test</a>
 
