@@ -1962,7 +1962,7 @@
           "patterns": [
             {
               "comment": "Match links with optional tooltip: [ext[Tooltip|URL]]",
-              "match": "\\s*(?:([^|\\]]+?)\\s*(\\|))?\\s*([^\\]]+?)\\s*",
+              "match": "\\s*(?:([^|\\]]*?)\\s*(\\|))?\\s*([^\\]]+?)\\s*(?=\\]\\])",
               "captures": {
                 "1": { "name": "string.entity.other.title.link.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.link.title.tiddlywiki5" },
@@ -1986,7 +1986,7 @@
           "patterns": [
             {
               "comment": "Parse links like [[<Link title>|<URI>]]",
-              "match": "\\s*(?:([^|\\]]+?)\\s*(\\|))?\\s*([^\\]]+?)\\s*",
+              "match": "\\s*(?:([^|\\]]*?)\\s*(\\|))?\\s*([^\\]]+?)\\s*(?=\\]\\])",
               "captures": {
                 "1": { "name": "string.entity.other.title.link.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.link.title.tiddlywiki5" },

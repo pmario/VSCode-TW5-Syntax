@@ -11,7 +11,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Fixed syntax bugs with macros
 - Fixed sytax bugs with block quotes
 - Fixed syntax bugs with image links
-- Fixed syntax bugs with 
+- Fixed syntax bugs with links
 
 ## 1.1.0
 - Reviewed repository with ChatGPT4
