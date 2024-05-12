@@ -1100,7 +1100,18 @@
             }
           ]
         },    
-        "horizrule": { "match": "\\s*-{3,}$", "name": "meta.separator.hr.tiddlywiki5" },
+		"horizrule": {
+			"begin": "^\\s*-{3,}\\s*$",
+			"end": "^$",
+			"name": "constant.separator.hr.tiddlywiki5",
+			"contentName": "constant.separator.hr.tiddlywiki5",
+			"patterns": [
+				{
+					"match": ".",
+					"name": "invalid.illegal.expected-newline-after-hr.tiddlywiki5"
+				}
+			]
+		},
         "codeblock": {
           "begin": "\\s*(```)(?=[\\w-]*$)",
           "end": "^(```)$",

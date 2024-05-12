@@ -9,12 +9,27 @@
 ; this
 
 """
-TEST TEXT BLOCK <$transclude tiddler="test"/>
+TEST TEXT 
+BLOCK <$transclude tiddler="test"/>
 """
 
 <<variable>>
 {{transclusion}}
 [[wiki-link]]
+
+-- ndash
+--- mdash
+
+----
+
+-----
+
+-- --- horizontal rules --- --
+
+----
+not valid, must have a blank line
+
+-----
 
 <!-- #endregion folder -->
 
