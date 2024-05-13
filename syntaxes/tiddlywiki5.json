@@ -2965,24 +2965,24 @@
             {
               "begin": "\\G(\\.html?|text\\/html)(?:\\s*(>)\\s*(\\S+))?$",
               "end": "(?=^\\$\\$\\$$)",
-              "contentName": "text.html.tiddlywiki5",
+              "contentName": "text.html.basic.tiddlywiki5",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.parse.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.typedblock.render.tiddlywiki5" },
                 "3": { "name": "entity.other.attribute-name.render.tiddlywiki5" }
               },
-              "patterns": [{ "include": "text.html.tiddlywiki5" }]
+              "patterns": [{ "include": "text.html.basic" }]
             },
             {
               "begin": "\\G(\\.hta|application\\/hta)(?:\\s*(>)\\s*(\\S+))?$",
               "end": "(?=^\\$\\$\\$$)",
-              "contentName": "text.html.tiddlywiki5",
+              "contentName": "text.html.basic.tiddlywiki5",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.parse.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.typedblock.render.tiddlywiki5" },
                 "3": { "name": "entity.other.attribute-name.render.tiddlywiki5" }
               },
-              "patterns": [{ "include": "text.html.tiddlywiki5" }]
+              "patterns": [{ "include": "text.html.basic" }]
             },
             {
               "begin": "\\G(\\.js|application\\/javascript)(?:\\s*(>)\\s*(\\S+))?$",
@@ -3836,11 +3836,11 @@
             {
               "begin": "(?i)\\G(html)$",
               "end": "(?=^```$)",
-              "contentName": "text.html.tiddlywiki5",
+              "contentName": "text.html.basic.tiddlywiki5",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
-              "patterns": [{ "include": "text.html.tiddlywiki5" }]
+              "patterns": [{ "include": "text.html.basic" }]
             },
             {
               "begin": "(?i)\\G(css)$",
@@ -4007,7 +4007,8 @@
         }, 
         "htmlblock": {
             "patterns": [
-                {
+				{"include": "#htmlwidgets"},
+				{
                     "begin": "<script\\b(?![^>]*\\bsrc=['\"])([^>]*?)>",
                     "end": "</script>",
                     "name": "meta.block.html.script.tiddlywiki5",
@@ -4081,8 +4082,7 @@
                     "4": { "name": "punctuation.definition.tag.end.tiddlywiki5" }
                     },
                     "patterns": [{ "include": "#htmlAttributesAndText" }]
-                },
-				{"include": "#htmlwidgets"}
+                }				
             ]
         },
         "inline": {
@@ -4219,6 +4219,7 @@
         },
         "htmlinline": {
             "patterns": [
+				{"include": "#htmlwidgets"},
                 {
                     "begin": "(\\<)((\\$)(?!:\\/)([a-zA-Z0-9\\-]+))",
                     "end": "(\\/>)|(<\\/)((\\$)(?!:\\/)\\4)(>)",
@@ -4236,7 +4237,8 @@
                     "5": { "name": "punctuation.definition.tag.end.tiddlywiki5" }
                     },
                     "patterns": [{ "include": "#htmlAttributesAndText" }]
-                },{
+                },
+				{
                     "begin": "(\\<)([a-zA-Z0-9\\-]+)",
                     "end": "(\\/>)|(<\\/)(\\2)(>)",
                     "name": "meta.html.inline.element.tw-$2.tiddlywiki5",
@@ -4268,8 +4270,7 @@
                     },
                     "patterns": [{ "include": "#htmlAttributesAndText" }],
                     "unmatchedContentName": "invalid.illegal.html.tiddlywiki5"
-                },
-				{"include": "#htmlwidgets"}
+                }
             ]
           },
         "styleinline": {
@@ -4851,7 +4852,7 @@
             {
               "begin": "\"\"\"",
               "end": "\"\"\"",
-              "name": "string.triple.quoted.tiddlywiki5",
+              "name": "string.quoted.triple.html.tiddlywiki5",
               "beginCaptures": {
                 "0": { "name": "punctuation.definition.string.triple.begin.tiddlywiki5" }
               },
@@ -4862,7 +4863,7 @@
             {
               "begin": "\"",
               "end": "\"",
-              "name": "string.double.quoted.tiddlywiki5",
+              "name": "string.quoted.double.html.tiddlywiki5",
               "beginCaptures": {
                 "0": { "name": "punctuation.definition.string.double.begin.tiddlywiki5" }
               },
@@ -4873,7 +4874,7 @@
             {
               "begin": "'",
               "end": "'",
-              "name": "string.single.quoted.tiddlywiki5",
+              "name": "string.quoted.single.html.tiddlywiki5",
               "beginCaptures": {
                 "0": { "name": "punctuation.definition.string.single.begin.tiddlywiki5" }
               },
@@ -4884,7 +4885,7 @@
             {
               "begin": "\\[\\[",
               "end": "\\]\\]",
-              "name": "string.parens.square.quoted.tiddlywiki5",
+              "name": "string.quoted.parens.square.html.tiddlywiki5",
               "beginCaptures": {
                 "0": {
                   "name": "punctuation.definition.string.parens.square.begin.tiddlywiki5"
@@ -4896,7 +4897,7 @@
                 }
               }
             },
-            { "match": "\\S+", "name": "string.unquoted.tiddlywiki5" }
+            { "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
           ]
         }
       }
