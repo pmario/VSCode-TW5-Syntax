@@ -155,12 +155,11 @@ $$$
 
 		<svg> </svg>
 
-		<$widget attribute="value" a={{b}} a=<<c>> > content </$widget>
 
 		inline
 		<unrecognized with-an-attribute="value" another={{transcluded!!value}}/>
 		<unrecognized with-an-attribute="value" another={{transcluded!!value}}/>
-		test <unrecognized></unrecognized> test
+		test <unrecognized>TEST</unrecognized> test
 		<self-close-custom/>
 		<my-custom-tag with-an-attribute="value" another={{transcluded!!value}}> </my-custom-tag>
 
@@ -169,6 +168,10 @@ $$$
 		<a href={{transcluded!!value}}>test</a>
 
 		<a href={{transcluded!!value}}>test</a>
+
+		<$transclude tiddler="test" a={{b}} a=<<c>> />
+
+		<$widget attribute="value" a={{b}} a=<<c>> > content </$widget>
 
 		<% IF %>
 
