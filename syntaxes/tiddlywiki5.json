@@ -1789,39 +1789,19 @@
 		"htmlwidget-tags-valid": {
 		"patterns": [
 			{
-				"begin": "(<)((\\$)(?!:\\/)([a-zA-Z0-9\\-]+))(?=\\s|/?>)",
+				"begin": "(</?)((\\$)(?!:\\/)([a-zA-Z0-9\\-]+))(?=\\s|/?>)",
 				"beginCaptures": {
 					"1": { "name": "punctuation.definition.tag.begin.html.tiddlywiki5" },
-					"2": { "name": "entity.name.tag.tiddlywiki5" },
+					"2": { "name": "entity.name.tag.widget.tiddlywiki5" },
 					"3": { "name": "punctuation.definition.tag.widget.tiddlywiki5" }
 				},
-				"end": ">",
+				"end": "/?>",
 				"endCaptures": {
 					"0": {
 					"name": "punctuation.definition.tag.end.html.tiddlywiki5"
 					}
 				},
-				"name": "meta.widget.inline.$4.start.html.tiddlywiki5",
-				"patterns": [
-					{
-					"include": "#htmlwidget-attribute"
-					}
-				]
-			},
-			{
-				"begin": "(</)((\\$)(?!:\\/)([a-zA-Z0-9\\-]+))(?=\\s|/?>)",
-				"beginCaptures": {
-					"1": { "name": "punctuation.definition.tag.begin.html.tiddlywiki5" },
-					"2": { "name": "entity.name.tag.tiddlywiki5" },
-					"3": { "name": "punctuation.definition.tag.widget.tiddlywiki5" }
-				},
-				"end": ">",
-				"endCaptures": {
-					"0": {
-					"name": "punctuation.definition.tag.end.html.tiddlywiki5"
-					}
-				},
-				"name": "meta.widget.inline.$4.end.html.tiddlywiki5",
+				"name": "meta.widget.metadata.$4.start.html.tiddlywiki5",
 				"patterns": [
 					{
 					"include": "#htmlwidget-attribute"
@@ -2700,27 +2680,27 @@
 			},
 			{
 				"begin": "(<)(\\w[^\\s>]*)(?=\\s*\\/>)",
-				"end": "(\\/>)",
+				"end": "\\/>",
 				"name": "meta.tag.other.unrecognized.html.tiddlywiki5",
 				"beginCaptures": {
 				  "1": { "name": "punctuation.definition.tag.begin.html.tiddlywiki5" },
 				  "2": { "name": "entity.name.tag.html.tiddlywiki5" }
 				},
 				"endCaptures": {
-				  "1": { "name": "punctuation.definition.tag.end.html.tiddlywiki5" }
+				  "0": { "name": "punctuation.definition.tag.end.html.tiddlywiki5" }
 				},
 				"patterns": [{ "include": "#htmlwidget-attribute" }]
 			},
 			{
 				"begin": "(<\\/?)(\\w[^\\s>]*)(?<!\\/)(?=\\s|>)",
-				"end": "((?: ?/)?>)",
+				"end": "(?: ?/)?>",
 				"name": "meta.tag.other.unrecognized.html.tiddlywiki5",
 				"beginCaptures": {
 				  "1": { "name": "punctuation.definition.tag.begin.html.tiddlywiki5" },
 				  "2": { "name": "entity.name.tag.html.tiddlywiki5" }
 				},
 				"endCaptures": {
-				  "1": { "name": "punctuation.definition.tag.end.html.tiddlywiki5" }
+				  "0": { "name": "punctuation.definition.tag.end.html.tiddlywiki5" }
 				},
 				"patterns": [{ "include": "#htmlwidget-attribute" }]
 			}
@@ -4054,7 +4034,7 @@
         }, 
         "inline": {
           "patterns": [
-            { "include": "#htmlwidgets" },
+            { "include": "#htmlwidgets"},
             { "include": "#emphasis" },
             { "include": "#codeinline" },
             { "include": "#styleinline" },
@@ -4183,29 +4163,6 @@
             }
           ]
         },
-        "htmlinline": {
-            "patterns": [
-				{"include": "#htmlwidgets"},
-                {
-                    "begin": "(\\<)((\\$)(?!:\\/)([a-zA-Z0-9\\-]+))",
-                    "end": "(\\/>)|(<\\/)((\\$)(?!:\\/)\\4)(>)",
-                    "name": "meta.html.inline.widget.tw-$4.tiddlywiki5",
-                    "beginCaptures": {
-                    "1": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
-                    "2": { "name": "entity.name.tag.tiddlywiki5" },
-                    "3": { "name": "punctuation.definition.tag.widget.tiddlywiki5" }
-                    },
-                    "endCaptures": {
-                    "1": { "name": "punctuation.definition.tag.end.tiddlywiki5" },
-                    "2": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
-                    "3": { "name": "entity.name.tag.tiddlywiki5" },
-                    "4": { "name": "punctuation.definition.tag.widget.tiddlywiki5" },
-                    "5": { "name": "punctuation.definition.tag.end.tiddlywiki5" }
-                    },
-                    "patterns": [{ "include": "#htmlAttributesAndText" }]
-                }
-            ]
-          },
         "styleinline": {
           "begin": "(@@)((?:[^\\s]+?\\:.+?;)+)?((?:\\.[^\\s\\.]+)+)?",
           "end": "(@@)",

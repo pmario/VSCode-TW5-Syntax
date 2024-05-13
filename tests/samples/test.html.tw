@@ -62,13 +62,13 @@ TEST TEXT BLOCK <$transclude tiddler="test"/>
 {{transclusion}}
 [[wiki-link]]
 
-<image attr=<<test>>></image>
+<img attr=<<test>>></image>
 
-<image attr=<<test>>/>
+<img attr=<<test>>/>
 
-<image href=`$(currentTiddler)$ substituted ${[{!!modified}format:date[DDth MMM YYYY]]}$`/>
+<img href=`$(currentTiddler)$ substituted ${[{!!modified}format:date[DDth MMM YYYY]]}$`/>
 
-<image href=```some "$(currentTiddler)$" substituted ${[{!!modified}format:date[DDth MMM YYYY]]}$ text```/>
+<img href=```some "$(currentTiddler)$" substituted ${[{!!modified}format:date[DDth MMM YYYY]]}$ text```/>
 
 <a href=value>test</a>
 
@@ -154,6 +154,8 @@ $$$
 		<a href="value">test</a>
 
 		<svg> </svg>
+		<img> </img>
+		<img/>
 
 
 		inline
@@ -168,6 +170,10 @@ $$$
 		<a href={{transcluded!!value}}>test</a>
 
 		<a href={{transcluded!!value}}>test</a>
+
+		<button onclick='some.javascript("here");'>BUTTON</button>
+
+		<script source={{b}} source=<<c>>> some.javascript("here");</script>
 
 		<$transclude tiddler="test" a={{b}} a=<<c>> />
 
