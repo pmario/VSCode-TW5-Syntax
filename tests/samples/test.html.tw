@@ -66,6 +66,10 @@ TEST TEXT BLOCK <$transclude tiddler="test"/>
 
 <image attr=<<test>>/>
 
+<image href=`$(currentTiddler)$ substituted ${[{!!modified}format:date[DDth MMM YYYY]]}$`/>
+
+<image href=```some "$(currentTiddler)$" substituted ${[{!!modified}format:date[DDth MMM YYYY]]}$ text```/>
+
 <a href=value>test</a>
 
 <a href='value'>test</a>
@@ -80,11 +84,11 @@ TEST TEXT BLOCK <$transclude tiddler="test"/>
 
 <a href={{{ [<currentTiddler>addprefix[$:/myprefix/]] }}}>test</a>
 
-<a href=`value`>test</a>
+<a href=`$(currentTiddler)$ substituted ${[{!!modified}format:date[DDth MMM YYYY]]}$`>test</a>
 
-<a href=```value```>test</a>
+<a href=```$(currentTiddler)$ substituted ${[{!!modified}format:date[DDth MMM YYYY]]}$```>test</a>
 
-<a href=<<value param>>>test</a
+<a href=<<value param>>>test</a>
 
 $$$.html
 

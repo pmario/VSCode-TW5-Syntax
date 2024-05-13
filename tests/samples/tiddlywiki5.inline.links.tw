@@ -84,16 +84,10 @@
 
   <!-- Multiline Imageblock (is not yet supported)
   
-  [img
-width = """
-  50
-"""
-height = "
-  50
-"
-source = '
-  URI
-'
+  [img 
+width = """50"""
+height = "50"
+source = 'URI'
 alt = {{tiddler!!field}}
 class = <<myMacro
   arg1 : """

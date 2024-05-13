@@ -9,7 +9,7 @@
     "fileTypes": ["tw", "tw5", "tiddlywiki5"],
     "firstLineMatch": "<!--\\s*tiddlywiki5\\s*-->",
 	"injections": {
-		"L:meta.variable.macro.body.tiddlywiki5": {
+		"L:meta.variable.macro.body.tiddlywiki5, text.substituted.attribute.html.tiddlywiki5": {
 			"comment": "Text replacement in macro body (and other?) contexts.",
 			"patterns": [
 			{
@@ -63,10 +63,6 @@
 				{ "include": "#htmlwidget-entities" }
             ]
         },
-		"old_attribute": {
-			"patterns": [
-			]
-		},
 		"htmlwidget-attribute": {
 			"patterns": [
 			  {
@@ -178,7 +174,7 @@
 				]
 			  },
 			  {
-				"begin": "(on)(s(croll|t(orage|alled)|u(spend|bmit)|e(curitypolicyviolation|ek(ing|ed)|lect))|hashchange|c(hange|o(ntextmenu|py)|u(t|echange)|l(ick|ose)|an(cel|play(through)?))|t(imeupdate|oggle)|in(put|valid)|o(nline|ffline)|d(urationchange|r(op|ag(start|over|e(n(ter|d)|xit)|leave)?)|blclick)|un(handledrejection|load)|p(opstate|lay(ing)?|a(ste|use|ge(show|hide))|rogress)|e(nded|rror|mptied)|volumechange|key(down|up|press)|focus|w(heel|aiting)|l(oad(start|e(nd|d(data|metadata)))?|anguagechange)|a(uxclick|fterprint|bort)|r(e(s(ize|et)|jectionhandled)|atechange)|m(ouse(o(ut|ver)|down|up|enter|leave|move)|essage(error)?)|b(efore(unload|print)|lur))(?![\\w:-])",
+				"begin": "on(s(croll|t(orage|alled)|u(spend|bmit)|e(curitypolicyviolation|ek(ing|ed)|lect))|hashchange|c(hange|o(ntextmenu|py)|u(t|echange)|l(ick|ose)|an(cel|play(through)?))|t(imeupdate|oggle)|in(put|valid)|o(nline|ffline)|d(urationchange|r(op|ag(start|over|e(n(ter|d)|xit)|leave)?)|blclick)|un(handledrejection|load)|p(opstate|lay(ing)?|a(ste|use|ge(show|hide))|rogress)|e(nded|rror|mptied)|volumechange|key(down|up|press)|focus|w(heel|aiting)|l(oad(start|e(nd|d(data|metadata)))?|anguagechange)|a(uxclick|fterprint|bort)|r(e(s(ize|et)|jectionhandled)|atechange)|m(ouse(o(ut|ver)|down|up|enter|leave|move)|essage(error)?)|b(efore(unload|print)|lur))(?![\\w:-])",
 				"beginCaptures": {
 				  "0": {
 					"name": "invalid.illegal.event-handler-in-wikitext.html.tiddlywiki5"
@@ -418,10 +414,11 @@
 					},
 					{
 						"begin": "(?=<<[^>\\s]+)",
-						"end": "(?<=>{2,3})",
+						"end": "(?<=>{2})(?=(\\s|/?>|$))",
 						"contentName": "variable.macro.attribute.html.tiddlywiki5",
 						"patterns": [{ "include": "#macrocallinline" }]
 					},
+
 					{
 						"begin": "(?=\\{\\{)",
 						"end": "(?<=\\}\\})",
@@ -438,44 +435,39 @@
 							}
 						  }
 						]
-					  },		
+					},
+
 					{
-						"begin": "```",
-						"beginCaptures": {
-						  "0": {
-							"name": "punctuation.definition.string.begin.html.tiddlywiki5"
-						  }
-						},
-						"end": "```",
-						"endCaptures": {
-						  "0": {
-							"name": "punctuation.definition.string.end.html.tiddlywiki5"
-						  }
-						},
-						"name": "string.quoted.substituted.attribute.html.tiddlywiki5",
+						"begin": "(?=```)",
+						"end": "(?<=```)",
+						"contentName": "text.substituted.attribute.html.tiddlywiki5",
 						"patterns": [
 						  {
-							"include": "#entities"
+							"match": "(```)(.*?)(```)",
+							"captures": {
+							  "1": {
+								"name": "punctuation.definition.substituted.attribute.begin.tiddlywiki5"
+							  },
+							  "2": { "patterns": [{ "include": "#entities" }] },
+							  "3": { "name": "punctuation.definition.substituted.attribute.end.tiddlywiki5" }
+							}
 						  }
 						]
 					},
 					{
-						"begin": "`",
-						"beginCaptures": {
-						  "0": {
-							"name": "punctuation.definition.string.begin.html.tiddlywiki5"
-						  }
-						},
-						"end": "`",
-						"endCaptures": {
-						  "0": {
-							"name": "punctuation.definition.string.end.html.tiddlywiki5"
-						  }
-						},
-						"name": "string.quoted.substituted.attribute.html.tiddlywiki5",
+						"begin": "(?=`{1})",
+						"end": "(?<=`{1})",
+						"contentName": "text.substituted.attribute.html.tiddlywiki5",
 						"patterns": [
 						  {
-							"include": "#entities"
+							"match": "(`{1})(.*?)(`{1})",
+							"captures": {
+							  "1": {
+								"name": "punctuation.definition.substituted.attribute.begin.tiddlywiki5"
+							  },
+							  "2": { "patterns": [{ "include": "#entities" }] },
+							  "3": { "name": "punctuation.definition.substituted.attribute.end.tiddlywiki5" }
+							}
 						  }
 						]
 					},
@@ -4508,7 +4500,7 @@
                     "beginCaptures": {
                         "0" : { 
                             "name": "list.attribute.image.tiddlywiki5",
-                            "patterns": [ { "include": "#old_attribute" } ]
+                            "patterns": [ { "include": "#htmlwidget-attribute" } ]
                         }
                     },
                     "endCaptures": {
