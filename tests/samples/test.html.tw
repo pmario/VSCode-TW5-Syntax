@@ -1,4 +1,25 @@
+
+<html lang=en>
+
+<html lang='en'>
+
+<html lang="""en""">
+
 <html lang="en">
+
+<html lang=[[en]]>
+
+<html lang={{HTML!!lang}}>
+
+<html lang=<<en param>>>
+
+<html lang={{{ [<currentTiddler>addprefix[en]] }}}>
+
+<html lang=```en```>
+
+<html lang=`en`>
+
+
 
 <head>
 
@@ -41,7 +62,29 @@ TEST TEXT BLOCK <$transclude tiddler="test"/>
 {{transclusion}}
 [[wiki-link]]
 
+<image attr=<<test>>></image>
+
+<image attr=<<test>>/>
+
+<a href=value>test</a>
+
+<a href='value'>test</a>
+
 <a href="value">test</a>
+
+<a href="""value""">test</a>
+
+<a href=[[value]]>test</a>
+
+<a href={{value}}>test</a>
+
+<a href={{{ [<currentTiddler>addprefix[$:/myprefix/]] }}}>test</a>
+
+<a href=`value`>test</a>
+
+<a href=```value```>test</a>
+
+<a href=<<value param>>>test</a
 
 $$$.html
 
@@ -58,15 +101,17 @@ $$$
 
 <a href={{transcluded!!value}}>test</a>
 
-	<a href={{transcluded!!value}}>test</a>
+<a href={{transcluded!!value}}>test</a>
+
+<button onclick="myFunction()">Click me</button>
 
 <unrecognized with-an-attribute="value" another={{transcluded!!value}}/>
 
 <unrecognized with-an-attribute="value" another={{transcluded!!value}}> test <unrecognized/>
 
-<custom-tag with-an-attribute="value" another={{transcluded!!value}}/>
+<my-custom-tag with-an-attribute="value" another={{transcluded!!value}}/>
 
-<custom-tag with-an-attribute="value" another={{transcluded!!value}}> test <unrecognized/>
+<my-custom-tag with-an-attribute="value" another={{transcluded!!value}}> test <my-custom-tag/>
 
 
 	<div id="mocha"></div>
@@ -110,10 +155,10 @@ $$$
 
 		inline
 		<unrecognized with-an-attribute="value" another={{transcluded!!value}}/>
-<unrecognized with-an-attribute="value" another={{transcluded!!value}}/>
+		<unrecognized with-an-attribute="value" another={{transcluded!!value}}/>
 		test <unrecognized></unrecognized> test
 		<self-close-custom/>
-		<my-tag> </my-tag>
+		<my-custom-tag with-an-attribute="value" another={{transcluded!!value}}> </my-custom-tag>
 
 		{{{ [[fitered transclude]] }}}
 

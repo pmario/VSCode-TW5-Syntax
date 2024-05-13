@@ -197,7 +197,7 @@
 			]
 		},
 		{
-			"include": "#entity"
+			"include": ""
 		},
 		{
 			"include": "#bare-ampersand"

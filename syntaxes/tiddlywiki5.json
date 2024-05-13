@@ -45,7 +45,7 @@
 		"R:text.html - (comment.block, text.html meta.embedded, meta.tag.*.*.html, meta.tag.*.*.*.html, meta.tag.*.*.*.*.html)": {
 				"comment": "Uses R: to ensure this matches after any other injections.",
 				"patterns": [
-					{ "match": "<", "name": "invalid.illegal.bad-angle-bracket.html.tiddlywiki5" }
+					{ "match": "<{1}", "name": "invalid.illegal.bad-angle-bracket.html.tiddlywiki5" }
 				]
 		}
 	},
@@ -55,94 +55,19 @@
     "repository": {
         "htmlwidgets": {
             "patterns": [
-				{ "include": "#htmlwidgets-xml-processing" },
-				{ "include": "#htmlwidgets-comment" },
-				{ "include": "#htmlwidgets-doctype" },
-				{ "include": "#htmlwidgets-cdata" },
-				{ "include": "#htmlwidgets-tags-valid" },
-				{ "include": "#htmlwidgets-entities" }
+				{ "include": "#htmlwidget-xml-processing" },
+				{ "include": "#htmlwidget-comment" },
+				{ "include": "#htmlwidget-doctype" },
+				{ "include": "#htmlwidget-cdata" },
+				{ "include": "#htmlwidget-tags-valid" },
+				{ "include": "#htmlwidget-entities" }
             ]
         },
 		"old_attribute": {
 			"patterns": [
-			  {
-				"begin": "([^\\s\\/>\"'=]+)\\s*(=)\\s*(?=\"\"\")",
-				"end": "(?<=\"\"\")",
-				"name": "meta.attribute.tw-$1.tiddlywiki5",
-				"contentName": "direct.entity.attribute-value.tiddlywiki5",
-				"captures": {
-				  "1": { "name": "entity.other.attribute-name.tiddlywiki5" },
-				  "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
-				},
-				"patterns": [{ "include": "#string" }]
-			  },
-			  {
-				"begin": "([^\\s\\/>\"'=]+)\\s*(=)\\s*(?=\")",
-				"end": "(?<=\")",
-				"name": "meta.attribute.tw-$1.tiddlywiki5",
-				"contentName": "direct.entity.attribute-value.tiddlywiki5",
-				"captures": {
-				  "1": { "name": "entity.other.attribute-name.tiddlywiki5" },
-				  "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
-				},
-				"patterns": [{ "include": "#string" }]
-			  },
-			  {
-				"begin": "([^\\s\\/>\"'=]+)\\s*(=)\\s*(?=')",
-				"end": "(?<=')",
-				"name": "meta.attribute.tw-$1.tiddlywiki5",
-				"contentName": "direct.entity.attribute-value.tiddlywiki5",
-				"captures": {
-				  "1": { "name": "entity.other.attribute-name.tiddlywiki5" },
-				  "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
-				},
-				"patterns": [{ "include": "#string" }]
-			  },
-			  {
-				"begin": "([^\\s\\/>\"'=]+)\\s*(=)\\s*(?=<<[^>\\s]+)",
-				"end": "(?<=>>)",
-				"name": "meta.attribute.tw-$1.tiddlywiki5",
-				"contentName": "variable.macro.entity.attribute-value.tiddlywiki5",
-				"captures": {
-				  "1": { "name": "entity.other.attribute-name.tiddlywiki5" },
-				  "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
-				},
-				"patterns": [{ "include": "#macrocallinline" }]
-			  },
-			  {
-				"begin": "([^\\s\\/>\"'=]+)\\s*(=)\\s*(?=\\{\\{)",
-				"end": "(?<=\\}\\})",
-				"name": "meta.attribute.tw-$1.tiddlywiki5",
-				"contentName": "indirect.entity.attribute-value.tiddlywiki5",
-				"captures": {
-				  "1": { "name": "entity.other.attribute-name.tiddlywiki5" },
-				  "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
-				},
-				"patterns": [
-				  {
-					"match": "(\\{\\{)(.*?)(\\}\\})",
-					"captures": {
-					  "1": {
-						"name": "punctuation.definition.text-reference.begin.tiddlywiki5"
-					  },
-					  "2": { "patterns": [{ "include": "#textReference" }] },
-					  "3": { "name": "punctuation.definition.text-reference.end.tiddlywiki5" }
-					}
-				  }
-				]
-			  },
-			  {
-				"match": "([^\\s\\/>\"'=]+)(?:\\s*(=)\\s*([^\\s\\/<>\"'=]+))?",
-				"name": "meta.attribute.tw-$1.tiddlywiki5",
-				"captures": {
-				  "1": { "name": "entity.other.attribute-name.tiddlywiki5" },
-				  "2": { "name": "keyword.operator.assignment.tiddlywiki5" },
-				  "3": { "patterns": [{ "include": "#string" }] }
-				}
-			  }
 			]
 		},
-		"htmlwidgets-attribute": {
+		"htmlwidget-attribute": {
 			"patterns": [
 			  {
 				"begin": "(s(hape|cope|t(ep|art)|ize(s)?|p(ellcheck|an)|elected|lot|andbox|rc(set|doc|lang)?)|h(ttp-equiv|i(dden|gh)|e(ight|aders)|ref(lang)?)|n(o(nce|validate|module)|ame)|c(h(ecked|arset)|ite|o(nt(ent(editable)?|rols)|ords|l(s(pan)?|or))|lass|rossorigin)|t(ype(mustmatch)?|itle|a(rget|bindex)|ranslate)|i(s(map)?|n(tegrity|putmode)|tem(scope|type|id|prop|ref)|d)|op(timum|en)|d(i(sabled|r(name)?)|ownload|e(coding|f(er|ault))|at(etime|a)|raggable)|usemap|p(ing|oster|la(ysinline|ceholder)|attern|reload)|enctype|value|kind|for(m(novalidate|target|enctype|action|method)?)?|w(idth|rap)|l(ist|o(op|w)|a(ng|bel))|a(s(ync)?|c(ce(sskey|pt(-charset)?)|tion)|uto(c(omplete|apitalize)|play|focus)|l(t|low(usermedia|paymentrequest|fullscreen))|bbr)|r(ows(pan)?|e(versed|quired|ferrerpolicy|l|adonly))|m(in(length)?|u(ted|ltiple)|e(thod|dia)|a(nifest|x(length)?)))(?![\\w:-])",
@@ -156,7 +81,7 @@
 				"name": "meta.attribute.$1.html.tiddlywiki5",
 				"patterns": [
 				  {
-					"include": "#htmlwidgets-attribute-interior"
+					"include": "#htmlwidget-attribute-interior"
 				  }
 				]
 			  },
@@ -192,7 +117,7 @@
 							  }
 							},
 							"match": "([^\\s\"'=<>`/]|/(?!>))+",
-							"name": "string.unquoted.html.tiddlywiki5"
+							"name": "string.unquoted.attribute.html.tiddlywiki5"
 						  },
 						  {
 							"begin": "\"",
@@ -214,7 +139,7 @@
 							"name": "string.quoted.double.html.tiddlywiki5",
 							"patterns": [
 							  {
-								"include": "#entities"
+								"include": "#htmlwidget-entities"
 							  }
 							]
 						  },
@@ -238,7 +163,7 @@
 							"name": "string.quoted.single.html.tiddlywiki5",
 							"patterns": [
 							  {
-								"include": "#entities"
+								"include": "#htmlwidget-entities"
 							  }
 							]
 						  }
@@ -253,9 +178,12 @@
 				]
 			  },
 			  {
-				"begin": "on(s(croll|t(orage|alled)|u(spend|bmit)|e(curitypolicyviolation|ek(ing|ed)|lect))|hashchange|c(hange|o(ntextmenu|py)|u(t|echange)|l(ick|ose)|an(cel|play(through)?))|t(imeupdate|oggle)|in(put|valid)|o(nline|ffline)|d(urationchange|r(op|ag(start|over|e(n(ter|d)|xit)|leave)?)|blclick)|un(handledrejection|load)|p(opstate|lay(ing)?|a(ste|use|ge(show|hide))|rogress)|e(nded|rror|mptied)|volumechange|key(down|up|press)|focus|w(heel|aiting)|l(oad(start|e(nd|d(data|metadata)))?|anguagechange)|a(uxclick|fterprint|bort)|r(e(s(ize|et)|jectionhandled)|atechange)|m(ouse(o(ut|ver)|down|up|enter|leave|move)|essage(error)?)|b(efore(unload|print)|lur))(?![\\w:-])",
+				"begin": "(on)(s(croll|t(orage|alled)|u(spend|bmit)|e(curitypolicyviolation|ek(ing|ed)|lect))|hashchange|c(hange|o(ntextmenu|py)|u(t|echange)|l(ick|ose)|an(cel|play(through)?))|t(imeupdate|oggle)|in(put|valid)|o(nline|ffline)|d(urationchange|r(op|ag(start|over|e(n(ter|d)|xit)|leave)?)|blclick)|un(handledrejection|load)|p(opstate|lay(ing)?|a(ste|use|ge(show|hide))|rogress)|e(nded|rror|mptied)|volumechange|key(down|up|press)|focus|w(heel|aiting)|l(oad(start|e(nd|d(data|metadata)))?|anguagechange)|a(uxclick|fterprint|bort)|r(e(s(ize|et)|jectionhandled)|atechange)|m(ouse(o(ut|ver)|down|up|enter|leave|move)|essage(error)?)|b(efore(unload|print)|lur))(?![\\w:-])",
 				"beginCaptures": {
 				  "0": {
+					"name": "invalid.illegal.event-handler-in-wikitext.html.tiddlywiki5"
+				  },
+				  "1": {
 					"name": "entity.other.attribute-name.html.tiddlywiki5"
 				  }
 				},
@@ -431,7 +359,7 @@
 				"name": "meta.attribute.data-x.$1.html.tiddlywiki5",
 				"patterns": [
 				  {
-					"include": "#htmlwidgets-attribute-interior"
+					"include": "#htmlwidget-attribute-interior"
 				  }
 				]
 			  },
@@ -447,7 +375,7 @@
 				"name": "meta.attribute.$1.html.tiddlywiki5",
 				"patterns": [
 				  {
-					"include": "#htmlwidgets-attribute-interior"
+					"include": "#htmlwidget-attribute-interior"
 				  }
 				]
 			  },
@@ -463,7 +391,7 @@
 				"name": "meta.attribute.unrecognized.$1.html.tiddlywiki5",
 				"patterns": [
 				  {
-					"include": "#htmlwidgets-attribute-interior"
+					"include": "#htmlwidget-attribute-interior"
 				  }
 				]
 			  },
@@ -473,7 +401,7 @@
 			  }
 			]
 		},
-		"htmlwidgets-attribute-interior": {
+		"htmlwidget-attribute-interior": {
 			"patterns": [
 			  {
 				"begin": "=",
@@ -484,59 +412,83 @@
 				},
 				"end": "(?<=[^\\s=])(?!\\s*=)|(?=/?>)",
 				"patterns": [
-				  {
-					"match": "([^\\s\"'=<>`/]|/(?!>))+",
-					"name": "string.unquoted.html.tiddlywiki5"
-				  },
-				  {
-					"begin": "\"",
-					"beginCaptures": {
-					  "0": {
-						"name": "punctuation.definition.string.begin.html.tiddlywiki5"
-					  }
+					{
+						"match": "([^\\s\"'=<>`/\\[\\]\\{\\}]|/(?!>))+",
+						"name": "string.unquoted.attribute.html.tiddlywiki5"
 					},
-					"end": "\"",
-					"endCaptures": {
-					  "0": {
-						"name": "punctuation.definition.string.end.html.tiddlywiki5"
-					  }
+					{
+						"begin": "(?=<<[^>\\s]+)",
+						"end": "(?<=>{2,3})",
+						"contentName": "variable.macro.attribute.html.tiddlywiki5",
+						"patterns": [{ "include": "#macrocallinline" }]
 					},
-					"name": "string.quoted.double.html.tiddlywiki5",
-					"patterns": [
-					  {
-						"include": "#entities"
-					  }
-					]
-				  },
-				  {
-					"begin": "'",
-					"beginCaptures": {
-					  "0": {
-						"name": "punctuation.definition.string.begin.html.tiddlywiki5"
-					  }
+					{
+						"begin": "(?=\\{\\{)",
+						"end": "(?<=\\}\\})",
+						"contentName": "indirect.attribute.html.tiddlywiki5",
+						"patterns": [
+						  {
+							"match": "(\\{\\{)(.*?)(\\}\\})",
+							"captures": {
+							  "1": {
+								"name": "punctuation.definition.text-reference.begin.tiddlywiki5"
+							  },
+							  "2": { "patterns": [{ "include": "#textReference" }] },
+							  "3": { "name": "punctuation.definition.text-reference.end.tiddlywiki5" }
+							}
+						  }
+						]
+					  },		
+					{
+						"begin": "```",
+						"beginCaptures": {
+						  "0": {
+							"name": "punctuation.definition.string.begin.html.tiddlywiki5"
+						  }
+						},
+						"end": "```",
+						"endCaptures": {
+						  "0": {
+							"name": "punctuation.definition.string.end.html.tiddlywiki5"
+						  }
+						},
+						"name": "string.quoted.substituted.attribute.html.tiddlywiki5",
+						"patterns": [
+						  {
+							"include": "#entities"
+						  }
+						]
 					},
-					"end": "'",
-					"endCaptures": {
-					  "0": {
-						"name": "punctuation.definition.string.end.html.tiddlywiki5"
-					  }
+					{
+						"begin": "`",
+						"beginCaptures": {
+						  "0": {
+							"name": "punctuation.definition.string.begin.html.tiddlywiki5"
+						  }
+						},
+						"end": "`",
+						"endCaptures": {
+						  "0": {
+							"name": "punctuation.definition.string.end.html.tiddlywiki5"
+						  }
+						},
+						"name": "string.quoted.substituted.attribute.html.tiddlywiki5",
+						"patterns": [
+						  {
+							"include": "#entities"
+						  }
+						]
 					},
-					"name": "string.quoted.single.html.tiddlywiki5",
-					"patterns": [
-					  {
-						"include": "#entities"
-					  }
-					]
-				  },
-				  {
-					"match": "=",
-					"name": "invalid.illegal.unexpected-equals-sign.html.tiddlywiki5"
-				  }
+					{ "include": "#string" },
+					{
+						"match": "=",
+						"name": "invalid.illegal.unexpected-equals-sign.html.tiddlywiki5"
+					}
 				]
 			  }
 			]
 		},
-		"htmlwidgets-cdata": {
+		"htmlwidget-cdata": {
 			"begin": "<!\\[CDATA\\[",
 			"beginCaptures": {
 				"0": {
@@ -552,7 +504,7 @@
 			},
 			"name": "meta.tag.metadata.cdata.html.tiddlywiki5"
 		},
-		"htmlwidgets-comment": {
+		"htmlwidget-comment": {
 			"begin": "<!--",
 			"captures": {
 			  "0": {
@@ -576,7 +528,7 @@
 			  }
 			]
 		},
-		"htmlwidgets-doctype": {
+		"htmlwidget-doctype": {
 			"begin": "<!(?=(?i:DOCTYPE\\s))",
 			"beginCaptures": {
 			  "0": {
@@ -606,7 +558,7 @@
 			  }
 			]
 		},
-		"htmlwidgets-entities": {
+		"htmlwidget-entities": {
 			"patterns": [
 			  {
 				"captures": {
@@ -651,7 +603,7 @@
 			  }
 			]
 		},
-		"htmlwidgets-math": {
+		"htmlwidget-math": {
 			"patterns": [
 				{
 				"begin": "(?i)(<)(math)(?=\\s|/?>)(?:(([^\"'>]|\"[^\"]*\"|'[^']*')*)(>))?",
@@ -668,7 +620,7 @@
 					"3": {
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -704,7 +656,7 @@
 					"name": "meta.tag.structure.start.html.tiddlywiki5",
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -715,7 +667,7 @@
 				}
 			],
 			"repository": {
-				"htmlwidgets-attribute": {
+				"htmlwidget-attribute": {
 				"patterns": [
 					{
 					"begin": "(s(hift|ymmetric|cript(sizemultiplier|level|minsize)|t(ackalign|retchy)|ide|u(pscriptshift|bscriptshift)|e(parator(s)?|lection)|rc)|h(eight|ref)|n(otation|umalign)|c(haralign|olumn(spa(n|cing)|width|lines|align)|lose|rossout)|i(n(dent(shift(first|last)?|target|align(first|last)?)|fixlinebreakstyle)|d)|o(pen|verflow)|d(i(splay(style)?|r)|e(nomalign|cimalpoint|pth))|position|e(dge|qual(columns|rows))|voffset|f(orm|ence|rame(spacing)?)|width|l(space|ine(thickness|leading|break(style|multchar)?)|o(ngdivstyle|cation)|ength|quote|argeop)|a(c(cent(under)?|tiontype)|l(t(text|img(-(height|valign|width))?)|ign(mentscope)?))|r(space|ow(spa(n|cing)|lines|align)|quote)|groupalign|x(link:href|mlns)|m(in(size|labelspacing)|ovablelimits|a(th(size|color|variant|background)|xsize))|bevelled)(?![\\w:-])",
@@ -728,7 +680,7 @@
 					"name": "meta.attribute.$1.html.tiddlywiki5",
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute-interior"
+						"include": "#htmlwidget-attribute-interior"
 						}
 					]
 					},
@@ -744,7 +696,7 @@
 					"name": "meta.attribute.unrecognized.$1.html.tiddlywiki5",
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute-interior"
+						"include": "#htmlwidget-attribute-interior"
 						}
 					]
 					},
@@ -757,10 +709,10 @@
 				"tags": {
 				"patterns": [
 					{
-					"include": "#htmlwidgets-comment"
+					"include": "#htmlwidget-comment"
 					},
 					{
-					"include": "#htmlwidgets-cdata"
+					"include": "#htmlwidget-cdata"
 					},
 					{
 					"captures": {
@@ -776,7 +728,7 @@
 						"3": {
 						"patterns": [
 							{
-							"include": "#htmlwidgets-attribute"
+							"include": "#htmlwidget-attribute"
 							}
 						]
 						},
@@ -802,7 +754,7 @@
 						"3": {
 						"patterns": [
 							{
-							"include": "#htmlwidgets-attribute"
+							"include": "#htmlwidget-attribute"
 							}
 						]
 						},
@@ -841,7 +793,7 @@
 						"name": "meta.tag.structure.start.html.tiddlywiki5",
 						"patterns": [
 							{
-							"include": "#htmlwidgets-attribute"
+							"include": "#htmlwidget-attribute"
 							}
 						]
 						},
@@ -864,7 +816,7 @@
 						"3": {
 						"patterns": [
 							{
-							"include": "#htmlwidgets-attribute"
+							"include": "#htmlwidget-attribute"
 							}
 						]
 						},
@@ -890,7 +842,7 @@
 						"3": {
 						"patterns": [
 							{
-							"include": "#htmlwidgets-attribute"
+							"include": "#htmlwidget-attribute"
 							}
 						]
 						},
@@ -929,7 +881,7 @@
 						"name": "meta.tag.inline.start.html.tiddlywiki5",
 						"patterns": [
 							{
-							"include": "#htmlwidgets-attribute"
+							"include": "#htmlwidget-attribute"
 							}
 						]
 						},
@@ -952,7 +904,7 @@
 						"3": {
 						"patterns": [
 							{
-							"include": "#htmlwidgets-attribute"
+							"include": "#htmlwidget-attribute"
 							}
 						]
 						},
@@ -978,7 +930,7 @@
 						"3": {
 						"patterns": [
 							{
-							"include": "#htmlwidgets-attribute"
+							"include": "#htmlwidget-attribute"
 							}
 						]
 						},
@@ -1017,7 +969,7 @@
 						"name": "meta.tag.object.start.html.tiddlywiki5",
 						"patterns": [
 							{
-							"include": "#htmlwidgets-attribute"
+							"include": "#htmlwidget-attribute"
 							}
 						]
 						},
@@ -1043,7 +995,7 @@
 						"4": {
 						"patterns": [
 							{
-							"include": "#htmlwidgets-attribute"
+							"include": "#htmlwidget-attribute"
 							}
 						]
 						},
@@ -1072,7 +1024,7 @@
 						"4": {
 						"patterns": [
 							{
-							"include": "#htmlwidgets-attribute"
+							"include": "#htmlwidget-attribute"
 							}
 						]
 						},
@@ -1114,7 +1066,7 @@
 						"name": "meta.tag.other.invalid.start.html.tiddlywiki5",
 						"patterns": [
 							{
-							"include": "#htmlwidgets-attribute"
+							"include": "#htmlwidget-attribute"
 							}
 						]
 						},
@@ -1124,13 +1076,13 @@
 					]
 					},
 					{
-					"include": "#htmlwidgets-tags-invalid"
+					"include": "#htmlwidget-tags-invalid"
 					}
 				]
 				}
 			}
 		},
-		"htmlwidgets-svg": {
+		"htmlwidget-svg": {
 		"patterns": [
 			{
 			"begin": "(?i)(<)(svg)(?=\\s|/?>)(?:(([^\"'>]|\"[^\"]*\"|'[^']*')*)(>))?",
@@ -1147,7 +1099,7 @@
 				"3": {
 				"patterns": [
 					{
-					"include": "#htmlwidgets-attribute"
+					"include": "#htmlwidget-attribute"
 					}
 				]
 				},
@@ -1183,7 +1135,7 @@
 				"name": "meta.tag.structure.start.html.tiddlywiki5",
 				"patterns": [
 					{
-					"include": "#htmlwidgets-attribute"
+					"include": "#htmlwidget-attribute"
 					}
 				]
 				},
@@ -1194,7 +1146,7 @@
 			}
 		],
 		"repository": {
-			"htmlwidgets-attribute": {
+			"htmlwidget-attribute": {
 			"patterns": [
 				{
 				"begin": "(s(hape-rendering|ystemLanguage|cale|t(yle|itchTiles|op-(color|opacity)|dDeviation|em(h|v)|artOffset|r(i(ng|kethrough-(thickness|position))|oke(-(opacity|dash(offset|array)|width|line(cap|join)|miterlimit))?))|urfaceScale|p(e(cular(Constant|Exponent)|ed)|acing|readMethod)|eed|lope)|h(oriz-(origin-x|adv-x)|eight|anging|ref(lang)?)|y(1|2|ChannelSelector)?|n(umOctaves|ame)|c(y|o(ntentS(criptType|tyleType)|lor(-(interpolation(-filters)?|profile|rendering))?)|ursor|l(ip(-(path|rule)|PathUnits)?|ass)|a(p-height|lcMode)|x)|t(ype|o|ext(-(decoration|anchor|rendering)|Length)|a(rget(X|Y)?|b(index|leValues))|ransform)|i(n(tercept|2)?|d(eographic)?|mage-rendering)|z(oomAndPan)?|o(p(erator|acity)|ver(flow|line-(thickness|position))|ffset|r(i(ent(ation)?|gin)|der))|d(y|i(splay|visor|ffuseConstant|rection)|ominant-baseline|ur|e(scent|celerate)|x)?|u(1|n(i(code(-(range|bidi))?|ts-per-em)|derline-(thickness|position))|2)|p(ing|oint(s(At(X|Y|Z))?|er-events)|a(nose-1|t(h(Length)?|tern(ContentUnits|Transform|Units))|int-order)|r(imitiveUnits|eserveA(spectRatio|lpha)))|e(n(d|able-background)|dgeMode|levation|x(ternalResourcesRequired|ponent))|v(i(sibility|ew(Box|Target))|-(hanging|ideographic|alphabetic|mathematical)|e(ctor-effect|r(sion|t-(origin-(y|x)|adv-y)))|alues)|k(1|2|3|e(y(Splines|Times|Points)|rn(ing|el(Matrix|UnitLength)))|4)?|f(y|il(ter(Res|Units)?|l(-(opacity|rule))?)|o(nt-(s(t(yle|retch)|ize(-adjust)?)|variant|family|weight)|rmat)|lood-(color|opacity)|r(om)?|x)|w(idth(s)?|ord-spacing|riting-mode)|l(i(ghting-color|mitingConeAngle)|ocal|e(ngthAdjust|tter-spacing)|ang)|a(scent|cc(umulate|ent-height)|ttribute(Name|Type)|zimuth|dditive|utoReverse|l(ignment-baseline|phabetic|lowReorder)|rabic-form|mplitude)|r(y|otate|e(s(tart|ult)|ndering-intent|peat(Count|Dur)|quired(Extensions|Features)|f(X|Y|errerPolicy)|l)|adius|x)?|g(1|2|lyph(Ref|-(name|orientation-(horizontal|vertical)))|radient(Transform|Units))|x(1|2|ChannelSelector|-height|link:(show|href|t(ype|itle)|a(ctuate|rcrole)|role)|ml:(space|lang|base))?|m(in|ode|e(thod|dia)|a(sk(ContentUnits|Units)?|thematical|rker(Height|-(start|end|mid)|Units|Width)|x))|b(y|ias|egin|ase(Profile|line-shift|Frequency)|box))(?![\\w:-])",
@@ -1207,7 +1159,7 @@
 				"name": "meta.attribute.$1.html.tiddlywiki5",
 				"patterns": [
 					{
-					"include": "#htmlwidgets-attribute-interior"
+					"include": "#htmlwidget-attribute-interior"
 					}
 				]
 				},
@@ -1223,7 +1175,7 @@
 				"name": "meta.attribute.unrecognized.$1.html.tiddlywiki5",
 				"patterns": [
 					{
-					"include": "#htmlwidgets-attribute-interior"
+					"include": "#htmlwidget-attribute-interior"
 					}
 				]
 				},
@@ -1236,10 +1188,10 @@
 			"tags": {
 			"patterns": [
 				{
-				"include": "#htmlwidgets-comment"
+				"include": "#htmlwidget-comment"
 				},
 				{
-				"include": "#htmlwidgets-cdata"
+				"include": "#htmlwidget-cdata"
 				},
 				{
 				"captures": {
@@ -1255,7 +1207,7 @@
 					"3": {
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1281,7 +1233,7 @@
 					"3": {
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1320,7 +1272,7 @@
 					"name": "meta.tag.metadata.start.html.tiddlywiki5",
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1343,7 +1295,7 @@
 					"3": {
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1369,7 +1321,7 @@
 					"3": {
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1408,7 +1360,7 @@
 					"name": "meta.tag.structure.start.html.tiddlywiki5",
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1431,7 +1383,7 @@
 					"3": {
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1457,7 +1409,7 @@
 					"3": {
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1496,7 +1448,7 @@
 					"name": "meta.tag.inline.start.html.tiddlywiki5",
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1519,7 +1471,7 @@
 					"3": {
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1545,7 +1497,7 @@
 					"3": {
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1584,7 +1536,7 @@
 					"name": "meta.tag.object.start.html.tiddlywiki5",
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1610,7 +1562,7 @@
 					"4": {
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1639,7 +1591,7 @@
 					"4": {
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1681,7 +1633,7 @@
 					"name": "meta.tag.other.start.html.tiddlywiki5",
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1707,7 +1659,7 @@
 					"4": {
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1736,7 +1688,7 @@
 					"4": {
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1778,7 +1730,7 @@
 					"name": "meta.tag.other.invalid.start.html.tiddlywiki5",
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -1788,13 +1740,13 @@
 				]
 				},
 				{
-				"include": "#htmlwidgets-tags-invalid"
+				"include": "#htmlwidget-tags-invalid"
 				}
 			]
 			}
 		}
 		},
-		"htmlwidgets-tags-invalid": {
+		"htmlwidget-tags-invalid": {
 		"patterns": [
 			{
 			"begin": "(</?)((\\w[^\\s>]*))(?<!/)",
@@ -1818,13 +1770,13 @@
 			"name": "meta.tag.other.$2.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			}
 		]
 		},
-		"htmlwidgets-tags-valid": {
+		"htmlwidget-tags-valid": {
 		"patterns": [
 			{
 			"begin": "(^[ \\t]+)?(?=<(?i:style)\\b(?!-))",
@@ -1884,7 +1836,7 @@
 					"name": "meta.tag.metadata.style.start.html.tiddlywiki5",
 					"patterns": [
 						{
-						"include": "#htmlwidgets-attribute"
+						"include": "#htmlwidget-attribute"
 						}
 					]
 					},
@@ -2022,7 +1974,7 @@
 						"name": "meta.tag.metadata.script.start.html.tiddlywiki5",
 						"patterns": [
 							{
-							"include": "#htmlwidgets-attribute"
+							"include": "#htmlwidget-attribute"
 							}
 						]
 						},
@@ -2052,7 +2004,7 @@
 							"name": "meta.tag.metadata.script.start.html.tiddlywiki5",
 							"patterns": [
 								{
-								"include": "#htmlwidgets-attribute"
+								"include": "#htmlwidget-attribute"
 								}
 							]
 							},
@@ -2091,7 +2043,7 @@
 							"name": "meta.tag.metadata.script.start.html.tiddlywiki5",
 							"patterns": [
 								{
-								"include": "#htmlwidgets-attribute"
+								"include": "#htmlwidget-attribute"
 								}
 							]
 							},
@@ -2127,7 +2079,7 @@
 			"name": "meta.tag.metadata.$2.void.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2150,7 +2102,7 @@
 			"name": "meta.tag.metadata.$2.start.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2173,7 +2125,7 @@
 			"name": "meta.tag.metadata.$2.end.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2196,7 +2148,7 @@
 			"name": "meta.tag.structure.$2.void.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2219,7 +2171,7 @@
 			"name": "meta.tag.structure.$2.start.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2242,7 +2194,7 @@
 			"name": "meta.tag.structure.$2.end.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2265,7 +2217,7 @@
 			"name": "meta.tag.inline.$2.void.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2288,7 +2240,7 @@
 			"name": "meta.tag.inline.$2.start.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2311,7 +2263,7 @@
 			"name": "meta.tag.inline.$2.end.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2334,7 +2286,7 @@
 			"name": "meta.tag.object.$2.void.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2357,7 +2309,7 @@
 			"name": "meta.tag.object.$2.start.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2380,7 +2332,7 @@
 			"name": "meta.tag.object.$2.end.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2406,7 +2358,7 @@
 			"name": "meta.tag.metadata.$2.void.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2432,7 +2384,7 @@
 			"name": "meta.tag.structure.$2.start.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2458,7 +2410,7 @@
 			"name": "meta.tag.structure.$2.end.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2484,7 +2436,7 @@
 			"name": "meta.tag.inline.$2.start.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2510,7 +2462,7 @@
 			"name": "meta.tag.inline.$2.end.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2536,7 +2488,7 @@
 			"name": "meta.tag.object.$2.void.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2562,7 +2514,7 @@
 			"name": "meta.tag.object.$2.start.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2588,7 +2540,7 @@
 			"name": "meta.tag.object.$2.end.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2614,7 +2566,7 @@
 			"name": "meta.tag.other.$2.start.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2640,15 +2592,15 @@
 			"name": "meta.tag.other.$2.end.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
 			{
-			"include": "#htmlwidgets-math"
+			"include": "#htmlwidget-math"
 			},
 			{
-			"include": "#htmlwidgets-svg"
+			"include": "#htmlwidget-svg"
 			},
 			{
 			"begin": "(<)([a-zA-Z][.0-9_a-zA-Z\\x{00B7}\\x{00C0}-\\x{00D6}\\x{00D8}-\\x{00F6}\\x{00F8}-\\x{037D}\\x{037F}-\\x{1FFF}\\x{200C}-\\x{200D}\\x{203F}-\\x{2040}\\x{2070}-\\x{218F}\\x{2C00}-\\x{2FEF}\\x{3001}-\\x{D7FF}\\x{F900}-\\x{FDCF}\\x{FDF0}-\\x{FFFD}\\x{10000}-\\x{EFFFF}]*-[\\-.0-9_a-zA-Z\\x{00B7}\\x{00C0}-\\x{00D6}\\x{00D8}-\\x{00F6}\\x{00F8}-\\x{037D}\\x{037F}-\\x{1FFF}\\x{200C}-\\x{200D}\\x{203F}-\\x{2040}\\x{2070}-\\x{218F}\\x{2C00}-\\x{2FEF}\\x{3001}-\\x{D7FF}\\x{F900}-\\x{FDCF}\\x{FDF0}-\\x{FFFD}\\x{10000}-\\x{EFFFF}]*)(?=\\s|/?>)",
@@ -2669,7 +2621,7 @@
 			"name": "meta.tag.custom.start.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2692,7 +2644,7 @@
 			"name": "meta.tag.custom.end.html.tiddlywiki5",
 			"patterns": [
 				{
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 				}
 			]
 			},
@@ -2705,11 +2657,11 @@
 					"2": { "name": "entity.name.tag.html.tiddlywiki5" }
 				},
 				"endCaptures": { "1": { "name": "punctuation.definition.tag.end.html.tiddlywiki5" } },
-				"patterns": [{ "include": "#htmlwidgets-attribute" }]
+				"patterns": [{ "include": "#htmlwidget-attribute" }]
 			}
 		]
 		},
-		"htmlwidgets-xml-processing": {
+		"htmlwidget-xml-processing": {
 			"begin": "(<\\?)(xml)",
 			"captures": {
 			  "1": {
@@ -2723,7 +2675,7 @@
 			"name": "meta.tag.metadata.processing.xml.html.tiddlywiki5",
 			"patterns": [
 			  {
-				"include": "#htmlwidgets-attribute"
+				"include": "#htmlwidget-attribute"
 			  }
 			]
 		},
@@ -2745,23 +2697,6 @@
             { "include": "#macrodef" },
             { "include": "#rules" },
             { "include": "#whitespace" }
-          ]
-        },
-        "block": {
-          "patterns": [
-            { "include": "#typedblock" },
-            { "include": "#styleblock" },
-            { "include": "#blockquote" },
-            { "include": "#macrocallblock" },
-            { "include": "#filteredtranscludeblock" },
-            { "include": "#transcludeblock" },
-            { "include": "#conditional" },
-            { "include": "#table" },
-            { "include": "#list" },
-            { "include": "#heading" },
-            { "include": "#horizrule" },
-            { "include": "#codeblock" },
-            { "include": "#htmlblock" }
           ]
         },
         "import": {
@@ -2844,7 +2779,10 @@
                     "1": { "name": "variable.parameter.tiddlywiki5" },
                     "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
                   },
-                  "patterns": [{ "include": "#string" }]
+                  "patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+					]
                 },
                 {
                   "begin": "([\\w\\-]+)(?:\\s*(:)\\s*(?=\"))",
@@ -2855,7 +2793,10 @@
                     "1": { "name": "variable.parameter.tiddlywiki5" },
                     "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
                   },
-                  "patterns": [{ "include": "#string" }]
+                  "patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+					]
                 },
                 {
                   "begin": "([\\w\\-]+)(?:\\s*(:)\\s*(?='))",
@@ -2866,7 +2807,10 @@
                     "1": { "name": "variable.parameter.tiddlywiki5" },
                     "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
                   },
-                  "patterns": [{ "include": "#string" }]
+                  "patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+					]
                 },
                 {
                   "begin": "([\\w\\-]+)(?:\\s*(:)\\s*(?=\\[\\[))",
@@ -2877,7 +2821,10 @@
                     "1": { "name": "variable.parameter.tiddlywiki5" },
                     "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
                   },
-                  "patterns": [{ "include": "#string" }]
+                  "patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+					]
                 },
                 {
                   "match": "([\\w\\-]+)(?:\\s*(:)\\s*([^\\)\"'\\s]+))",
@@ -2889,7 +2836,10 @@
                       "begin": "^",
                       "end": "$",
                       "name": "entity.other.default.value.tiddlywiki5",
-                      "patterns": [{ "include": "#string" }]
+                      "patterns": [
+						{ "include": "#string" },
+						{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+						]
                     }
                   }
                 },
@@ -2928,6 +2878,103 @@
             "2": { "name": "keyword.control.directive.whitespace.tiddlywiki5" },
             "3": { "name": "keyword.operator.$3.tiddlywiki5" }
           }
+        },		
+        "block": {
+          "patterns": [
+            { "include": "#htmlblock" },
+			{ "include": "#typedblock" },
+            { "include": "#styleblock" },
+            { "include": "#blockquote" },
+            { "include": "#macrocallblock" },
+            { "include": "#filteredtranscludeblock" },
+            { "include": "#transcludeblock" },
+            { "include": "#conditional" },
+            { "include": "#table" },
+            { "include": "#list" },
+            { "include": "#heading" },
+            { "include": "#horizrule" },
+            { "include": "#codeblock" }
+          ]
+        },
+        "htmlblock": {
+            "patterns": [
+				{"include": "#htmlwidgets"},
+				{
+                    "begin": "<script\\b(?![^>]*\\bsrc=['\"])([^>]*?)>",
+                    "end": "</script>",
+                    "name": "meta.block.html.script.tiddlywiki5",
+                    "beginCaptures": {
+                    "0": { "name": "punctuation.definition.tag.begin.html.tiddlywiki5" },
+                    "1": { "name": "entity.other.attribute-name" }
+                    },
+                    "endCaptures": {
+                    "0": { "name": "punctuation.definition.tag.end.html.tiddlywiki5" }
+                    },
+                    "patterns": [
+                    { "include": "source.js" }
+                    ]
+                },
+                {
+                    "begin": "<script\\b[^>]*\\bsrc=['\"]([^'\">]+)['\"][^>]*>",
+                    "end": "</script>",
+                    "name": "meta.block.html.script.external.tiddlywiki5",
+                    "beginCaptures": {
+                    "0": { "name": "punctuation.definition.tag.begin.html.tiddlywiki5" },
+                    "1": { "name": "string.quoted.double.html.tiddlywiki5" }
+                    },
+                    "endCaptures": {
+                    "0": { "name": "punctuation.definition.tag.end.html.tiddlywiki5" }
+                    }
+                },
+                {
+                    "begin": "<style\\b[^>]*>",
+                    "end": "</style>",
+                    "name": "meta.block.html.element.style.tiddlywiki5",
+                    "beginCaptures": {
+                    "0": { "name": "punctuation.definition.tag.begin.html.tiddlywiki5" }
+                    },
+                    "endCaptures": {
+                    "0": { "name": "punctuation.definition.tag.end.html.tiddlywiki5" }
+                    },
+                    "patterns": [
+                    { "include": "source.css" }
+                    ]
+                },
+                {
+                    "begin": "\\s*(\\<)((\\$)(?!:\\/)([a-zA-Z0-9\\-]+))",
+                    "end": "(\\/>)|(<\\/)((\\$)(?!:\\/)\\4)(>)",
+                    "name": "meta.block.html.widget.tw-$4.tiddlywiki5",
+                    "beginCaptures": {
+                    "1": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
+                    "2": { "name": "entity.name.tag.tiddlywiki5" },
+                    "3": { "name": "punctuation.definition.tag.widget.tiddlywiki5" }
+                    },
+                    "endCaptures": {
+                    "1": { "name": "punctuation.definition.tag.end.tiddlywiki5" },
+                    "2": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
+                    "3": { "name": "entity.name.tag.tiddlywiki5" },
+                    "4": { "name": "punctuation.definition.tag.widget.tiddlywiki5" },
+                    "5": { "name": "punctuation.definition.tag.end.tiddlywiki5" }
+                    },
+                    "patterns": [{ "include": "#htmlAttributesAndText" }]
+                },
+				{
+                    "begin": "\\s*(\\<)([a-zA-Z0-9\\-]+)",
+                    "end": "(\\/>)|(<\\/)(\\2)(>)",
+                    "name": "meta.block.html.element.tw-$2.tiddlywiki5",
+                    "beginCaptures": {
+                    "1": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
+                    "2": { "name": "entity.name.tag.tiddlywiki5" }
+                    },
+                    "endCaptures": {
+                    "1": { "name": "punctuation.definition.tag.end.tiddlywiki5" },
+                    "2": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
+                    "3": { "name": "entity.name.tag.tiddlywiki5" },
+                    "4": { "name": "punctuation.definition.tag.end.tiddlywiki5" }
+                    },
+                    "patterns": [{ "include": "#htmlAttributesAndText" }]
+                }				
+            ]
         },
         "typedblock": {
           "begin": "\\s*(\\$\\$\\$)(?=[^\\s>]*(?:\\s*>\\s*\\S+)?$)",
@@ -3260,7 +3307,10 @@
                 "1": { "name": "variable.parameter.tiddlywiki5" },
                 "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
               },
-              "patterns": [{ "include": "#string" }]
+              "patterns": [
+				{ "include": "#string" },
+				{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+				]
             },
             {
               "begin": "(?:([\\w\\-]+)\\s*(:)\\s*)?(?=\")",
@@ -3270,7 +3320,10 @@
                 "1": { "name": "variable.parameter.tiddlywiki5" },
                 "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
               },
-              "patterns": [{ "include": "#string" }]
+              "patterns": [
+				{ "include": "#string" },
+				{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+				]
             },
             {
               "begin": "(?:([\\w\\-]+)\\s*(:)\\s*)?(?=')",
@@ -3280,7 +3333,10 @@
                 "1": { "name": "variable.parameter.tiddlywiki5" },
                 "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
               },
-              "patterns": [{ "include": "#string" }]
+              "patterns": [
+				{ "include": "#string" },
+				{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+				]
             },
             {
               "begin": "(?:([\\w\\-]+)\\s*(:)\\s*)?(?=\\[\\[)",
@@ -3290,7 +3346,10 @@
                 "1": { "name": "variable.parameter.tiddlywiki5" },
                 "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
               },
-              "patterns": [{ "include": "#string" }]
+              "patterns": [
+				{ "include": "#string" },
+				{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+			]
             },
             {
               "match": "(?:([\\w\\-]+)\\s*(:)\\s*)?([^\\>\"'\\s]+)",
@@ -3301,7 +3360,10 @@
                 "3": {
                   "begin": "^",
                   "end": "$",
-                  "patterns": [{ "include": "#string" }]
+                  "patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+					]
                 }
               }
             },
@@ -4005,86 +4067,6 @@
             }
           ]
         }, 
-        "htmlblock": {
-            "patterns": [
-				{"include": "#htmlwidgets"},
-				{
-                    "begin": "<script\\b(?![^>]*\\bsrc=['\"])([^>]*?)>",
-                    "end": "</script>",
-                    "name": "meta.block.html.script.tiddlywiki5",
-                    "beginCaptures": {
-                    "0": { "name": "punctuation.definition.tag.begin.html.tiddlywiki5" },
-                    "1": { "name": "entity.other.attribute-name" }
-                    },
-                    "endCaptures": {
-                    "0": { "name": "punctuation.definition.tag.end.html.tiddlywiki5" }
-                    },
-                    "patterns": [
-                    { "include": "source.js" }
-                    ]
-                },
-                {
-                    "begin": "<script\\b[^>]*\\bsrc=['\"]([^'\">]+)['\"][^>]*>",
-                    "end": "</script>",
-                    "name": "meta.block.html.script.external.tiddlywiki5",
-                    "beginCaptures": {
-                    "0": { "name": "punctuation.definition.tag.begin.html.tiddlywiki5" },
-                    "1": { "name": "string.quoted.double.html.tiddlywiki5" }
-                    },
-                    "endCaptures": {
-                    "0": { "name": "punctuation.definition.tag.end.html.tiddlywiki5" }
-                    }
-                },
-                {
-                    "begin": "<style\\b[^>]*>",
-                    "end": "</style>",
-                    "name": "meta.block.html.element.style.tiddlywiki5",
-                    "beginCaptures": {
-                    "0": { "name": "punctuation.definition.tag.begin.html.tiddlywiki5" }
-                    },
-                    "endCaptures": {
-                    "0": { "name": "punctuation.definition.tag.end.html.tiddlywiki5" }
-                    },
-                    "patterns": [
-                    { "include": "source.css" }
-                    ]
-                },
-                {
-                    "begin": "\\s*(\\<)((\\$)(?!:\\/)([a-zA-Z0-9\\-]+))",
-                    "end": "(\\/>)|(<\\/)((\\$)(?!:\\/)\\4)(>)",
-                    "name": "meta.block.html.widget.tw-$4.tiddlywiki5",
-                    "beginCaptures": {
-                    "1": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
-                    "2": { "name": "entity.name.tag.tiddlywiki5" },
-                    "3": { "name": "punctuation.definition.tag.widget.tiddlywiki5" }
-                    },
-                    "endCaptures": {
-                    "1": { "name": "punctuation.definition.tag.end.tiddlywiki5" },
-                    "2": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
-                    "3": { "name": "entity.name.tag.tiddlywiki5" },
-                    "4": { "name": "punctuation.definition.tag.widget.tiddlywiki5" },
-                    "5": { "name": "punctuation.definition.tag.end.tiddlywiki5" }
-                    },
-                    "patterns": [{ "include": "#htmlAttributesAndText" }]
-                },
-				{
-                    "begin": "\\s*(\\<)([a-zA-Z0-9\\-]+)",
-                    "end": "(\\/>)|(<\\/)(\\2)(>)",
-                    "name": "meta.block.html.element.tw-$2.tiddlywiki5",
-                    "beginCaptures": {
-                    "1": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
-                    "2": { "name": "entity.name.tag.tiddlywiki5" }
-                    },
-                    "endCaptures": {
-                    "1": { "name": "punctuation.definition.tag.end.tiddlywiki5" },
-                    "2": { "name": "punctuation.definition.tag.begin.tiddlywiki5" },
-                    "3": { "name": "entity.name.tag.tiddlywiki5" },
-                    "4": { "name": "punctuation.definition.tag.end.tiddlywiki5" }
-                    },
-                    "patterns": [{ "include": "#htmlAttributesAndText" }]
-                }				
-            ]
-        },
         "inline": {
           "patterns": [
             { "include": "#emphasis" },
@@ -4097,7 +4079,6 @@
             { "include": "#transcludeinline" },
             { "include": "#image" },
             { "include": "#link" },
-            { "include": "#entity" },
             { "include": "#dash" }
           ]
         },
@@ -4301,7 +4282,7 @@
         },
         "macrocallinline": {
             "begin": "(?<!<)(<<)(?!<)([^>\\s]+)",
-            "end": "(>>)(?!>)",
+            "end": "(>>)(?=(\\s|/?>|$))",
             "name": "meta.variable.macrocallinline.tiddlywiki5",
             "contentName": "meta.variable.macro.parameters.tiddlywiki5",
             "beginCaptures": {
@@ -4319,44 +4300,56 @@
             },
           "patterns": [
             {
-              "begin": "(?:([\\w\\-]+)\\s*(:)\\s*)?(?=\"\"\")",
-              "end": "(?<=\"\"\")",
-              "name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
-              "beginCaptures": {
-                "1": { "name": "variable.parameter.tiddlywiki5" },
-                "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
-              },
-              "patterns": [{ "include": "#string" }]
+				"begin": "(?:([\\w\\-]+)\\s*(:)\\s*)?(?=\"\"\")",
+				"end": "(?<=\"\"\")",
+				"name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
+				"beginCaptures": {
+					"1": { "name": "variable.parameter.tiddlywiki5" },
+					"2": { "name": "keyword.operator.assignment.tiddlywiki5" }
+				},
+				"patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+				]
             },
             {
-              "begin": "(?:([\\w\\-]+)\\s*(:)\\s*)?(?=\")",
-              "end": "(?<=\")",
-              "name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
-              "beginCaptures": {
-                "1": { "name": "variable.parameter.tiddlywiki5" },
-                "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
-              },
-              "patterns": [{ "include": "#string" }]
+				"begin": "(?:([\\w\\-]+)\\s*(:)\\s*)?(?=\")",
+				"end": "(?<=\")",
+				"name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
+				"beginCaptures": {
+					"1": { "name": "variable.parameter.tiddlywiki5" },
+					"2": { "name": "keyword.operator.assignment.tiddlywiki5" }
+				},
+				"patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+				]
             },
             {
-              "begin": "(?:([\\w\\-]+)\\s*(:)\\s*)?(?=')",
-              "end": "(?<=')",
-              "name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
-              "beginCaptures": {
-                "1": { "name": "variable.parameter.tiddlywiki5" },
-                "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
-              },
-              "patterns": [{ "include": "#string" }]
+				"begin": "(?:([\\w\\-]+)\\s*(:)\\s*)?(?=')",
+				"end": "(?<=')",
+				"name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
+				"beginCaptures": {
+					"1": { "name": "variable.parameter.tiddlywiki5" },
+					"2": { "name": "keyword.operator.assignment.tiddlywiki5" }
+				},
+				"patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+				]
             },
             {
-              "begin": "(?:([\\w\\-]+)\\s*(:)\\s*)?(?=\\[\\[)",
-              "end": "(?<=\\]\\])",
-              "name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
-              "beginCaptures": {
-                "1": { "name": "variable.parameter.tiddlywiki5" },
-                "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
-              },
-              "patterns": [{ "include": "#string" }]
+				"begin": "(?:([\\w\\-]+)\\s*(:)\\s*)?(?=\\[\\[)",
+				"end": "(?<=\\]\\])",
+				"name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
+				"beginCaptures": {
+					"1": { "name": "variable.parameter.tiddlywiki5" },
+					"2": { "name": "keyword.operator.assignment.tiddlywiki5" }
+				},
+				"patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+				]
             },
             {
               "match": "(?:([\\w\\-]+)\\s*(:)\\s*)?([^\\>\"'\\s]+)",
@@ -4365,9 +4358,12 @@
                 "1": { "name": "variable.parameter.tiddlywiki5" },
                 "2": { "name": "keyword.operator.assignment.tiddlywiki5" },
                 "3": {
-                  "begin": "^",
-                  "end": "$",
-                  "patterns": [{ "include": "#string" }]
+					"begin": "^",
+					"end": "$",
+					"patterns": [
+						{ "include": "#string" },
+						{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+				]
                 }
               }
             },
@@ -4627,21 +4623,6 @@
 			  }
           }
         },
-        "entity": {
-          "match": "(&)(#?[a-zA-Z0-9]{2,8};)",
-          "name": "constant.character.entity.tiddlywiki5",
-          "captures": {
-            "1": {
-              "name": "punctuation.definition.entity.begin.tiddlywiki5"
-            },
-            "2": {
-              "name": "constant.character.entity.name.tiddlywiki5"
-            },
-            "3": {
-              "name": "punctuation.definition.entity.end.tiddlywiki5"
-            }
-          }
-        },
         "dash": {
           "patterns": [
             {
@@ -4782,48 +4763,59 @@
               ]
             },
             {
-              "comment": "Match double-quoted filter run.",
-              "begin": "(?:(\\+)|(\\-))?(?=\")",
-              "end": "(?<=\")",
-              "name": "meta.filter.run.tiddlywiki5",
-              "contentName": "entity.filter.operator.title.tiddlywiki5",
-              "beginCaptures": {
-                "1": { "name": "keyword.operator.prefix.plus.replacement.tiddlywiki5" },
-                "2": { "name": "keyword.operator.prefix.minus.difference.tiddlywiki5" }
-              },
-              "patterns": [{ "include": "#string" }]
+				"comment": "Match double-quoted filter run.",
+				"begin": "(?:(\\+)|(\\-))?(?=\")",
+				"end": "(?<=\")",
+				"name": "meta.filter.run.tiddlywiki5",
+				"contentName": "entity.filter.operator.title.tiddlywiki5",
+				"beginCaptures": {
+					"1": { "name": "keyword.operator.prefix.plus.replacement.tiddlywiki5" },
+					"2": { "name": "keyword.operator.prefix.minus.difference.tiddlywiki5" }
+				},
+				"patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+				]
             },
             {
-              "comment": "Match single-quoted filter run.",
-              "begin": "(?:(\\+)|(\\-))?(?=')",
-              "end": "(?<=')",
-              "name": "meta.filter.run.tiddlywiki5",
-              "contentName": "entity.filter.operator.title.tiddlywiki5",
-              "beginCaptures": {
-                "1": { "name": "keyword.operator.prefix.plus.replacement.tiddlywiki5" },
-                "2": { "name": "keyword.operator.prefix.minus.difference.tiddlywiki5" }
-              },
-              "patterns": [{ "include": "#string" }]
+				"comment": "Match single-quoted filter run.",
+				"begin": "(?:(\\+)|(\\-))?(?=')",
+				"end": "(?<=')",
+				"name": "meta.filter.run.tiddlywiki5",
+				"contentName": "entity.filter.operator.title.tiddlywiki5",
+				"beginCaptures": {
+					"1": { "name": "keyword.operator.prefix.plus.replacement.tiddlywiki5" },
+					"2": { "name": "keyword.operator.prefix.minus.difference.tiddlywiki5" }
+				},
+				"patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+				]
             },
             {
-              "comment": "Match unquoted filter run.",
-              "match": "(?:(\\+)|(\\-))?(\\S+)",
-              "name": "meta.filter.run.tiddlywiki5",
-              "captures": {
-                "1": { "name": "keyword.operator.prefix.plus.replacement.tiddlywiki5" },
-                "2": { "name": "keyword.operator.prefix.minus.difference.tiddlywiki5" },
-                "3": {
-                  "patterns": [
-                    {
-                      "match": "^.*$",
-                      "name": "entity.filter.operator.title.tiddlywiki5",
-                      "captures": {
-                        "0": { "patterns": [{ "include": "#string" }] }
-                      }
-                    }
-                  ]
-                }
-              }
+				"comment": "Match unquoted filter run.",
+				"match": "(?:(\\+)|(\\-))?(\\S+)",
+				"name": "meta.filter.run.tiddlywiki5",
+				"captures": {
+					"1": { "name": "keyword.operator.prefix.plus.replacement.tiddlywiki5" },
+					"2": { "name": "keyword.operator.prefix.minus.difference.tiddlywiki5" },
+					"3": {
+					"patterns": [
+						{
+						"match": "^.*$",
+						"name": "entity.filter.operator.title.tiddlywiki5",
+						"captures": {
+							"0": {
+								"patterns": [
+									{ "include": "#string" },
+									{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+								]
+								}
+							}
+						}
+					]
+				}
+				}
             }
           ]
         },
@@ -4849,55 +4841,86 @@
         },
         "string": {
           "patterns": [
+			{
+				"begin": "\"\"\"",
+				"end": "\"\"\"",
+				"beginCaptures": {
+					"0": { 
+						"name": "punctuation.definition.string.begin.html.tiddlywiki5"
+						}
+				},
+				"endCaptures": {
+					"0": { 
+						"name": "punctuation.definition.string.end.html.tiddlywiki5"
+						}
+				},
+				"name": "string.quoted.triple.html.tiddlywiki5",
+				"patterns": [
+					{
+						"include": "#htmlwidget-entities"
+					}
+				]
+			},
+			{
+				"begin": "\"",
+				"beginCaptures": {
+					"0": {
+						"name": "punctuation.definition.string.begin.html.tiddlywiki5"
+						}
+				},
+				"end": "\"",
+				"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.html.tiddlywiki5"
+				}
+				},
+				"name": "string.quoted.double.html.tiddlywiki5",
+				"patterns": [
+					{
+						"include": "#htmlwidget-entities"
+					}
+				]
+			},
+			{
+				"begin": "'",
+				"beginCaptures": {
+					"0": {
+						"name": "punctuation.definition.string.begin.html.tiddlywiki5"
+						}
+				},
+				"end": "'",
+				"endCaptures": {
+					"0": {
+						"name": "punctuation.definition.string.end.html.tiddlywiki5"
+						}
+				},
+				"name": "string.quoted.single.html.tiddlywiki5",
+				"patterns": [
+					{
+						"include": "#htmlwidget-entities"
+					}
+				]
+			},
             {
-              "begin": "\"\"\"",
-              "end": "\"\"\"",
-              "name": "string.quoted.triple.html.tiddlywiki5",
-              "beginCaptures": {
-                "0": { "name": "punctuation.definition.string.triple.begin.tiddlywiki5" }
-              },
-              "endCaptures": {
-                "0": { "name": "punctuation.definition.string.triple.end.tiddlywiki5" }
-              }
-            },
-            {
-              "begin": "\"",
-              "end": "\"",
-              "name": "string.quoted.double.html.tiddlywiki5",
-              "beginCaptures": {
-                "0": { "name": "punctuation.definition.string.double.begin.tiddlywiki5" }
-              },
-              "endCaptures": {
-                "0": { "name": "punctuation.definition.string.double.end.tiddlywiki5" }
-              }
-            },
-            {
-              "begin": "'",
-              "end": "'",
-              "name": "string.quoted.single.html.tiddlywiki5",
-              "beginCaptures": {
-                "0": { "name": "punctuation.definition.string.single.begin.tiddlywiki5" }
-              },
-              "endCaptures": {
-                "0": { "name": "punctuation.definition.string.single.end.tiddlywiki5" }
-              }
-            },
-            {
-              "begin": "\\[\\[",
-              "end": "\\]\\]",
-              "name": "string.quoted.parens.square.html.tiddlywiki5",
-              "beginCaptures": {
-                "0": {
-                  "name": "punctuation.definition.string.parens.square.begin.tiddlywiki5"
-                }
-              },
-              "endCaptures": {
-                "0": {
-                  "name": "punctuation.definition.string.parens.square.end.tiddlywiki5"
-                }
-              }
-            },
-            { "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+				"begin": "\\[\\[",
+				"end": "\\]\\]",
+				"beginCaptures": {
+					"0": {
+					"name": "punctuation.definition.string.begin.html.tiddlywiki5"
+					}
+				},
+				"endCaptures": {
+					"0": {
+					"name": "punctuation.definition.string.end.html.tiddlywiki5"
+					}
+				},
+				"name": "string.quoted.parens.square.html.tiddlywiki5",
+				"patterns": [
+					{
+						"include": "#htmlwidget-entities"
+					}
+				]
+            }
           ]
         }
       }
