@@ -81,10 +81,22 @@ This paragraph ends here.
 """
 TEST TEXT BLOCK <$transclude tiddler="test"/>
 """
+----
+----asdf <!-- Invalid content after hr -->
+
+----
 
 <<variable>>
 {{transclusion}}
 [[wiki-link]]
+
+<<variable>>{{transclusion}}[[wiki-link]]
+
+{{transclusion}}<<variable>>[[wiki-link]]
+
+[[wiki-link]]{{transclusion}}<<variable>>
+
+[[wiki-link]]<<variable>>{{transclusion}}
 
 <img attr=<<test>>>
 
@@ -99,8 +111,6 @@ TEST TEXT BLOCK <$transclude tiddler="test"/>
 <a href=value>Interesting</a>
 
 <a href=value>Interesting</a>
-
-
 
 <img href=`$(currentTiddler)$ substituted ${[{!!modified}format:date[DDth MMM YYYY]]}$`/>
 
@@ -131,7 +141,7 @@ $$$.html
 <html> 
 <head></head>
 <body>
-<div>
+<div attr="value">
 this is html with no [[WikiText]]
 </div>
 </body>
