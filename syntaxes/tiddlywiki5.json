@@ -67,25 +67,17 @@
 		  },
 		  "pragma": {
 			"patterns": [
-			  { "include": "#import" },
-			  { "include": "#macrodef" },
-			  { "include": "#rules" },
-			  { "include": "#whitespace" }
+				{ "include": "#define" },
+				{ "include": "#function" },
+				{ "include": "#import" },
+				{ "include": "#parameters" },
+				{ "include": "#procedure" },
+				{ "include": "#rules" },
+				{ "include": "#whitespace" },
+				{ "include": "#widget" }
 			]
 		  },
-		  "import": {
-			"match": "^(\\\\)(import)\\s+(.*)$",
-			"name": "meta.directive.import.tiddlywiki5",
-			"captures": {
-			  "1": { "name": "punctuation.definition.directive.tiddlywiki5" },
-			  "2": { "name": "keyword.control.directive.import.tiddlywiki5" },
-			  "3": {
-				"name": "meta.filter.tiddlywiki5",
-				"patterns": [{ "include": "#filter" }]
-			  }
-			}
-		  },
-		  "macrodef": {
+		  "define": {
 			"begin": "^(\\\\)(define)\\s+([^\\s\\(]+)(?=\\()",
 			"end": "^",
 			"name": "meta.directive.variable.macro.tiddlywiki5",
@@ -232,6 +224,27 @@
 			  }
 			]
 		  },
+		  "function": {
+
+		  },
+		  "import": {
+			"match": "^(\\\\)(import)\\s+(.*)$",
+			"name": "meta.directive.import.tiddlywiki5",
+			"captures": {
+			  "1": { "name": "punctuation.definition.directive.tiddlywiki5" },
+			  "2": { "name": "keyword.control.directive.import.tiddlywiki5" },
+			  "3": {
+				"name": "meta.filter.tiddlywiki5",
+				"patterns": [{ "include": "#filter" }]
+			  }
+			}
+		  },
+		  "parameters": {
+			
+		  },
+		  "procedure": {
+			
+		  },
 		  "rules": {
 			"match": "^(\\\\)(rules)\\s+(only|except)?(.*)$",
 			"name": "meta.directive.rules.tiddlywiki5",
@@ -253,6 +266,9 @@
 			  "3": { "name": "keyword.operator.$3.tiddlywiki5" }
 			}
 		  },		
+		  "widget": {
+			
+		  },
 		  "block": {
 			"patterns": [
 			  { "include": "#htmlwidget" },
@@ -2876,7 +2892,7 @@
 			]
 			},
 			{
-				"begin": "(<)((\\$)(?!:\\/)([a-zA-Z0-9\\-]+))(?=\\s*\\/>)",
+				"begin": "(<)((\\$)(?!:\\/)([a-zA-Z0-9\\-\\.]+))(?=\\s*\\/>)",
 				"end": "\\/>",
 				"name": "meta.tag.widget.$4.html.tiddlywiki5",
 				"beginCaptures": {
