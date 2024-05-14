@@ -21,6 +21,7 @@ This paragraph ends here.
 \whitespace notrim
 \import [filter[expression]]
 
+<!DOCTYPE html>
 <html lang=en>
 
 <a lang='en'> content </a>
@@ -52,7 +53,7 @@ This paragraph ends here.
 	-->
 
 	<meta charset="utf-8"/>
-	<title>VSCode Tests</title>
+	<title><<test>>VSCode Tests</title>
 	<link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
 	<style type="text/css">
 
@@ -85,17 +86,29 @@ TEST TEXT BLOCK <$transclude tiddler="test"/>
 {{transclusion}}
 [[wiki-link]]
 
-<img attr=<<test>>/>
+<img attr=<<test>>>
 
 <img attr=<<test>>/>
+
+<a href=value>{{{ [[fitered transclude]with[Param]operators<macro>like{this}] }}}</a>
+
+<a href=value><<test test >></a>
+
+<a href=value>{{test!!this}}</a>
+
+<a href=value>Interesting</a>
+
+<a href=value>Interesting</a>
+
+
 
 <img href=`$(currentTiddler)$ substituted ${[{!!modified}format:date[DDth MMM YYYY]]}$`/>
 
 <img href=```some "$(currentTiddler)$" substituted ${[{!!modified}format:date[DDth MMM YYYY]]}$ text```/>
 
-	<a href=value>{{test!!this}}</a>
+<a href=value>{{test!!this}}</a>
 
-<a href='value'>{{test!!this}}</a>
+<a href='value'><<test>></a>
 
 <a href="value">test</a>
 

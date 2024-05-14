@@ -1,7 +1,7 @@
 <!--#region Tag and Widget Wikitext -->
 
 <tag/>
-<div /> div cannot self-close
+<div /> <!-- div cannot self-close -->
 <div></div>
 <div ></div>
 <div class="test"> </div>
