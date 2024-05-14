@@ -1,28 +1,49 @@
+\import [[test]]
+
+\define myMacro()
+
+$test$ $test$ $(fnord)$
+
+* $ $ $test$
+* ''multiline'' body
+* {{{  [operator1:suffix1[tiddler title]operator2:suffix2<variable name>operator3:suffix3{text!!reference}] }}}
+* <tag attr={{tiddler!!field}}/>
+
+	<tag attr={{tiddler!!field}}/>
+
+<tag attr={{tiddler!!field}}/>
+
+This paragraph ends here.
+\end
+\rules only html dash entity
+\rules
+\whitespace trim
+\whitespace notrim
+\import [filter[expression]]
 
 <html lang=en>
 
-<html lang='en'>
+<a lang='en'> content </a>
 
-<html lang="""en""">
+<$a lang='en'> content </$a>
 
-<html lang="en">
+	<tag lang="""en"""/>
 
-<html lang=[[en]]>
+<tag lang="en"/>
 
-<html lang={{HTML!!lang}}>
+<tag lang=[[en]]/>
 
-<html lang=<<en param>>>
+	<tag lang={{HTML!!lang}}/>
 
-<html lang={{{ [<currentTiddler>addprefix[en]] }}}>
+<tag lang=<<en param>>>__test__</tag>
 
-<html lang=```en```>
+<tag lang={{{ [<currentTiddler>addprefix[en]] }}}/>
 
-<html lang=`en`>
+	<tag lang=```en```/>
 
-
+<tag lang=`en`/>
 
 <head>
-
 	<!-- Comment: Simple Wikitext HTML Sample -->
 
 	<!-- 
@@ -44,6 +65,8 @@
 
 <body>
 
+!! Header in the body
+
 ; Term being defined
 : Definition of that term
 ; Another term
@@ -62,7 +85,7 @@ TEST TEXT BLOCK <$transclude tiddler="test"/>
 {{transclusion}}
 [[wiki-link]]
 
-<img attr=<<test>>></image>
+<img attr=<<test>>/>
 
 <img attr=<<test>>/>
 
@@ -70,9 +93,9 @@ TEST TEXT BLOCK <$transclude tiddler="test"/>
 
 <img href=```some "$(currentTiddler)$" substituted ${[{!!modified}format:date[DDth MMM YYYY]]}$ text```/>
 
-<a href=value>test</a>
+	<a href=value>{{test!!this}}</a>
 
-<a href='value'>test</a>
+<a href='value'>{{test!!this}}</a>
 
 <a href="value">test</a>
 
@@ -167,17 +190,33 @@ $$$
 
 		{{{ [[fitered transclude]] }}}
 
-		<a href={{transcluded!!value}}>test</a>
+		<a href={{transcluded!!value}}>
+		
+!!		test
+
+		</a>
 
 		<a href={{transcluded!!value}}>test</a>
 
-		<button onclick='some.javascript("here");'>BUTTON</button>
+		<button onclick='some.javascript("here");'>//BUTTON//</button>
+
+				<button onclick='some.javascript("here");'>
+				
+!!				//BUTTON//
+				
+				</button>
+
+!!		//Italics//
 
 		<script source={{b}} source=<<c>>> some.javascript("here");</script>
 
 		<$transclude tiddler="test" a={{b}} a=<<c>> />
 
-		<$widget attribute="value" a={{b}} a=<<c>> > content </$widget>
+		<$widget attribute="value" a={{b}} a=<<c>> >
+		
+		!!!		//content// {{transclude!!field}}
+		
+		</$widget>
 
 		<% IF %>
 
