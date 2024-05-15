@@ -1,9 +1,10 @@
 {
 	"information_for_contributors": [
+		"Textmate Grammar/Syntax for Tiddlywiki5 v5.3.4 (source: https://github.com/Jermolene/TiddlyWiki5)",
 		"This file has been converted from https://github.com/joshuafontany/VSCode-TW5-Syntax/tree/main/syntaxes/tiddlywiki5.json",
 		"If you want to provide a fix or improvement, please create a pull request against the original repository."
 	],
-	"version": "2.0.0",
+	"version": "5.3.4",
     "name": "TiddlyWiki5",
     "scopeName": "text.html.tiddlywiki5",
     "fileTypes": ["tw", "tw5", "tiddlywiki5"],

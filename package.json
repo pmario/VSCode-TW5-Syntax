@@ -1,7 +1,7 @@
 {
     "name": "tw5-syntax",
     "displayName": "TiddlyWiki5 Syntax",
-    "description": "TiddlyWiki5 Syntax Highlighting for Visual Studio Code",
+    "description": "TiddlyWiki5 v5.3.4 Textmate compatible Syntax Highlighting for Visual Studio Code",
     "version": "2.0.0",
     "icon": "tw5.png",
     "engines": {
@@ -126,7 +126,7 @@
         }
     },
     "dependencies": {
-        "tm-grammars": ""
+
     },
     "devDependencies": {
         "vscode-tmgrammar-test": "^0.1.3",
