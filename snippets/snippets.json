@@ -23,7 +23,19 @@
 	".text.html.tiddlywiki5": {
 		"Macro Definition": {
 			"prefix": "def",
-			"body": "\\\\define ${1:name}($2)\n$3\n\\\\end\n"
+			"body": "\\\\define ${1:twMacro}($2)\n$3\n\\\\end ${1:twMacro}\n"
+		},
+		"Function Definition": {
+			"prefix": "func",
+			"body": "\\\\function ${1:twFunc}($2)\n$3\n\\\\end ${1:twFunc}\n"
+		},
+		"Procedure Definition": {
+			"prefix": "proc",
+			"body": "\\\\procedure ${1:twProc}($2)\n$3\n\\\\end ${1:twProc}\n"
+		},
+		"Widget Definition": {
+			"prefix": "widg",
+			"body": "\\\\widget ${1:\\$tw.Widget}($2)\n$3\n\\\\end ${1:tw.Widget}\n"
 		},
 		"Rules": {
 			"prefix": "rules",
