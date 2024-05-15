@@ -5,7 +5,12 @@ All notable changes to the "tw5-syntax" extension will be documented in this fil
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## 2.0.0
-- Full re-write to model tiddlywiki5 wikitext as a `text.html.derivative` sytanx by importing html5 from `tm-grammar`.
+- Full re-write to model tiddlywiki5 wikitext as a `text.html.derivative` sytanx.
+- Updated syntax json version to current Tiddlywiki5 v`5.3.4`.
+- Updated known keywords/grammar concepts in json `repository`.
+- Imported full html5 syntax from `tm-grammar`, added tiddlywiki style attributes, etc.
+- New objects from `text.html.basic` renamed as `htmlwidget-*` for easy diff/updates.
+- Added snippets for modern tiddlywiki5 wikitext.
 - Added full set of tests to `./tests`. Run `npm run test` to run all tests.
 - Added reference required syntaxes to `devDependecies` in `package.json`
 - Fixed bugs with widget attribute syntax in base html tags

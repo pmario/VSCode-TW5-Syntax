@@ -66,6 +66,14 @@ attribute6
 
   Block
 
+  <$tw.Widget >  </$tw.Widget>
+
+  <$tw.Widget test=`$test$ ${n}$ $(fnord)$`> </$tw.Widget> <!-- No macro $params$ here -->
+
+  <$tw.Widget />
+
+  <$tw.Widget test=`$test$ ${n}$ $(fnord)$`/> <!-- No macro $params$ here -->
+
   <$widget attribute="value" a={{b}} a=<<c>> > content </$widget>
 
   <a-tag> </a-tag>

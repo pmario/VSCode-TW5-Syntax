@@ -1,8 +1,8 @@
 <!-- tiddlywiki5 -->
 \import [[test]]
-\define myMacro1(param:test, param:"""Test""", param: [[Test]]) test
+\define myMacro1(param:test, param:"""Test""", param: [[Test]]) test $test$ $(fnord)$
 \define myMacro2(param:test, param:"""Test""", param: [[Test]])
-test $param$ [[WikiText]]
+test $param$ [[WikiText]] $test$ $(fnord)$
 \end
 
 \function my.function1(parameter:"2") [<parameter>multiply[1.5]]
@@ -22,7 +22,7 @@ $test$ $test$ $(fnord)$
 
 * $ $ $test$
 * ''multiline'' body
-* {{{  [operator1:suffix1[tiddler title]operator2:suffix2<variable name>operator3:suffix3{text!!reference}] }}}
+* {{{  [operator1:suffix1[tiddler $test$ ${n}$ $(fnord)$ title]operator2:suffix2<variable name>operator3:suffix3{text!!reference}] }}}
 * <tag attr={{tiddler!!field}}/>
 
 	<tag attr={{tiddler!!field}}/>
@@ -47,7 +47,7 @@ This paragraph ends here.
 [<parameter>multiply[1.5]]
 \end
 
-\procedure my.procedure2() [[test]]
+\procedure my.procedure2() [[test]] $test$ ${n}$ $(fnord)$ <!-- no substitute filters here -->
 \procedure my.procedure3()
 
 [[title]]
@@ -58,10 +58,12 @@ This paragraph ends here.
 \function my-function(parameter:"2")
 [<parameter>multiply[1.5]]
 \end my-function
-This is the widget, and the attribute is <<attribute>>.
+This is the widget, and the attribute is <<attribute>>. $test$ ${n}$ $(fnord)$  <!-- no substitute filters here -->
 
 \end $my.widget1
 
+
+$(n)$
 \end my.procedure
 <!-- end nested procedure block-->
 
