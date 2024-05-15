@@ -5026,9 +5026,17 @@
           ]
         },
 		"shortcut": {
-			"begin": "<%",
-			"end": "%>",
+			"begin": "(<)(%)",
+			"end": "(%)(>)",
 			"name": "meta.shortcut.tiddlywiki5",
+			"beginCaptures": {
+				"1": { "name": "punctuation.definition.tag.begin.html.tiddlywiki5" },
+				"2": { "name": "punctuation.definition.tag.shortcut.html.tiddlywiki5" }
+			},
+			"endCaptures": {
+				"1": { "name": "punctuation.definition.tag.shortcut.html.tiddlywiki5" },
+				"2": { "name": "punctuation.definition.tag.end.html.tiddlywiki5" }
+			},
 			"patterns": [
 			  {
 				"include": "#conditional"
