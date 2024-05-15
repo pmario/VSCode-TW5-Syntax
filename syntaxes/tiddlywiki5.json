@@ -67,8 +67,8 @@
 		  },
 		  "pragma": {
 			"patterns": [
-				{ "include": "#define" },
 				{ "include": "#function" },
+				{ "include": "#define" },
 				{ "include": "#import" },
 				{ "include": "#parameters" },
 				{ "include": "#procedure" },
@@ -77,8 +77,110 @@
 				{ "include": "#widget" }
 			]
 		  },
+		  "pragma-parameters": 			  {
+			"comment": "Parse pragma parameters list.",
+			"begin": "\\(",
+			"end": "\\)",
+			"name": "meta.variable.pragma.parameters.tiddlywiki5",
+			"beginCaptures": {
+			  "0": {
+				"name": "punctuation.definition.variable.pragma.parameters.begin.tiddlywiki5"
+			  }
+			},
+			"endCaptures": {
+			  "0": {
+				"name": "punctuation.definition.variable.pragma.parameters.end.tiddlywiki5"
+			  }
+			},
+			"patterns": [
+				{
+					"begin": "([\\w\\-]+)(?:\\s*(:)\\s*(?=\"\"\"))",
+					"end": "(?<=\"\"\")",
+					"name": "meta.variable.pragma.parameter.tw-$1.tiddlywiki5",
+					"contentName": "entity.other.default.value.tiddlywiki5",
+					"beginCaptures": {
+					"1": { "name": "variable.parameter.tiddlywiki5" },
+					"2": { "name": "keyword.operator.assignment.tiddlywiki5" }
+					},
+					"patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+					]
+				},
+				{
+					"begin": "([\\w\\-]+)(?:\\s*(:)\\s*(?=\"))",
+					"end": "(?<=\")",
+					"name": "meta.variable.pragma.parameter.tw-$1.tiddlywiki5",
+					"contentName": "entity.other.default.value.tiddlywiki5",
+					"beginCaptures": {
+					"1": { "name": "variable.parameter.tiddlywiki5" },
+					"2": { "name": "keyword.operator.assignment.tiddlywiki5" }
+					},
+					"patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+					]
+				},
+				{
+					"begin": "([\\w\\-]+)(?:\\s*(:)\\s*(?='))",
+					"end": "(?<=')",
+					"name": "meta.variable.pragma.parameter.tw-$1.tiddlywiki5",
+					"contentName": "entity.other.default.value.tiddlywiki5",
+					"beginCaptures": {
+					"1": { "name": "variable.parameter.tiddlywiki5" },
+					"2": { "name": "keyword.operator.assignment.tiddlywiki5" }
+					},
+					"patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+					]
+				},
+				{
+					"begin": "([\\w\\-]+)(?:\\s*(:)\\s*(?=\\[\\[))",
+					"end": "(?<=\\]\\])",
+					"name": "meta.variable.pragma.parameter.tw-$1.tiddlywiki5",
+					"contentName": "entity.other.default.value.tiddlywiki5",
+					"beginCaptures": {
+					"1": { "name": "variable.parameter.tiddlywiki5" },
+					"2": { "name": "keyword.operator.assignment.tiddlywiki5" }
+					},
+					"patterns": [
+					{ "include": "#string" },
+					{ "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+					]
+				},
+				{
+				"match": "([\\w\\-]+)(?:\\s*(:)\\s*([^\\)\"'\\s]+))",
+				"name": "meta.variable.pragma.parameter.tw-$1.tiddlywiki5",
+				"captures": {
+				  "1": { "name": "variable.parameter.tiddlywiki5" },
+				  "2": { "name": "keyword.operator.assignment.tiddlywiki5" },
+				  "3": {
+					"begin": "^",
+					"end": "$",
+					"name": "entity.other.default.value.tiddlywiki5",
+					"patterns": [
+					  { "include": "#string" },
+					  { "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+					  ]
+				  }
+				}
+			  },
+			  {
+				"comment": "Parse formal argument definition.",
+				"match": "[\\w\\-]+",
+				"name": "meta.variable.pragma.parameter.tw-$1.tiddlywiki5",
+				"captures": { "0": { "name": "variable.parameter.tiddlywiki5" } }
+			  },
+			  {
+				"comment": "Match parameter separators.",
+				"match": "[^\\w\\-\\)\\s]+",
+				"name": "punctuation.separator.variable.pragma.parameter.tiddlywiki5"
+			  }
+			]
+		  },
 		  "define": {
-			"begin": "^(\\\\)(define)\\s+([^\\s\\(]+)(?=\\()",
+			"begin": "^(\\\\)(define)\\s+([^\\s\\(]+)(?=\\s*\\()",
 			"end": "^",
 			"name": "meta.directive.variable.macro.tiddlywiki5",
 			"beginCaptures": {
@@ -111,6 +213,7 @@
 				  "2": { "name": "keyword.control.directive.end.tiddlywiki5" }
 				},
 				"patterns": [
+				  { "include": "#function"},
 				  { "include": "#block" },
 				  {
 					"begin": "(?!\\s*$)",
@@ -120,112 +223,54 @@
 				  }
 				]
 			  },
-			  {
-				"comment": "Parse parameter list.",
-				"begin": "(?<=\\S)\\(",
-				"end": "\\)",
-				"name": "meta.variable.macro.parameters.tiddlywiki5",
-				"beginCaptures": {
-				  "0": {
-					"name": "punctuation.definition.variable.macro.parameters.begin.tiddlywiki5"
-				  }
-				},
-				"endCaptures": {
-				  "0": {
-					"name": "punctuation.definition.variable.macro.parameters.end.tiddlywiki5"
-				  }
-				},
-				"patterns": [
-				  {
-					"begin": "([\\w\\-]+)(?:\\s*(:)\\s*(?=\"\"\"))",
-					"end": "(?<=\"\"\")",
-					"name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
-					"contentName": "entity.other.default.value.tiddlywiki5",
-					"beginCaptures": {
-					  "1": { "name": "variable.parameter.tiddlywiki5" },
-					  "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
-					},
-					"patterns": [
-					  { "include": "#string" },
-					  { "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
-					  ]
-				  },
-				  {
-					"begin": "([\\w\\-]+)(?:\\s*(:)\\s*(?=\"))",
-					"end": "(?<=\")",
-					"name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
-					"contentName": "entity.other.default.value.tiddlywiki5",
-					"beginCaptures": {
-					  "1": { "name": "variable.parameter.tiddlywiki5" },
-					  "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
-					},
-					"patterns": [
-					  { "include": "#string" },
-					  { "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
-					  ]
-				  },
-				  {
-					"begin": "([\\w\\-]+)(?:\\s*(:)\\s*(?='))",
-					"end": "(?<=')",
-					"name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
-					"contentName": "entity.other.default.value.tiddlywiki5",
-					"beginCaptures": {
-					  "1": { "name": "variable.parameter.tiddlywiki5" },
-					  "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
-					},
-					"patterns": [
-					  { "include": "#string" },
-					  { "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
-					  ]
-				  },
-				  {
-					"begin": "([\\w\\-]+)(?:\\s*(:)\\s*(?=\\[\\[))",
-					"end": "(?<=\\]\\])",
-					"name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
-					"contentName": "entity.other.default.value.tiddlywiki5",
-					"beginCaptures": {
-					  "1": { "name": "variable.parameter.tiddlywiki5" },
-					  "2": { "name": "keyword.operator.assignment.tiddlywiki5" }
-					},
-					"patterns": [
-					  { "include": "#string" },
-					  { "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
-					  ]
-				  },
-				  {
-					"match": "([\\w\\-]+)(?:\\s*(:)\\s*([^\\)\"'\\s]+))",
-					"name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
-					"captures": {
-					  "1": { "name": "variable.parameter.tiddlywiki5" },
-					  "2": { "name": "keyword.operator.assignment.tiddlywiki5" },
-					  "3": {
-						"begin": "^",
-						"end": "$",
-						"name": "entity.other.default.value.tiddlywiki5",
-						"patterns": [
-						  { "include": "#string" },
-						  { "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
-						  ]
-					  }
-					}
-				  },
-				  {
-					"comment": "Parse formal argument definition.",
-					"match": "[\\w\\-]+",
-					"name": "meta.variable.macro.parameter.tw-$1.tiddlywiki5",
-					"captures": { "0": { "name": "variable.parameter.tiddlywiki5" } }
-				  },
-				  {
-					"comment": "Match parameter separators.",
-					"match": "[^\\w\\-\\)\\s]+",
-					"name": "punctuation.separator.variable.macro.parameter.tiddlywiki5"
-				  }
-				]
-			  }
+			  {"include": "#pragma-parameters"}
 			]
 		  },
 		  "function": {
-
+			"patterns": [
+			  {
+				"comment": "Single and Multi-line function definition",
+				"begin": "^(\\\\)(function)\\s+([^\\s\\(]+)(?=\\s*\\()",
+				"end": "^",
+				"name": "meta.directive.variable.function.tiddlywiki5",
+				"beginCaptures": {
+					"1": { "name": "punctuation.definition.directive.tiddlywiki5" },
+					"2": { "name": "keyword.control.directive.function.html.tiddlywiki5" },
+					"3": { "name": "entity.name.variable.function.tiddlywiki5" }
+				},
+				"patterns": [
+					{
+						"comment": "Match single line function body.",
+						"match": "(?<=\\))\\s*(\\S.*)$",
+						"name": "meta.variable.function-inline.tiddlywiki5",
+						"captures": {
+						  "1": {
+							"begin": "^",
+							"end": "$",
+							"name": "meta.variable.macro.body.tiddlywiki5",
+							"patterns": [{ "include": "#filter" }]
+						  }
+						}
+					},
+					{
+						"comment": "Match multiline function body.",
+						"begin": "(?<=\\))\\s*$",
+						"end": "(\\\\)(end)\\s*(\\S+)?",
+						"name": "meta.variable.function-block.tiddlywiki5",
+						"contentName": "meta.variable.function.body.tiddlywiki5",
+						"endCaptures": {
+						  "1": { "name": "punctuation.definition.directive.tiddlywiki5" },
+						  "2": { "name": "keyword.control.directive.end.tiddlywiki5" },
+						  "3": { "name": "entity.name.variable.function.tiddlywiki5" }
+						},
+						"patterns": [
+						  { "include": "#filter"}
+						]
+					},
+				  { "include": "#pragma-parameters" }
+				]
+			  }
+			]
 		  },
 		  "import": {
 			"match": "^(\\\\)(import)\\s+(.*)$",
@@ -240,7 +285,38 @@
 			}
 		  },
 		  "parameters": {
-			
+			"begin": "^(\\\\)(parameters)\\s*\\(",
+			"beginCaptures": {
+			  "1": { "name": "punctuation.definition.directive.tiddlywiki5" },
+			  "2": { "name": "keyword.control.directive.parameters.tiddlywiki5" }
+			},
+			"end": "\\)",
+			"endCaptures": {
+			  "0": { "name": "punctuation.definition.variable.parameters.end.tiddlywiki5" }
+			},
+			"name": "meta.directive.parameters.tiddlywiki5",
+			"patterns": [
+			  {
+				"comment": "Handle individual parameters and optional default values.",
+				"match": "([\\w\\-]+)(?:(\\s*:\\s*)(\"[^\"]*\"|'[^']*'|\\[\\[[^\\]]*\\]\\]|[^,\\s\"]+))?",
+				"name": "meta.variable.parameter.tiddlywiki5",
+				"captures": {
+				  "1": { "name": "variable.parameter.tiddlywiki5" },
+				  "2": { "name": "keyword.operator.assignment.tiddlywiki5" },
+				  "3": {
+					"patterns": [
+					  { "include": "#string" },
+					  { "match": "\\S+", "name": "string.unquoted.html.tiddlywiki5" }
+					]
+				  }
+				}
+			  },
+			  {
+				"comment": "Match commas separating parameters.",
+				"match": ",",
+				"name": "punctuation.separator.parameters.tiddlywiki5"
+			  }
+			]
 		  },
 		  "procedure": {
 			

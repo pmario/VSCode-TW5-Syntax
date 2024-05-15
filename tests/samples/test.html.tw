@@ -1,6 +1,19 @@
+<!-- tiddlywiki5 -->
 \import [[test]]
+\define myMacro1(param:test, param:"""Test""", param: [[Test]]) test
+\define myMacro2(param:test, param:"""Test""", param: [[Test]])
+test $param$ [[WikiText]]
+\end
+
+\function my.function1(parameter:"2") [<parameter>multiply[1.5]]
+\function my.function2(parameter:"2")
+[<parameter>multiply[1.5]]
+\end
 
 \define myMacro()
+\function my.function(parameter:"2")
+[<parameter>multiply[1.5]]
+\end my.function
 
 $test$ $test$ $(fnord)$
 
@@ -20,6 +33,10 @@ This paragraph ends here.
 \whitespace trim
 \whitespace notrim
 \import [filter[expression]]
+\parameters(firstname:Joe,middlename:'fnord'lastname:"Blogs")
+\function my-function(parameter:"2")
+[<parameter>multiply[1.5]]
+\end
 
 <!DOCTYPE html>
 <html lang=en>
@@ -201,8 +218,8 @@ $$$
 
 		<svg> </svg>
 		<img> </img>
-		<img/>
 
+		<img/>
 
 		inline
 		<unrecognized with-an-attribute="value" another={{transcluded!!value}}/>
@@ -214,8 +231,8 @@ $$$
 		{{{ [[fitered transclude]] }}}
 
 		<a href={{transcluded!!value}}>
-		
-!!		test
+
+		!!		test
 
 		</a>
 
@@ -224,7 +241,7 @@ $$$
 		<button onclick='some.javascript("here");'>//BUTTON//</button>
 
 				<button onclick='some.javascript("here");'>
-				
+
 !!				//BUTTON//
 				
 				</button>
