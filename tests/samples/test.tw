@@ -1,55 +1,21 @@
-\define myMacro1()
-\procedure proc2()
-test {{this!!that}}
-\end proc2
-\widget $my.widget1(attribute:"Default value")
-This is the widget, and the attribute is <<attribute>>.
-\end $my.widget1
-
-test <<the other>>
-\end myMacro1
-
-\define myMacro()
-\function my.function(parameter:"2")
-[<parameter>multiply[1.5]]
-\end my.function
-
-$test$ $test$ $(fnord)$
-
-  <unrecognized></unrecognized>
-  <$widget attribute="value" a={{b}} a=<<c>> > content with a [[Title]] </$widget>
-
-* $ $ $test$
-* ''multiline'' body
-* {{{  [operator1:suffix1[tiddler title]operator2:suffix2<variable name>operator3:suffix3{text!!reference}] }}}
-* <tag attr={{tiddler!!field}}/>
-
-	<tag attr={{tiddler!!field}}/>
-
-<tag attr={{tiddler!!field}}/>
-
-This paragraph ends here.
-\end myMacro
-
-
-\procedure my.procedure2() [[test]]
-\procedure my.procedure3()
-\widget $my.widget1(attribute:"Default value")
-This is the widget, and the attribute is <<attribute>>.
-\end $my.widget1
-[[title]]
-
-\end my.procedure3
-
-\widget $my.widget1(attribute:"Default value")
-This is the widget, and the attribute is <<attribute>>.
-\end $my.widget1
-
-\widget $my.widget(attribute:"Default value")
-
-\widget $my.widget1(attribute:"Default value")
-This is the widget, and the attribute is <<attribute>>.
-\end $my.widget1
-
-This is the widget, and the attribute is <<attribute>>.
+\procedure test(animal)
+<% if [<animal>match[Elephant]] %>
+  It is an elephant
+<% else %>
+  <% if [<animal>match[Giraffe]] %>
+    It is a giraffe
+  <% else %>
+    It is completely unknown
+  <% endif %>
+<% endif %>
 \end
+
+<<test "Giraffe">>
+
+<<test "Elephant">>
+
+<<test "Antelope">>
+
+{{{ [[Hi, I'm $(name)$ and I live in $(address)$]substitute[]] }}}
+
+{{{ [[Something in the $(time)$ at $2$ about $1$ ]substitute[Maths],[the Library]] }}}
