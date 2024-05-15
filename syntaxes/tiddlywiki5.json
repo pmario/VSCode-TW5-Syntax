@@ -67,14 +67,14 @@
 		  },
 		  "pragma": {
 			"patterns": [
-				{ "include": "#function" },
 				{ "include": "#define" },
-				{ "include": "#import" },
-				{ "include": "#parameters" },
+				{ "include": "#function" },
 				{ "include": "#procedure" },
+				{ "include": "#widget" },
+				{ "include": "#parameters" },
+				{ "include": "#import" },
 				{ "include": "#rules" },
-				{ "include": "#whitespace" },
-				{ "include": "#widget" }
+				{ "include": "#whitespace" }
 			]
 		  },
 		  "pragma-parameters": 			  {
@@ -180,7 +180,7 @@
 			]
 		  },
 		  "define": {
-			"begin": "^(\\\\)(define)\\s+([^\\s\\(]+)(?=\\s*\\()",
+			"begin": "^(\\\\)(define)\\s+([^\\s\\$\\(]+)(?=\\s*\\()",
 			"end": "^",
 			"name": "meta.directive.variable.macro.tiddlywiki5",
 			"beginCaptures": {
@@ -205,22 +205,27 @@
 			  {
 				"comment": "Match multiline macro body.",
 				"begin": "(?<=\\))\\s*$",
-				"end": "(\\\\)(end)\\s*?$",
+				"end": "(\\\\)(end)\\s*(\\S+)?$",
 				"name": "meta.variable.macro-block.tiddlywiki5",
 				"contentName": "meta.variable.macro.body.tiddlywiki5",
 				"endCaptures": {
 				  "1": { "name": "punctuation.definition.directive.tiddlywiki5" },
-				  "2": { "name": "keyword.control.directive.end.tiddlywiki5" }
+				  "2": { "name": "keyword.control.directive.end.tiddlywiki5" },
+				  "3": { "name": "entity.name.variable.macro.tiddlywiki5" }
 				},
 				"patterns": [
-				  { "include": "#function"},
-				  { "include": "#block" },
-				  {
-					"begin": "(?!\\s*$)",
-					"end": "(?:(?=\\\\end\\s*?$))|^$",
-					"name": "markup.other.paragraph.tiddlywiki5",
-					"patterns": [{ "include": "#inline" }]
-				  }
+					{ "include": "#define" },
+					{ "include": "#function" },
+					{ "include": "#procedure" },
+					{ "include": "#widget" },
+					{ "include": "#parameters" },
+					{ "include": "#block" },
+					{
+						"begin": "(?!\\s*$)",
+						"end": "(?:(?=\\\\end))|^(?!\\\\end)$",
+						"name": "markup.other.paragraph.tiddlywiki5",
+						"patterns": [{ "include": "#inline" }]
+					}
 				]
 			  },
 			  {"include": "#pragma-parameters"}
@@ -230,7 +235,7 @@
 			"patterns": [
 			  {
 				"comment": "Single and Multi-line function definition",
-				"begin": "^(\\\\)(function)\\s+([^\\s\\(]+)(?=\\s*\\()",
+				"begin": "^(\\\\)(function)\\s+([^\\s\\$\\(]+)(?=\\s*\\()",
 				"end": "^",
 				"name": "meta.directive.variable.function.tiddlywiki5",
 				"beginCaptures": {
@@ -319,7 +324,61 @@
 			]
 		  },
 		  "procedure": {
-			
+			"patterns": [
+			  {
+				"comment": "Single and Multi-line procedure definition",
+				"begin": "^(\\\\)(procedure)\\s+([^\\s\\$\\(]+)(?=\\s*\\()",
+				"end": "^",
+				"name": "meta.directive.variable.procedure.tiddlywiki5",
+				"beginCaptures": {
+					"1": { "name": "punctuation.definition.directive.tiddlywiki5" },
+					"2": { "name": "keyword.control.directive.procedure.html.tiddlywiki5" },
+					"3": { "name": "entity.name.variable.procedure.tiddlywiki5" }
+				},
+				"patterns": [
+					{
+						"comment": "Match single line procedure body.",
+						"match": "(?<=\\))\\s*(\\S.*)$",
+						"name": "meta.variable.procedure-inline.tiddlywiki5",
+						"captures": {
+						  "1": {
+							"begin": "^",
+							"end": "$",
+							"name": "meta.variable.macro.body.tiddlywiki5",
+							"patterns": [{ "include": "#wikitext" }]
+						  }
+						}
+					},
+					{
+						"comment": "Match multiline procedure body.",
+						"begin": "(?<=\\))\\s*$",
+						"end": "(\\\\)(end)\\s*(\\S+)?$",
+						"name": "meta.variable.procedure-block.tiddlywiki5",
+						"contentName": "meta.variable.procedure.body.tiddlywiki5",
+						"endCaptures": {
+						  "1": { "name": "punctuation.definition.directive.tiddlywiki5" },
+						  "2": { "name": "keyword.control.directive.end.tiddlywiki5" },
+						  "3": { "name": "entity.name.variable.procedure.tiddlywiki5" }
+						},
+						"patterns": [
+							{ "include": "#define" },
+							{ "include": "#function" },
+							{ "include": "#procedure" },
+							{ "include": "#widget" },
+							{ "include": "#parameters" },
+							{ "include": "#block" },
+							{
+							  "begin": "(?!\\s*$)",
+							  "end": "(?:(?=\\\\end))|^(?!\\\\end)$",
+							  "name": "markup.other.paragraph.tiddlywiki5",
+							  "patterns": [{ "include": "#inline" }]
+							}
+						  ]
+					},
+				  { "include": "#pragma-parameters" }
+				]
+			  }
+			]
 		  },
 		  "rules": {
 			"match": "^(\\\\)(rules)\\s+(only|except)?(.*)$",
@@ -343,7 +402,63 @@
 			}
 		  },		
 		  "widget": {
-			
+			"patterns": [
+			  {
+				"comment": "Single and Multi-line widget definition",
+				"begin": "^(\\\\)(widget)\\s+((\\$)(?!:\\/)[^\\s\\(]+)(?=\\s*\\()",
+				"end": "^",
+				"name": "meta.directive.variable.widget.tiddlywiki5",
+				"beginCaptures": {
+					"1": { "name": "punctuation.definition.directive.tiddlywiki5" },
+					"2": { "name": "keyword.control.directive.widget.html.tiddlywiki5" },
+					"3": { "name": "entity.name.variable.widget.tiddlywiki5" },
+					"4": { "name": "punctuation.definition.tag.widget.tiddlywiki5" }
+				},
+				"patterns": [
+					{
+						"comment": "Match single line widget body.",
+						"match": "(?<=\\))\\s*(\\S.*)$",
+						"name": "meta.variable.widget-inline.tiddlywiki5",
+						"captures": {
+						  "1": {
+							"begin": "^",
+							"end": "$",
+							"name": "meta.variable.macro.body.tiddlywiki5",
+							"patterns": [{ "include": "#wikitext" }]
+						  }
+						}
+					},
+					{
+						"comment": "Match multiline widget body.",
+						"begin": "(?<=\\))\\s*$",
+						"end": "(\\\\)(end)\\s*((\\$)\\S+)?",
+						"name": "meta.variable.widget-block.tiddlywiki5",
+						"contentName": "meta.variable.widget.body.tiddlywiki5",
+						"endCaptures": {
+						  "1": { "name": "punctuation.definition.directive.tiddlywiki5" },
+						  "2": { "name": "keyword.control.directive.end.tiddlywiki5" },
+						  "3": { "name": "entity.name.variable.widget.tiddlywiki5" },
+						  "4": { "name": "punctuation.definition.tag.widget.tiddlywiki5" }
+						},
+						"patterns": [
+							{ "include": "#define" },
+							{ "include": "#function" },
+							{ "include": "#procedure" },
+							{ "include": "#widget" },
+							{ "include": "#parameters" },
+							{ "include": "#block" },
+							{
+							  "begin": "(?!\\s*$)",
+							  "end": "(?:(?=\\\\end))|^(?!\\\\end)$",
+							  "name": "markup.other.paragraph.tiddlywiki5",
+							  "patterns": [{ "include": "#inline" }]
+							}
+						  ]
+					},
+				  { "include": "#pragma-parameters" }
+				]
+			  }
+			]
 		  },
 		  "block": {
 			"patterns": [
