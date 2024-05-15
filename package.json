@@ -137,8 +137,8 @@
     },
     "scripts": {
         "echo-test": "bash -c 'echo $(pwd) && echo ./tests/tiddlywiki5/*.test'",
-        "list-test": "bash -c 'ls ./tests/tiddlywiki5/*.test.tw'",
-        "test": "bash ./run_tests.sh './tests/tiddlywiki5/*.test.tw'",
+        "list-test": "bash -c 'ls ./tests/tiddlywiki5/*.test'",
+        "test": "bash ./run_tests.sh './tests/tiddlywiki5/*.test'",
         "tests-advanced": "bash ./run_tests.sh './tests/tiddlywiki5/html.advanced.test'",
         "tests-basic": "bash ./run_tests.sh './tests/tiddlywiki5/html.basic.test'",
         "tests-htmltiddler": "bash ./run_tests.sh './tests/tiddlywiki5/html.tiddler.test'",
