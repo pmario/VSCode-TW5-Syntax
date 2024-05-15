@@ -500,30 +500,10 @@
 			"body": "<\\$action-setfield${1: $tiddler=${2:<<currentTiddler>>}}${3: tags=\"[[tag]]\"} />$0"
 		}
 	},
-	"meta.variable.": {
-		"Substitute Parameter": {
-			"prefix": "sub-param",
-			"body": "\\$${1:parameter}\\$$0"
-		},
-		"Substitute Variable": {
-			"prefix": "sub-variable",
-			"body": "\\$(${1:currentTiddler})\\$$0"
-		}
-	},
-	"text.substituted.attribute.html.tiddlywiki5": {
+	"meta.variable.\ntext.substituted.attribute.html.tiddlywiki5\nstring.entity.filter.operand.tiddlywiki5": {
 		"Substitute Filter": {
 			"prefix": "sub-filter",
-			"body": "\\$${1:[[]]}\\$$0"
-		},
-		"Substitute Variable": {
-			"prefix": "sub-variable",
-			"body": "\\$(${1:currentTiddler})\\$$0"
-		}
-	},
-	"string.entity.filter.operand.tiddlywiki5": {
-		"Substitute Filter": {
-			"prefix": "sub-filter",
-			"body": "\\$${1:[[]]}\\$$0"
+			"body": "\\${${1:[[]]}}\\$$0"
 		},
 		"Substitute Parameter": {
 			"prefix": "sub-param",

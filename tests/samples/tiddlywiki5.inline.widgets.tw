@@ -72,7 +72,7 @@ attribute6
 
   <$tw.Widget />
 
-  <$tw.Widget test=`$test$ ${n}$ $(fnord)$`/> <!-- No macro $params$ here -->
+  <$tw.Widget test=`${[[]]}$ $parameter$ $(currentTiddler)$`/> <!-- No macro $params$ here -->
 
   <$widget attribute="value" a={{b}} a=<<c>> > content </$widget>
 
