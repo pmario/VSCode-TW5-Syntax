@@ -76,6 +76,10 @@ Inline  <my-tag
 |||c
 | ''Table caption section'' |c
 
+|						  |Header One	|h
+|!Header One	|Data One	  |
+|!Header Two	|Data Two	  |
+
 ||
 | |
 |||

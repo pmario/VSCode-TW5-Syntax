@@ -1,7 +1,7 @@
 {
     "name": "tw5-syntax",
     "displayName": "TiddlyWiki5 Syntax",
-    "description": "TiddlyWiki5 v5.3.4 Textmate compatible Syntax Highlighting for Visual Studio Code",
+    "description": "TiddlyWiki5 v5.3.4 Textmate compatible Syntax / Grammar",
     "version": "2.0.0",
     "icon": "tw5.png",
     "engines": {
@@ -9,7 +9,6 @@
     },
     "categories": [
         "Programming Languages",
-        "Languages",
         "Snippets"
     ],
     "keywords": [
@@ -37,6 +36,7 @@
             {
                 "id": "tid",
                 "aliases": [
+                    "Tiddler",
                     "Tid",
                     "tid"
                 ],
@@ -52,6 +52,7 @@
             {
                 "id": "multids",
                 "aliases": [
+                    "MultiTiddlers",
                     "Multids",
                     "multids"
                 ],
@@ -67,11 +68,13 @@
                 "id": "tiddlywiki5",
                 "aliases": [
                     "TiddlyWiki5",
-                    "tiddlywiki5"
+                    "tiddlywiki5",
+                    "tw5"
                 ],
                 "extensions": [
                     ".tw",
-                    ".tw5"
+                    ".tw5",
+                    ".tiddlywiki5"
                 ],
                 "mimetypes": [
                     "text/vnd.tiddlywiki"
@@ -120,6 +123,7 @@
         ],
         "configurationDefaults": {
             "files.associations": {
+                "*.tiddlywiki5": "tiddlywiki5",
                 "*.tw": "tiddlywiki5",
                 "*.tw5": "tiddlywiki5",
                 "*.tid": "tid",

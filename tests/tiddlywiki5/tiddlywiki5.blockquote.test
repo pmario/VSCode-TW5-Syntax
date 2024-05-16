@@ -21,7 +21,7 @@ Quoted text
 #       ^ b
 
 <<<<<
-#<- a
+#<- text.html.tiddlywiki5 markup.quote.blockquote.tiddlywiki5 meta.quote.blockquote.tiddlywiki5 markup.quote.blockquote.tiddlywiki5 meta.quote.blockquote.tiddlywiki5 markup.quote.blockquote.tiddlywiki5 meta.quote.blockquote.tiddlywiki5 markup.quote.blockquote.tiddlywiki5 punctuation.definition.markup.quote.blockquote.begin.tiddlywiki5
 
 <<<< Top cite
 Quoted text
@@ -74,5 +74,3 @@ for the bottom cite
 <<< 3
 <<<< 4
 <<<<< 5
-
-<!--#endregion -->

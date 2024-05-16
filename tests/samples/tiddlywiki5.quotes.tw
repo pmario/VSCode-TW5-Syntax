@@ -5,9 +5,9 @@ Quoted text
 
 <<myMacro>>
 
-   <<<< Top cite
-   Quoted text
-   <<<< Bottom cite
+    <<<< Top cite
+        Quoted text
+    <<<< Bottom cite
 
 <<<<<
 
