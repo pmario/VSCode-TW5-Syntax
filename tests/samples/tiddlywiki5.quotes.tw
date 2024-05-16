@@ -1,4 +1,16 @@
 <!--#region Block Markup Wikitext -->
+    <<<
+    Quoted text
+
+<<< test
+
+    <<<< Top cite
+    Quoted text
+    <<<< Bottom cite
+
+    <<<<< Top cite
+    Quoted text
+    <<<<< Bottom cite
 
 <<<<<
 Quoted text
@@ -11,13 +23,13 @@ Quoted text
 
 <<<<<
 
-<<<< Top cite
-Quoted text
-<<<< Bottom cite
+    <<<< Top cite
+    Quoted text
+    <<<< Bottom cite
 
 <<< Top cite
 Quoted text
-<<<
+    <<<
 
    <<<
    Quoted text

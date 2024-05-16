@@ -3284,12 +3284,13 @@
               "applyEndPatternLast": 1,
               "begin": "^\\s*(<<<<<)(?!<)(?:\\r?\\n)?",
               "end": "^\\s*(<<<<<)(?!<)$",
-              "name": "markup.quote.blockquote.tiddlywiki5",
+              "name": "markup.quote.blockquote.5.tiddlywiki5",
 			  "contentName": "meta.quote.blockquote.tiddlywiki5",
               "beginCaptures": {
-                "1": {
-                  "name": "punctuation.definition.markup.quote.blockquote.begin.tiddlywiki5"
-                }
+                "1": { "name": "punctuation.definition.markup.quote.blockquote.begin.tiddlywiki5" }
+              },
+              "endCaptures": {
+                "1": { "name": "punctuation.definition.markup.quote.blockquote.end.tiddlywiki5" }
               },
               "patterns": [
                 {
@@ -3304,7 +3305,7 @@
                 },
                 {
                   "comment": "Tokenize bottom cite.",
-                  "begin": "^(<<<<<)(?!<)[^\\S\\n]*?",
+                  "begin": "^\\s*(<<<<<)(?!<)",
                   "end": "$",
                   "contentName": "meta.quote.blockquote.cite.bottom.tiddlywiki5",
                   "beginCaptures": {
@@ -3317,12 +3318,13 @@
                 {
                   "comment": "Tokenize body.",
                   "begin": "^",
-                  "end": "^(?=<<<<<(?!<))",
+                  "end": "^\\s*(?=<<<<<(?!<))",
+				  "name": "meta.quote.blockquote.body.tiddywiki5",
                   "patterns": [
                     { "include": "#block" },
                     {
                       "begin": "(?!\\s*$)",
-                      "end": "(?:^(?=<<<<<(?!<)))|^$",
+                      "end": "(?:^\\s*(?=<<<<<(?!<)))|^$",
                       "name": "markup.other.paragraph.tiddlywiki5",
                       "patterns": [{ "include": "#inline" }]
                     }
@@ -3334,12 +3336,13 @@
               "applyEndPatternLast": 1,
               "begin": "^\\s*(<<<<)(?!<)(?:\\r?\\n)?",
               "end": "^\\s*(<<<<)(?!<)$",
-              "name": "markup.quote.blockquote.tiddlywiki5",
+              "name": "markup.quote.blockquote.4.tiddlywiki5",
 			  "contentName": "meta.quote.blockquote.tiddlywiki5",
               "beginCaptures": {
-                "1": {
-                  "name": "punctuation.definition.markup.quote.blockquote.begin.tiddlywiki5"
-                }
+                "1": { "name": "punctuation.definition.markup.quote.blockquote.begin.tiddlywiki5" }
+              },
+              "endCaptures": {
+                "1": { "name": "punctuation.definition.markup.quote.blockquote.end.tiddlywiki5" }
               },
               "patterns": [
                 {
@@ -3354,7 +3357,7 @@
                 },
                 {
                   "comment": "Tokenize bottom cite.",
-                  "begin": "^(<<<<)(?!<)[^\\S\\n]*?",
+                  "begin": "^\\s*(<<<<)(?!<)",
                   "end": "$",
                   "contentName": "meta.quote.blockquote.cite.bottom.tiddlywiki5",
                   "beginCaptures": {
@@ -3367,12 +3370,13 @@
                 {
                   "comment": "Tokenize body.",
                   "begin": "^",
-                  "end": "^(?=<<<<(?!<))",
+                  "end": "^\\s*(?=<<<<(?!<))",
+				  "name": "meta.quote.blockquote.body.tiddywiki5",
                   "patterns": [
                     { "include": "#block" },
                     {
                       "begin": "(?!\\s*$)",
-                      "end": "(?:^(?=<<<<(?!<)))|^$",
+                      "end": "(?:^\\s*(?=<<<<(?!<)))|^$",
                       "name": "markup.other.paragraph.tiddlywiki5",
                       "patterns": [{ "include": "#inline" }]
                     }
@@ -3383,13 +3387,14 @@
             {
               "applyEndPatternLast": 1,
               "begin": "^\\s*(<<<)(?!<)(?:\\r?\\n)?",
-              "end": "^\\s*(<<<)(?!<)$",
-              "name": "markup.quote.blockquote.tiddlywiki5",
+              "end": "^\\s*(<<<)(?!<)",
+              "name": "markup.quote.blockquote.3.tiddlywiki5",
 			  "contentName": "meta.quote.blockquote.tiddlywiki5",
               "beginCaptures": {
-                "1": {
-                  "name": "punctuation.definition.markup.quote.blockquote.begin.tiddlywiki5"
-                }
+                "1": { "name": "punctuation.definition.markup.quote.blockquote.begin.tiddlywiki5" }
+              },
+              "endCaptures": {
+                "1": { "name": "punctuation.definition.markup.quote.blockquote.end.tiddlywiki5" }
               },
               "patterns": [
                 {
@@ -3404,7 +3409,7 @@
                 },
                 {
                   "comment": "Tokenize bottom cite.",
-                  "begin": "^(<<<)(?!<)[^\\S\\n]*?",
+                  "begin": "^\\s*(<<<)(?!<)",
                   "end": "$",
                   "contentName": "meta.quote.blockquote.cite.bottom.tiddlywiki5",
                   "beginCaptures": {
@@ -3417,12 +3422,13 @@
                 {
                   "comment": "Tokenize body.",
                   "begin": "^",
-                  "end": "^(?=<<<(?!<))",
+                  "end": "^\\s*(?=<<<(?!<))",
+				  "name": "meta.quote.blockquote.body.tiddywiki5",
                   "patterns": [
                     { "include": "#block" },
                     {
                       "begin": "(?!\\s*$)",
-                      "end": "(?:^(?=<<<(?!<)))|^$",
+                      "end": "(?:^\\s*(?=<<<(?!<)))|^$",
                       "name": "markup.other.paragraph.tiddlywiki5",
                       "patterns": [{ "include": "#inline" }]
                     }
