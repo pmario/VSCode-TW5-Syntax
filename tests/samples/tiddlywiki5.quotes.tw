@@ -1,8 +1,9 @@
 <!--#region Block Markup Wikitext -->
-    <<<
-    Quoted text
-
-<<< test
+    <<<.test ''test''
+    
+    Quoted ''text''
+    
+    <<< ''test''
 
     <<<< Top cite
     Quoted text
@@ -18,10 +19,40 @@ Quoted text
 <<myMacro>>
 
     <<<< Top cite
-        Quoted text
+        Quoted __text__
     <<<< Bottom cite
 
 <<<<<
+
+
+<<< Mixing Block Quotes with Inline Wikitext
+A paragraph appears before other //wikitext//, which needs to end with a blank line.
+
+    * List One
+    ** List Two
+    **> A quote
+"""
+A poem
+with ''line beaks''
+needs to have
+a blank line after
+the final quotes
+if followed
+by other content
+"""
+
+    <<<< Deep Block Quote
+        A paragraph before other //wikitext//, which ends with a blank line.
+
+        ! A Header
+        Another paragraph, which needs to end with a blank line.
+
+            !! Sub Header
+            A final paragraph, which __does not__ need to end with a blank line as the Block Quote ends.
+    <<<<
+<<<
+
+---
 
     <<<< Top cite
     Quoted text
