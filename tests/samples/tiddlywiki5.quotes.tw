@@ -1,17 +1,19 @@
 <!--#region Block Markup Wikitext -->
+    <<<< Top cite
+    Quoted ''text''
+
+    <<<< Bottom cite
+
     <<<.test ''test''
     
     Quoted ''text''
-    
-    <<< ''test''
 
-    <<<< Top cite
-    Quoted text
-    <<<< Bottom cite
+    Quoted ''text''
+    <<< ''test''
 
     <<<<< Top cite
     Quoted text
-    <<<<< Bottom cite
+    <<<<<
 
 <<<<<
 Quoted text
@@ -22,7 +24,9 @@ Quoted text
         Quoted __text__
     <<<< Bottom cite
 
+
 <<<<<
+
 
 
 <<< Mixing Block Quotes with Inline Wikitext

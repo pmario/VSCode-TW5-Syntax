@@ -1,13 +1,13 @@
 {
 	"information_for_contributors": [
 		"Textmate Grammar/Syntax for Tiddlywiki5 v5.3.4 (source: https://github.com/Jermolene/TiddlyWiki5)",
-		"This file has been converted from https://github.com/joshuafontany/VSCode-TW5-Syntax/tree/main/syntaxes/tiddlywiki5.json",
+		"This file has been converted from https://github.com/joshuafontany/VSCode-tiddlywiki5-Syntax/tree/main/syntaxes/tiddlywiki5.json",
 		"If you want to provide a fix or improvement, please create a pull request against the original repository."
 	],
 	"version": "5.3.4",
     "name": "TiddlyWiki5",
     "scopeName": "text.html.tiddlywiki5",
-    "fileTypes": ["tw", "tw5", "tiddlywiki5"],
+    "fileTypes": ["tw", "tiddlywiki5", "tiddlywiki5"],
     "firstLineMatch": "<!--\\s*tiddlywiki5\\s*-->",
 	"injections": {
 		"L:meta.variable.macro.body.tiddlywiki5, meta.variable.function.body.tiddlywiki5, meta.variable.procedure.body.tiddlywiki5, meta.variable.widget.body.tiddlywiki5": {
@@ -3282,47 +3282,51 @@
 			"patterns": [
 			  {
 				"applyEndPatternLast": 1,
-				"begin": "\\s*(<<<<<)(?!<)(?:\\r?\\n)?",
-				"end": "$",
-				"name": "markup.quote.quoteblock.tw5",
+				"begin": "\\s*(<<<<<)(?!<)",
+				"end": "\\s*(<<<<<)(?!<)(.*)$",
+				"name": "markup.quote.quoteblock.tiddlywiki5",
 				"beginCaptures": {
 				  "1": {
-					"name": "punctuation.definition.markup.quote.quoteblock.begin.tw5"
+					"name": "punctuation.definition.markup.quote.quoteblock.begin.tiddlywiki5"
 				  }
+				},
+				"endCaptures": {
+					"1": {
+						"name": "punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5"
+					  },
+					"2": {
+						"patterns": [
+							{
+								"comment": "Tokenize bottom cite.",
+								"begin": "(?<=<<<<<)(?!$)[^\\S]*?",
+								"end": "$",
+								"contentName": "meta.quote.quoteblock.cite.bottom.tiddlywiki5",
+								"patterns": [{ "include": "#inline" }]
+							  }
+						]
+					}
 				},
 				"patterns": [
 				  {
 					"comment": "Tokenize classes and top cite.",
 					"begin": "(?<=<<<<<)(?!$)((?:\\.[^\\s\\.]+)+)?[^\\S\\n]*",
-					"end": "\\r?\\n",
-					"contentName": "meta.quote.quoteblock.cite.top.tw5",
+					"end": "$",
+					"contentName": "meta.quote.quoteblock.cite.top.tiddlywiki5",
 					"beginCaptures": {
 					  "1": { "patterns": [{ "include": "#classes" }] }
 					},
 					"patterns": [{ "include": "#inline" }]
 				  },
 				  {
-					"comment": "Tokenize bottom cite.",
-					"begin": "^\\s*(<<<<<)(?!<)[^\\S\\n]*?",
-					"end": "$",
-					"contentName": "meta.quote.quoteblock.cite.bottom.tw5",
-					"beginCaptures": {
-					  "1": {
-						"name": "punctuation.definition.markup.quote.quoteblock.end.tw5"
-					  }
-					},
-					"patterns": [{ "include": "#inline" }]
-				  },
-				  {
 					"comment": "Tokenize body.",
 					"begin": "^",
-					"end": "^(?=<<<<<(?!<))",
+					"end": "^$|(?:\\s*(?=<<<<<(?!<)))",
 					"patterns": [
 					  { "include": "#block" },
 					  {
 						"begin": "(?!\\s*$)",
-						"end": "(?:^(?=<<<<<(?!<)))|^$",
-						"name": "markup.other.paragraph.tw5",
+						"end": "^$|(?:\\s*(?=<<<<<(?!<)))",
+						"name": "markup.other.paragraph.tiddlywiki5",
 						"patterns": [{ "include": "#inline" }]
 					  }
 					]
@@ -3331,47 +3335,52 @@
 			  },
 			  {
 				"applyEndPatternLast": 1,
-				"begin": "\\s*(<<<<)(?!<)(?:\\r?\\n)?",
-				"end": "$",
-				"name": "markup.quote.quoteblock.tw5",
+				"begin": "^\\s*(<<<<)(?!<)",
+				"end": "\\s*(<<<<)(?!<)(.*)$",
+				"name": "markup.quote.quoteblock.tiddlywiki5",
 				"beginCaptures": {
 				  "1": {
-					"name": "punctuation.definition.markup.quote.quoteblock.begin.tw5"
+					"name": "punctuation.definition.markup.quote.quoteblock.begin.tiddlywiki5"
 				  }
+				},
+				"endCaptures": {
+					"1": {
+						"name": "punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5"
+					  },
+					"2": {
+						"patterns": [
+							{
+								"comment": "Tokenize bottom cite.",
+								"begin": "(?<=<<<<)(?!$)[^\\S]*?",
+								"end": "$",
+								"contentName": "meta.quote.quoteblock.cite.bottom.tiddlywiki5",
+								"patterns": [{ "include": "#inline" }]
+							  }
+						]
+					}
 				},
 				"patterns": [
 				  {
 					"comment": "Tokenize classes and top cite.",
-					"begin": "(?<=<<<<)(?!$)((?:\\.[^\\s\\.]+)+)?[^\\S\\n]*",
-					"end": "\\r?\\n",
-					"contentName": "meta.quote.quoteblock.cite.top.tw5",
+					"begin": "(?<=<<<<)(?!$)((?:\\.[^\\s\\.]+)+)?[^\\S]*",
+					"end": "$",
+					"contentName": "meta.quote.quoteblock.cite.top.tiddlywiki5",
 					"beginCaptures": {
 					  "1": { "patterns": [{ "include": "#classes" }] }
 					},
 					"patterns": [{ "include": "#inline" }]
 				  },
 				  {
-					"comment": "Tokenize bottom cite.",
-					"begin": "^\\s*(<<<<)(?!<)[^\\S\\n]*?",
-					"end": "$",
-					"contentName": "meta.quote.quoteblock.cite.bottom.tw5",
-					"beginCaptures": {
-					  "1": {
-						"name": "punctuation.definition.markup.quote.quoteblock.end.tw5"
-					  }
-					},
-					"patterns": [{ "include": "#inline" }]
-				  },
-				  {
 					"comment": "Tokenize body.",
 					"begin": "^",
-					"end": "^(?=<<<<(?!<))",
+					"end": "^$|(?:\\s*(?=<<<<(?!<)))",
+					"contentName": "meta.quote.quoteblock.body.tiddlywiki5",
 					"patterns": [
 					  { "include": "#block" },
 					  {
 						"begin": "(?!\\s*$)",
-						"end": "(?:^(?=<<<<(?!<)))|^$",
-						"name": "markup.other.paragraph.tw5",
+						"end": "^$|(?:\\s*(?=<<<<(?!<)))",
+						"name": "markup.other.paragraph.tiddlywiki5",
 						"patterns": [{ "include": "#inline" }]
 					  }
 					]
@@ -3380,47 +3389,52 @@
 			  },
 			  {
 				"applyEndPatternLast": 1,
-				"begin": "\\s*(<<<)(?!<)",
-				"end": "$",
-				"name": "markup.quote.quoteblock.tw5",
+				"begin": "^\\s*(<<<)(?!<)",
+				"end": "\\s*(<<<)(?!<)(.*)$",
+				"name": "markup.quote.quoteblock.tiddlywiki5",
 				"beginCaptures": {
 				  "1": {
-					"name": "punctuation.definition.markup.quote.quoteblock.begin.tw5"
+					"name": "punctuation.definition.markup.quote.quoteblock.begin.tiddlywiki5"
 				  }
+				},
+				"endCaptures": {
+					"1": {
+						"name": "punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5"
+					  },
+					"2": {
+						"patterns": [
+							{
+								"comment": "Tokenize bottom cite.",
+								"begin": "(?<=<<<)(?!$)[^\\S]*?",
+								"end": "$",
+								"contentName": "meta.quote.quoteblock.cite.bottom.tiddlywiki5",
+								"patterns": [{ "include": "#inline" }]
+							  }
+						]
+					}
 				},
 				"patterns": [
 				  {
 					"comment": "Tokenize classes and top cite.",
-					"begin": "(?<=<<<)(?!$)((?:\\.[^\\s\\.]+)+)?[^\\S\\n]*",
-					"end": "\\r?\\n",
-					"contentName": "meta.quote.quoteblock.cite.top.tw5",
+					"begin": "(?<=<<<)(?!$)((?:\\.[^\\s\\.]+)+)?[^\\S]*",
+					"end": "$",
+					"contentName": "meta.quote.quoteblock.cite.top.tiddlywiki5",
 					"beginCaptures": {
 					  "1": { "patterns": [{ "include": "#classes" }] }
 					},
 					"patterns": [{ "include": "#inline" }]
 				  },
 				  {
-					"comment": "Tokenize bottom cite.",
-					"begin": "^\\s*(<<<)(?!<)[^\\S\\n]*?",
-					"end": "$",
-					"contentName": "meta.quote.quoteblock.cite.bottom.tw5",
-					"beginCaptures": {
-					  "1": {
-						"name": "punctuation.definition.markup.quote.quoteblock.end.tw5"
-					  }
-					},
-					"patterns": [{ "include": "#inline" }]
-				  },
-				  {
 					"comment": "Tokenize body.",
 					"begin": "^",
-					"end": "^(?=<<<(?!<))",
+					"end": "^$|(?:\\s*(?=<<<(?!<)))",
+					"contentName": "meta.quote.quoteblock.body.tiddlywiki5",
 					"patterns": [
 					  { "include": "#block" },
 					  {
 						"begin": "(?!\\s*$)",
-						"end": "(?:^(?=<<<(?!<)))|^$",
-						"name": "markup.other.paragraph.tw5",
+						"end": "^$|(?:\\s*(?=<<<(?!<)))",
+						"name": "markup.other.paragraph.tiddlywiki5",
 						"patterns": [{ "include": "#inline" }]
 					  }
 					]
