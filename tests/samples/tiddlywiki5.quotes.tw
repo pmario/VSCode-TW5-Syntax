@@ -1,8 +1,17 @@
 <!--#region Block Markup Wikitext -->
-    <<<< Top cite
+    <<< Top cite
+<<< bottom cite
+
+
+    <<< Top cite
     Quoted ''text''
 
-    <<<< Bottom cite
+<<<
+
+    <<< Top cite
+    Quoted ''text''
+
+<<< Bottom cite
 
     <<<.test ''test''
     
@@ -14,6 +23,10 @@
     <<<<< Top cite
     Quoted text
     <<<<<
+
+---
+nested tests
+---
 
 <<<<<
 Quoted text
@@ -80,19 +93,18 @@ for the top cite
 """
 ''Block'' run for the quote body
 
-<<<< Nested top cite
-Nested quotation
+    <<<< Nested top cite
+    Nested quotation
 <<<< Nested bottom cite
 
-<<< """
+    <<<< """
 ''Inline'' run
 for the bottom cite
 """
+<<<<
 
 <<<
-
-<<<
-
+Quote
 <<<
 
 <<<
@@ -102,8 +114,8 @@ for the bottom cite
    <<myMacro
    >>
 
-   <<<<< Test
-  <<<< test
+    <<<<< Test
+    <<<< test
 <<<
 
 <<< 3
@@ -113,8 +125,8 @@ for the bottom cite
 <<< Mixing Block Quotes with Inline Wikitext
 A paragraph appears before other //wikitext//, which needs to end with a blank line.
 
-    * List One
-    ** List Two
+    * List ''One''
+    ** List //Two//
     **> A quote
 """
 A poem
