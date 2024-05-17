@@ -34,6 +34,23 @@
     "contributes": {
         "languages": [
             {
+                "id": "tiddlywiki5.test",
+                "aliases": [
+                    "Tiddlywiki Test",
+                    "tiddlywiki5.test",
+                    "tw5.test",
+                    "tw.test"
+                ],
+                "extensions": [
+                    ".tw5.test",
+                    ".tiddlywiki5.test"
+                ],
+                "mimetypes": [
+                    "text/vnd.tiddlywiki.test"
+                ],
+                "configuration": "./language-configuration.json"
+            },
+            {
                 "id": "tid",
                 "aliases": [
                     "Tiddler",
@@ -89,6 +106,11 @@
                 "path": "./syntaxes/tiddlywiki5.json"
             },
             {
+                "language": "tiddlywiki5.test",
+                "scopeName": "text.html.tiddlywiki5.test",
+                "path": "./syntaxes/tw5-test-file.json"
+            },
+            {
                 "language": "tid",
                 "scopeName": "source.tiddlywiki5.tid-file",
                 "path": "./syntaxes/tw5-tid-file.json"
@@ -126,6 +148,7 @@
                 "*.tiddlywiki5": "tiddlywiki5",
                 "*.tw": "tiddlywiki5",
                 "*.tw5": "tiddlywiki5",
+                "*.tw5.test": "tiddlywiki5.test",
                 "*.tid": "tid",
                 "*.meta": "tid",
                 "*.multids": "multids"
@@ -143,13 +166,13 @@
         "vscode-jsp": "https://github.com/pthorsson/vscode-jsp"
     },
     "scripts": {
-        "echo-test": "bash -c 'echo $(pwd) && echo ./tests/tiddlywiki5/*.test'",
-        "list-test": "bash -c 'ls ./tests/tiddlywiki5/*.test'",
-        "test": "bash ./run_tests.sh './tests/tiddlywiki5/*.test'",
-        "tests-advanced": "bash ./run_tests.sh './tests/tiddlywiki5/html.advanced.test'",
-        "tests-basic": "bash ./run_tests.sh './tests/tiddlywiki5/html.basic.test'",
-        "tests-htmltiddler": "bash ./run_tests.sh './tests/tiddlywiki5/html.tiddler.test'",
-        "tests-wikitext": "bash ./run_tests.sh './tests/tiddlywiki5/tiddlywiki5.*.test'"
+        "echo-test": "bash -c 'echo $(pwd) && echo ./tests/tiddlywiki5/*.tw5.test'",
+        "list-test": "bash -c 'ls ./tests/tiddlywiki5/*.tw5.test'",
+        "test": "bash ./run_tests.sh './tests/tiddlywiki5/*.tw5.test'",
+        "tests-advanced": "bash ./run_tests.sh './tests/tiddlywiki5/html.advanced.tw5.test'",
+        "tests-basic": "bash ./run_tests.sh './tests/tiddlywiki5/html.basic.tw5.test'",
+        "tests-htmltiddler": "bash ./run_tests.sh './tests/tiddlywiki5/html.tiddler.tw5.test'",
+        "tests-wikitext": "bash ./run_tests.sh './tests/tiddlywiki5/tiddlywiki5.*.tw5.test'"
     },
     "npmConfig": {
       "script-shell": "/bin/bash"
