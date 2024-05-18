@@ -34,7 +34,7 @@
 			  { "include": "#block" },
 			  {
 				"begin": "(?!\\s*$)",
-				"end": "^$|^(?=\\s*(?:<{3,}|\\\\end|\\$\\$\\$|```))",
+				"end": "^$|^(?=\\s*(?:<{3,}|\\\\end))",
 				"name": "meta.paragraph.tiddlywiki5",
 				"patterns": [{ "include": "#inline" }]
 			  }
@@ -3178,7 +3178,7 @@
                 "2": { "name": "punctuation.definition.typedblock.render.tiddlywiki5" },
                 "3": { "name": "entity.other.attribute-name.render.tiddlywiki5" }
               },
-              "patterns": [{ "include": "text.html" }]
+              "patterns": [{ "include": "text.html.basic" }]
             },
             {
               "begin": "\\G(\\.js|application\\/javascript)(?:\\s*(>)\\s*(\\S+))?$",

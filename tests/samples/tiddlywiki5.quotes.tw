@@ -1,11 +1,18 @@
 <!--#region Block Markup Wikitext -->
     <<< Top cite
-<<< bottom cite
+    <<< bottom cite
 
 
     <<< Top cite
     Quoted ''text''
 
+{{{
+[[filtered]title[transclusion]]
+}}}
+
+```tw5
+<<test>>
+```
 <<<
 
     <<< Top cite
