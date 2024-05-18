@@ -3290,21 +3290,10 @@
 					  }
 					},
 					"endCaptures": {
-					  "1": {
-						"name": "punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5"
-					  },
-					  "2": {
-						"patterns": [
-						  {
-							"comment": "Tokenize bottom cite.",
-							"begin": "(?<=^.*<<<<<)(?![\\<$])\\s*",
-							"end": "$",
-							"contentName": "meta.quote.quoteblock.cite.bottom.tiddlywiki5",
-							"patterns": [{ "include": "#inline" }]
-						  }
-						]
-					  }
-					},
+						"1": {
+							"name": "punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5"
+							}
+						},
 					"patterns": [
 					  {
 						"comment": "Tokenize classes and top cite.",
@@ -3335,7 +3324,7 @@
 				},
 				{
 					"begin": "^\\s*(<<<<)(?!<)",
-					"end": "\\s*(<<<<)(?!<)(.*)$",
+					"end": "\\s*(<<<<)(?!<)",
 					"name": "markup.quote.quoteblock.tiddlywiki5",
 					"beginCaptures": {
 					  "1": {
@@ -3343,21 +3332,10 @@
 					  }
 					},
 					"endCaptures": {
-					  "1": {
-						"name": "punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5"
-					  },
-					  "2": {
-						"patterns": [
-						  {
-							"comment": "Tokenize bottom cite.",
-							"begin": "(?<=^.*<<<<)(?![\\<$])\\s*",
-							"end": "$",
-							"contentName": "meta.quote.quoteblock.cite.bottom.tiddlywiki5",
-							"patterns": [{ "include": "#inline" }]
-						  }
-						]
-					  }
-					},
+						"1": {
+							"name": "punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5"
+							}
+						},
 					"patterns": [
 					  {
 						"comment": "Tokenize classes and top cite.",
@@ -3388,28 +3366,17 @@
 				},
 				{
 					"begin": "^\\s*(<<<)(?!<)",
-					"end": "\\s*(<<<)(?!<)(.*)$",
+					"end": "\\s*(<<<)(?!<)",
 					"name": "markup.quote.quoteblock.tiddlywiki5",
 					"beginCaptures": {
 					"1": {
 						"name": "punctuation.definition.markup.quote.quoteblock.begin.tiddlywiki5"
-					}
+						}
 					},
 					"endCaptures": {
 					"1": {
 						"name": "punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5"
-					},
-					"2": {
-						"patterns": [
-						{
-							"comment": "Tokenize bottom cite.",
-							"begin": "(?<=^.*<<<)(?![\\<$])\\s*",
-							"end": "$",
-							"contentName": "meta.quote.quoteblock.cite.bottom.tiddlywiki5",
-							"patterns": [{ "include": "#inline" }]
 						}
-						]
-					}
 					},
 					"patterns": [
 					{

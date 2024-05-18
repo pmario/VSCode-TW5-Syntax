@@ -20,7 +20,7 @@ Quoted text
 
    <<<< Bottom cite
 #  ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5
-#       ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.quote.quoteblock.cite.bottom.tiddlywiki5
+#       ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.other.paragraph.tiddlywiki5
 
 <<<<<
 #<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5
@@ -34,11 +34,11 @@ Quoted text
 
 <<<< Bottom cite
 #<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5
-#    ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.quote.quoteblock.cite.bottom.tiddlywiki5
+#    ^ text.html.tiddlywiki5 meta.paragraph.tiddlywiki5
 
 <<< Top cite
 #<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.begin.tiddlywiki5
-#   ^ ttext.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.quote.quoteblock.cite.top.tiddlywiki5
+#   ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.quote.quoteblock.cite.top.tiddlywiki5
 
 Quoted text
 #<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.other.paragraph.tiddlywiki5
@@ -55,7 +55,7 @@ Quoted text
 
     <<< Bottom Cite
 #   ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5
-#       ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.quote.quoteblock.cite.bottom.tiddlywiki5
+#       ^ text.html.tiddlywiki5 meta.paragraph.tiddlywiki5
 
 <<<.class1.class2 Top cite
 #<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.begin.tiddlywiki5
@@ -70,7 +70,7 @@ Quoted text
 
 <<< Bottom cite
 #<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5
-#   ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.quote.quoteblock.cite.bottom.tiddlywiki5
+#   ^ text.html.tiddlywiki5 meta.paragraph.tiddlywiki5
 
 <<<.class1.class2 """
 ''Inline'' run

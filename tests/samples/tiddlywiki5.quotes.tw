@@ -23,7 +23,6 @@
     <<<<< Top cite
     Quoted text
     <<<<<
-
 ---
 nested tests
 ---
@@ -97,7 +96,7 @@ for the top cite
     Nested quotation
 <<<< Nested bottom cite
 
-    <<<< """
+    <<< """
 ''Inline'' run
 for the bottom cite
 """
@@ -146,7 +145,7 @@ by other content
 
             !! Sub Header
             A final paragraph, which __does not__ need to end with a blank line as the Block Quote ends.
-    <<<<
+    <<<< bottom cite
 <<<
 
 <!--#endregion -->
