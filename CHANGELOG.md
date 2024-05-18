@@ -21,6 +21,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Fixed syntax bugs with links
 - Fixed bugs with horizontal rules
 - Fixed bugs with list quotes
+- Fixed bugs with codeinline, codeblock, typedblock.
+- Added `.tw|.tw5|.tiddlywiki|.tiddlywiki5|text/vnd.tiddlywiki` to `#typedblock`.
+- Added `tw|tw5|tiddlywiki|tiddlywiki5` to `#codeblock`
 
 ## 1.1.0
 - Reviewed repository with ChatGPT4

@@ -34,7 +34,7 @@
 			  { "include": "#block" },
 			  {
 				"begin": "(?!\\s*$)",
-				"end": "^$|^(?=\\s*(?:<{3,}|\\\\end))",
+				"end": "^$|^(?=\\s*(?:<{3,}|\\\\end|\\$\\$\\$|```))",
 				"name": "meta.paragraph.tiddlywiki5",
 				"patterns": [{ "include": "#inline" }]
 			  }
@@ -3137,9 +3137,9 @@
           },
           "patterns": [
             {
-              "begin": "\\G(\\.tid|application\\/x\\-tiddler)(?:\\s*(>)\\s*(\\S+))?$",
+              "begin": "\\G(\\.tw5?|.tiddlywiki5?|text\\/vnd\\.tiddlywiki)(?:\\s*(>)\\s*(\\S+))?$",
               "end": "(?=^\\$\\$\\$$)",
-              "contentName": "text.html.tiddlywiki5.tiddlywiki5",
+              "contentName": "text.html.tiddlywiki5",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.parse.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.typedblock.render.tiddlywiki5" },
@@ -3150,7 +3150,7 @@
             {
               "begin": "\\G(\\.css|text\\/css)(?:\\s*(>)\\s*(\\S+))?$",
               "end": "(?=^\\$\\$\\$$)",
-              "contentName": "source.css.tiddlywiki5",
+              "contentName": "source.css",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.parse.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.typedblock.render.tiddlywiki5" },
@@ -3161,7 +3161,7 @@
             {
               "begin": "\\G(\\.html?|text\\/html)(?:\\s*(>)\\s*(\\S+))?$",
               "end": "(?=^\\$\\$\\$$)",
-              "contentName": "text.html.basic.tiddlywiki5",
+              "contentName": "text.html.basic",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.parse.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.typedblock.render.tiddlywiki5" },
@@ -3172,18 +3172,18 @@
             {
               "begin": "\\G(\\.hta|application\\/hta)(?:\\s*(>)\\s*(\\S+))?$",
               "end": "(?=^\\$\\$\\$$)",
-              "contentName": "text.html.basic.tiddlywiki5",
+              "contentName": "text.html.basic",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.parse.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.typedblock.render.tiddlywiki5" },
                 "3": { "name": "entity.other.attribute-name.render.tiddlywiki5" }
               },
-              "patterns": [{ "include": "text.html.basic" }]
+              "patterns": [{ "include": "text.html" }]
             },
             {
               "begin": "\\G(\\.js|application\\/javascript)(?:\\s*(>)\\s*(\\S+))?$",
               "end": "(?=^\\$\\$\\$$)",
-              "contentName": "source.js.tiddlywiki5",
+              "contentName": "source.js",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.parse.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.typedblock.render.tiddlywiki5" },
@@ -3194,7 +3194,7 @@
             {
               "begin": "\\G(\\.json|application\\/json)(?:\\s*(>)\\s*(\\S+))?$",
               "end": "(?=^\\$\\$\\$$)",
-              "contentName": "source.json.tiddlywiki5",
+              "contentName": "source.json",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.parse.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.typedblock.render.tiddlywiki5" },
@@ -3205,7 +3205,7 @@
             {
               "begin": "\\G(\\.svg|image\\/svg\\+xml)(?:\\s*(>)\\s*(\\S+))?$",
               "end": "(?=^\\$\\$\\$$)",
-              "contentName": "text.xml.tiddlywiki5",
+              "contentName": "text.xml",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.parse.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.typedblock.render.tiddlywiki5" },
@@ -3216,7 +3216,7 @@
             {
               "begin": "\\G(\\.m(?:arkdown|d)|text\\/x\\-markdown)(?:\\s*(>)\\s*(\\S+))?$",
               "end": "(?=^\\$\\$\\$$)",
-              "contentName": "source.gfm.tiddlywiki5",
+              "contentName": "source.gfm",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.parse.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.typedblock.render.tiddlywiki5" },
@@ -3227,7 +3227,7 @@
             {
               "begin": "\\G([^\\s>]*)(?:\\s*(>)\\s*(\\S+))?$",
               "end": "(?=^\\$\\$\\$$)",
-              "contentName": "markup.inline.raw.tiddlywiki5",
+              "contentName": "markup.inline.raw",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.parse.tiddlywiki5" },
                 "2": { "name": "punctuation.definition.typedblock.render.tiddlywiki5" },
@@ -3953,10 +3953,19 @@
             "1": { "name": "punctuation.definition.raw.markup.end.tiddlywiki5" }
           },
           "patterns": [
+			{
+				"begin": "(?i)\\G(t(?:w|w5|iddlywiki5?))$",
+				"end": "(?=^```$)",
+				"contentName": "text.html.tiddlywiki5",
+				"beginCaptures": {
+				  "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
+				},
+				"patterns": [{ "include": "text.html.tiddlywiki5" }]
+			},
             {
               "begin": "(?i)\\G(m(?:arkdown|d|kd(?:own)?))$",
               "end": "(?=^```$)",
-              "contentName": "source.gfm.tiddlywiki5",
+              "contentName": "source.gfm",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -3965,7 +3974,7 @@
             {
               "begin": "(?i)\\G(gemspec|irb|podspec|r(?:b|uby)|thor)$",
               "end": "(?=^```$)",
-              "contentName": "source.ruby.tiddlywiki5",
+              "contentName": "source.ruby",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -3974,7 +3983,7 @@
             {
               "begin": "(?i)\\G(m(?:ak(?:efile)?|k))$",
               "end": "(?=^```$)",
-              "contentName": "source.makefile.tiddlywiki5",
+              "contentName": "source.makefile",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -3983,7 +3992,7 @@
             {
               "begin": "(?i)\\G(json)$",
               "end": "(?=^```$)",
-              "contentName": "source.json.tiddlywiki5",
+              "contentName": "source.json",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -3992,7 +4001,7 @@
             {
               "begin": "(?i)\\G(atom|rss|xhtml)$",
               "end": "(?=^```$)",
-              "contentName": "text.xml.tiddlywiki5",
+              "contentName": "text.xml",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4001,7 +4010,7 @@
             {
               "begin": "(?i)\\G(xsl)$",
               "end": "(?=^```$)",
-              "contentName": "text.xml.xsl.tiddlywiki5",
+              "contentName": "text.xml.xsl",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4010,7 +4019,7 @@
             {
               "begin": "(?i)\\G(html)$",
               "end": "(?=^```$)",
-              "contentName": "text.html.basic.tiddlywiki5",
+              "contentName": "text.html.basic",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4019,7 +4028,7 @@
             {
               "begin": "(?i)\\G(css)$",
               "end": "(?=^```$)",
-              "contentName": "source.css.tiddlywiki5",
+              "contentName": "source.css",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4028,7 +4037,7 @@
             {
               "begin": "(?i)\\G(p(?:erl|l))$",
               "end": "(?=^```$)",
-              "contentName": "source.perl.tiddlywiki5",
+              "contentName": "source.perl",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4037,7 +4046,7 @@
             {
               "begin": "(?i)\\G(cs(?:harp)?)$",
               "end": "(?=^```$)",
-              "contentName": "source.cs.tiddlywiki5",
+              "contentName": "source.cs",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4046,7 +4055,7 @@
             {
               "begin": "(?i)\\G(obj(?:\\-c|c|ectivec))$",
               "end": "(?=^```$)",
-              "contentName": "source.objc.tiddlywiki5",
+              "contentName": "source.objc",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4055,7 +4064,7 @@
             {
               "begin": "(?i)\\G(mm)$",
               "end": "(?=^```$)",
-              "contentName": "source.objcpp.tiddlywiki5",
+              "contentName": "source.objcpp",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4064,7 +4073,7 @@
             {
               "begin": "(?i)\\G(gyp|py(?:thon)?)$",
               "end": "(?=^```$)",
-              "contentName": "source.python.tiddlywiki5",
+              "contentName": "source.python",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4073,7 +4082,7 @@
             {
               "begin": "(?i)\\G(java)$",
               "end": "(?=^```$)",
-              "contentName": "source.java.tiddlywiki5",
+              "contentName": "source.java",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4082,7 +4091,7 @@
             {
               "begin": "(?i)\\G(jsp)$",
               "end": "(?=^```$)",
-              "contentName": "text.html.jsp.tiddlywiki5",
+              "contentName": "text.html.jsp",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4091,7 +4100,7 @@
             {
               "begin": "(?i)\\G(bash|sh|zsh)$",
               "end": "(?=^```$)",
-              "contentName": "source.shell.tiddlywiki5",
+              "contentName": "source.shell",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4100,7 +4109,7 @@
             {
               "begin": "(?i)\\G(sql)$",
               "end": "(?=^```$)",
-              "contentName": "source.sql.tiddlywiki5",
+              "contentName": "source.sql",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4109,7 +4118,7 @@
             {
               "begin": "(?i)\\G(c|p)$",
               "end": "(?=^```$)",
-              "contentName": "source.c.tiddlywiki5",
+              "contentName": "source.c",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4118,7 +4127,7 @@
             {
               "begin": "(?i)\\G(c(?:\\+\\+|c|pp)|h(?:\\+\\+|pp))$",
               "end": "(?=^```$)",
-              "contentName": "source.cpp.tiddlywiki5",
+              "contentName": "source.cpp",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4127,7 +4136,7 @@
             {
               "begin": "(?i)\\G(php(?:3|4|5|6)?)$",
               "end": "(?=^```$)",
-              "contentName": "text.html.php.tiddlywiki5",
+              "contentName": "text.html.php",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4136,7 +4145,7 @@
             {
               "begin": "(?i)\\G(ini|toml)$",
               "end": "(?=^```$)",
-              "contentName": "source.toml.tiddlywiki5",
+              "contentName": "source.toml",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4145,7 +4154,7 @@
             {
               "begin": "(?i)\\G(diff|patch)$",
               "end": "(?=^```$)",
-              "contentName": "text.git-commit.tiddlywiki5",
+              "contentName": "text.git-commit",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4154,7 +4163,7 @@
             {
               "begin": "(?i)\\G(c(?:offee(?:script)?|son)|iced)$",
               "end": "(?=^```$)",
-              "contentName": "source.coffee.tiddlywiki5",
+              "contentName": "source.coffee",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4163,7 +4172,7 @@
             {
               "begin": "(?i)\\G(j(?:avascript|s))$",
               "end": "(?=^```$)",
-              "contentName": "source.js.tiddlywiki5",
+              "contentName": "source.js",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               },
@@ -4172,7 +4181,7 @@
             {
               "begin": "\\G([\\w-]*)$",
               "end": "(?=^```$)",
-              "contentName": "markup.inline.raw.tiddlywiki5",
+              "contentName": "markup.inline.raw",
               "beginCaptures": {
                 "1": { "name": "entity.other.attribute-name.language.tiddlywiki5" }
               }
@@ -4280,38 +4289,38 @@
             }
           ]
         },
-        "codeinline": {
-          "patterns": [
-            {
-              "begin": "(``)",
-              "end": "(``)",
-              "contentName": "markup.inline.raw.double.tiddlywiki5",
-              "beginCaptures": {
-                "0": { "name": "punctuation.definition.raw.markup.double.begin.tiddlywiki5" }
-              },
-              "endCaptures": {
-                "0": { "name": "punctuation.definition.raw.markup.double.end.tiddlywiki5" }
-              },
-              "patterns": [
-                {
-                  "match": "`",
-                  "name": "markup.inline.raw.inner.tiddlywiki5"
-                }
-              ]
-            },
-            {
-              "begin": "(`)",
-              "end": "(`)",
-              "contentName": "markup.inline.raw.single.tiddlywiki5",
-              "beginCaptures": {
-                "0": { "name": "punctuation.definition.raw.markup.single.begin.tiddlywiki5" }
-              },
-              "endCaptures": {
-                "0": { "name": "punctuation.definition.raw.markup.single.end.tiddlywiki5" }
-              }
-            }
-          ]
-        },
+		"codeinline": {
+			"patterns": [
+			  {
+				"begin": "(?<!`)``(?!`)",
+				"end": "(?<!`)``(?!`)",
+				"contentName": "markup.inline.raw.double.tiddlywiki5",
+				"beginCaptures": {
+				  "0": { "name": "punctuation.definition.raw.markup.double.begin.tiddlywiki5" }
+				},
+				"endCaptures": {
+				  "0": { "name": "punctuation.definition.raw.markup.double.end.tiddlywiki5" }
+				},
+				"patterns": [
+				  {
+					"match": "`",
+					"name": "markup.inline.raw.inner.tiddlywiki5"
+				  }
+				]
+			  },
+			  {
+				"begin": "(?<!`)`(?!`)",
+				"end": "(?<!`)`(?!`)",
+				"contentName": "markup.inline.raw.single.tiddlywiki5",
+				"beginCaptures": {
+				  "0": { "name": "punctuation.definition.raw.markup.single.begin.tiddlywiki5" }
+				},
+				"endCaptures": {
+				  "0": { "name": "punctuation.definition.raw.markup.single.end.tiddlywiki5" }
+				}
+			  }
+			]
+		},
 		"styleinline": {
           "begin": "(@@)((?:[^\\s]+?\\:.+?;)+)?((?:\\.[^\\s\\.]+)+)?",
           "end": "(@@)",
