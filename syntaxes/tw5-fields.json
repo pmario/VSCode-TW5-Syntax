@@ -7,24 +7,24 @@
       "patterns": [
         {
           "match": "^([^:]*?)(:)(.*?)$",
-          "name": "meta.tiddler-field.tiddlywiki5",
+          "name": "meta.tiddler.field.tiddlywiki5",
           "captures": {
             "1": { 
-              "name": "entity.other.attribute-name.field.tiddlywiki5",
+              "name": "entity.other.attribute.field.name.tiddlywiki5",
               "patterns": [
                 {
                   "comment": "Test for illegal characters", 
                   "match": "(?=[^a-z0-9\\-\\._])(.*)",
-                  "name":"invalid.illegal.field-name.tiddlywiki5"
+                  "name":"invalid.illegal.field.name.tiddlywiki5"
                  }
               ]
             },
             "2": {
-              "name": "entity.name.operator.field-separator.tiddlywiki5"
+              "name": "entity.name.operator.field.separator.tiddlywiki5"
             },
             "3": {
               "comment": "Field value are interpreted as text.html.tiddlywiki5",
-              "name": "text.html.field-value.tiddlywiki5",
+              "name": "field.value.text.html.tiddlywiki5",
               "patterns": [{ "include": "text.html.tiddlywiki5" }]
             }
           }

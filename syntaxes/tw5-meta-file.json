@@ -5,7 +5,7 @@
   "patterns": [
     {
       "begin": "^",
-      "contentName": "meta.tiddler-fields.tiddlywiki5",
+      "contentName": "meta.tiddler.fields.tiddlywiki5",
       "patterns": [{ "include": "source.tiddlywiki5.fields" }]
     }
   ]
