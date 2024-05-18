@@ -72,13 +72,50 @@ attribute6
 
   <$tw.Widget />
 
-  <$tw.Widget test=`${[[]]}$ $parameter$ $(currentTiddler)$`/> <!-- No macro $params$ here -->
+  <$tw.Widget test=```${[[]]}$ $parameter$ $(currentTiddler)$```/> <!-- No macro $params$ here -->
 
   <$widget attribute="value" a={{b}} a=<<c>> > content </$widget>
 
   <a-tag> </a-tag>
   <unrecognized></unrecognized>
-  <$widget attribute="value" a={{b}} a=<<c>> > content </$widget>
+  <$widget attribute="
+  
+  value with <a href=''>a link</a> and ''wikitext'' here
+  
+  " 
+    another-attribute='
+    value with <a href="">a link</a> and //wikitext// here
+    
+'   
+  triple-quoted-attribute="""
+
+    !!! Heading
+
+    value with <a href=''>a link</a> and ''wikitext'' here
+    
+    """ 
+    a=<<c>>
+    
+    macroattribute=<<test>>
+
+    string-replaced-attribute=`value with <a href='link'>a link</a> ${[[and]]}$ ''wikitext'' $(here)$`
+    string-replaced-attribute=`
+        value with <a href='link'>a link</a> ${[[and]]}$ ''wikitext'' $(here)$
+    `
+    
+    string-replaced-block=```
+
+    !!! `header` doesn't highlight here
+
+    value with <a href='test'>a link</a> ${[[and]]}$ __inline__ ''wikitext'' ${here}$
+    paragaph continues, then ends    
+```
+    
+    titlestring-attribute=[[test]]
+    
+    fitler="[filter[test]]" #broken
+    
+     a={{b}} a=<<c>> > content </$widget>
 
 </$my-widget>
 <!-- #endregion -->
