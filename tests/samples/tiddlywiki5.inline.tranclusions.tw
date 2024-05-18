@@ -1,0 +1,61 @@
+<!--#region Inline Transclusion Wikitext -->
+
+* {{}}
+* {{||}}
+* {{ }}
+* {{title}}
+* {{title!!field}}
+* {{title##index}}
+* {{|| }}
+* {{ || }}
+* {{||templateTitle}}
+* {{title||templateTitle}}
+* {{title!!field||templateTitle}}
+* {{title##index||templateTitle}}
+* {{ long title !!.long.___-field-|| long template title}}
+* {{
+}}
+* {{
+  title  
+}}
+* {{
+  title!!field  
+}}
+* {{
+  title##index  
+}}
+* {{
+  ||
+}}
+* {{
+  ||templateTitle
+}}
+* {{||templateTitle
+}}
+* {{
+  title||templateTitle 
+}}
+* {{title!!field || templateTitle}}
+* {{title##index || templateTitle}}
+* {{ long title !! long !! field || long template title}}
+* {{
+  long title !! long !! field
+  ||
+  long template title
+}}
+* {{ don't use | one pipe}}
+* {{
+
+  multiline text reference
+
+  is illegal
+
+  ||
+
+  multiline template title is not
+
+  but don't use it here anyway
+
+}}
+
+<!--#endregion -->

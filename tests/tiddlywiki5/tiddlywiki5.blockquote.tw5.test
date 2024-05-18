@@ -1,0 +1,109 @@
+# SYNTAX TEST "text.html.tiddlywiki5" "Test for header syntaxes"
+
+<<<<<
+#<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.begin.tiddlywiki5
+
+Quoted text
+#<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.other.paragraph.tiddlywiki5
+
+<<myMacro>>
+#<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.variable.macrocallblock.tiddlywiki5 punctuation.definition.macrocallblock.begin.tiddlywiki5
+# ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.variable.macrocallblock.tiddlywiki5 variable.name.macro.tiddlywiki5
+#        ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.variable.macrocallblock.tiddlywiki5 punctuation.definition.macrocallblock.end.tiddlywiki5
+
+   <<<< Top cite
+#  ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.begin.tiddlywiki5
+#       ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.quote.quoteblock.cite.top.tiddlywiki5
+
+   Quoted text
+#  ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.other.paragraph.tiddlywiki5
+
+   <<<< Bottom cite
+#  ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5
+#       ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.other.paragraph.tiddlywiki5
+
+<<<<<
+#<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5
+
+<<<< Top cite
+#<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.begin.tiddlywiki5
+#    ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.quote.quoteblock.cite.top.tiddlywiki5
+
+Quoted text
+#<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.other.paragraph.tiddlywiki5
+
+<<<< Bottom cite
+#<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5
+#    ^ text.html.tiddlywiki5 meta.paragraph.tiddlywiki5
+
+<<< Top cite
+#<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.begin.tiddlywiki5
+#   ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.quote.quoteblock.cite.top.tiddlywiki5
+
+Quoted text
+#<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.other.paragraph.tiddlywiki5
+
+<<<
+#<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5
+
+    <<< Top cite
+#   ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.begin.tiddlywiki5
+#       ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.quote.quoteblock.cite.top.tiddlywiki5
+
+    Quoted text
+#   ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.other.paragraph.tiddlywiki5
+
+    <<< Bottom Cite
+#   ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5
+#       ^ text.html.tiddlywiki5 meta.paragraph.tiddlywiki5
+
+<<<.class1.class2 Top cite
+#<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.begin.tiddlywiki5
+#  ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.support.classes.tiddlywiki5 entity.other.attribute-name.class.css punctuation.definition.entity.css
+#   ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.support.classes.tiddlywiki5 entity.other.attribute-name.class.css punctuation.definition.entity.css entity.other.attribute-name.class.css
+#         ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.support.classes.tiddlywiki5 entity.other.attribute-name.class.css punctuation.definition.entity.css
+#          ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.support.classes.tiddlywiki5 entity.other.attribute-name.class.css punctuation.definition.entity.css entity.other.attribute-name.class.css
+#                 ^ text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 meta.quote.quoteblock.cite.top.tiddlywiki5
+
+Quoted text
+#<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 markup.other.paragraph.tiddlywiki5
+
+<<< Bottom cite
+#<- text.html.tiddlywiki5 markup.quote.quoteblock.tiddlywiki5 punctuation.definition.markup.quote.quoteblock.end.tiddlywiki5
+#   ^ text.html.tiddlywiki5 meta.paragraph.tiddlywiki5
+
+<<<.class1.class2 """
+''Inline'' run
+for the top cite
+"""
+''Block'' run for the quote body
+
+<<<< Nested top cite
+Nested quotation
+<<<< Nested bottom cite
+
+<<< """
+''Inline'' run
+for the bottom cite
+"""
+
+<<<
+
+<<<
+
+<<<
+
+<<<
+
+   <<myMacro>>
+   <<myMacro >>
+   <<myMacro
+   >>
+
+   <<<<< Test
+  <<<< test
+<<<
+
+<<< 3
+<<<< 4
+<<<<< 5

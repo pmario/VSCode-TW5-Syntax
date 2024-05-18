@@ -4,11 +4,36 @@ All notable changes to the "tw5-syntax" extension will be documented in this fil
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 2.0.0
+- Full re-write to model tiddlywiki5 wikitext as a `text.html.derivative` style sytanx.
+- Updated syntax json version to current Tiddlywiki5 v`5.3.4`.
+- Updated known keywords/grammar concepts in json `repository`.
+- Imported full html5 syntax from `tm-grammar`, added tiddlywiki style attributes, etc.
+- New objects from `text.html.basic` renamed as `htmlwidget-*` for easy diff/updates.
+- Added snippets for modern tiddlywiki5 wikitext.
+- Added full set of automated tests to `./tests`. Run `npm run test` to run all tests.
+- Added syntax highlihgting for tests files that marks the `# ^ test.commment.with.expected.scopes` lines appropriately.
+- Added reference required syntaxes to `devDependecies` in `package.json`
+- Fixed bugs with widget attribute syntax in base html tags
+- Fixed syntax bugs with macros
+- Fixed sytax bugs with block quotes
+- Fixed syntax bugs with image links
+- Fixed syntax bugs with links
+- Fixed bugs with horizontal rules
+- Fixed bugs with list quotes
+
+## 1.1.0
+- Reviewed repository with ChatGPT4
+- Cleaned up redundant files
+- Added Conditional If syntax
+
 ## 1.0.4
 - Reverted bugs
 - Fixed typos
+
 ## 1.0.3
 - Added a Snippet to set the `modified` field to a current unix-style timestamp.
+
 ## 1.0.2
 - Updated `tid` Snippet to offer a dropdown of `type` field options.
 -- Mahalo to "_Phi / hpx1" for the contributions!

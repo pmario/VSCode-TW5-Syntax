@@ -1,0 +1,21 @@
+\procedure test(animal)
+<% if [<animal>match[Elephant]] %>
+  It is an elephant
+<% else %>
+  <% if [<animal>match[Giraffe]] %>
+    It is a giraffe
+  <% else %>
+    It is completely unknown
+  <% endif %>
+<% endif %>
+\end
+
+<<test "Giraffe">>
+
+<<test "Elephant">>
+
+<<test "Antelope">>
+
+{{{ [[Hi, I'm $(name)$ and I live in $(address)$]substitute[]] }}}
+
+{{{ [[Something in the $(time)$ at $2$ about $1$ ]substitute[Maths],[the Library]] }}}

@@ -1,0 +1,151 @@
+<!--#region Block Markup Wikitext -->
+    <<< Top cite
+<<< bottom cite
+
+
+    <<< Top cite
+    Quoted ''text''
+
+<<<
+
+    <<< Top cite
+    Quoted ''text''
+
+<<< Bottom cite
+
+    <<<.test ''test''
+    
+    Quoted ''text''
+
+    Quoted ''text''
+    <<< ''test''
+
+    <<<<< Top cite
+    Quoted text
+    <<<<<
+---
+nested tests
+---
+
+<<<<<
+Quoted text
+
+<<myMacro>>
+
+    <<<< Top cite
+        Quoted __text__
+    <<<< Bottom cite
+
+
+<<<<<
+
+
+
+<<< Mixing Block Quotes with Inline Wikitext
+A paragraph appears before other //wikitext//, which needs to end with a blank line.
+
+    * List One
+    ** List Two
+    **> A quote
+"""
+A poem
+with ''line beaks''
+needs to have
+a blank line after
+the final quotes
+if followed
+by other content
+"""
+
+    <<<< Deep Block Quote
+        A paragraph before other //wikitext//, which ends with a blank line.
+
+        ! A Header
+        Another paragraph, which needs to end with a blank line.
+
+            !! Sub Header
+            A final paragraph, which __does not__ need to end with a blank line as the Block Quote ends.
+    <<<<
+<<<
+
+---
+
+    <<<< Top cite
+    Quoted text
+    <<<< Bottom cite
+
+<<< Top cite
+Quoted text
+    <<<
+
+   <<<
+   Quoted text
+   <<< Bottom cite
+
+<<<.class1.class2 Top cite
+Quoted text
+<<< Bottom cite
+
+<<<.class1.class2 """
+''Inline'' run
+for the top cite
+"""
+''Block'' run for the quote body
+
+    <<<< Nested top cite
+    Nested quotation
+<<<< Nested bottom cite
+
+    <<< """
+''Inline'' run
+for the bottom cite
+"""
+<<<<
+
+<<<
+Quote
+<<<
+
+<<<
+
+   <<myMacro>>
+   <<myMacro >>
+   <<myMacro
+   >>
+
+    <<<<< Test
+    <<<< test
+<<<
+
+<<< 3
+<<<< 4
+<<<<< 5
+
+<<< Mixing Block Quotes with Inline Wikitext
+A paragraph appears before other //wikitext//, which needs to end with a blank line.
+
+    * List ''One''
+    ** List //Two//
+    **> A quote
+"""
+A poem
+with line beaks
+needs to have
+a blank line after
+the final quotes
+if followed
+by other content
+"""
+
+    <<<< Deep Block Quote
+        A paragraph before other //wikitext//, which ends with a blank line.
+
+        ! A Header
+        Another paragraph, which needs to end with a blank line.
+
+            !! Sub Header
+            A final paragraph, which __does not__ need to end with a blank line as the Block Quote ends.
+    <<<< bottom cite
+<<<
+
+<!--#endregion -->

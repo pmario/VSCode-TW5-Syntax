@@ -1,0 +1,36 @@
+
+<!--#region Simple Wikitext -->
+
+Paragraph text with a few [[Title Links]] and [[References]]...
+
+<<variable>>
+{{transclusion}}
+[[wiki-link]]
+
+: test
+; this
+
+"""
+TEST TEXT 
+BLOCK <$transclude tiddler="test"/>
+"""
+
+<<variable>>
+{{transclusion}}
+[[wiki-link]]
+
+-- ndash
+--- mdash
+
+----
+
+-----
+
+-- --- horizontal rules --- --
+
+----
+not valid, must have a blank line
+
+-----
+
+<!-- #endregion folder -->

@@ -1,0 +1,84 @@
+<!--#region Tag and Widget Wikitext -->
+
+<tag/>
+<div /> <!-- div cannot self-close -->
+<div></div>
+<div ></div>
+<div class="test"> </div>
+
+<div> ''inline'' rule matches element; ''inline'' run for contents </div>
+
+<div>
+''inline'' rule matches element
+''inline'' run for contents
+</div>
+<div>   
+
+  * ''inline'' rule matches element (because in paragraph block here)
+  * ''block'' run for contents
+
+Double EOL turns on block mode for element text node.
+</div>
+
+<div>
+
+  * ''block'' rule matches element
+  * ''block'' run for contents
+
+Double EOL allows block rule match element itself.
+Double EOL turns on block mode for element text node.
+</div>
+
+Inline<a-tag> </a-tag>
+  <unrecognized></unrecognized>
+
+* Inline <div>Inline run, displayed as block</div> run
+* Inline <span>Inline run, displayed as inline</span> run
+* Inline <div>
+
+  * Block run
+  * displayed as block
+</div> run
+* Inline <span>
+
+  * Block run
+  * displayed as inline
+</span> run
+* <$my-widget
+attribute1 = """value"""
+attribute2 = "value"
+attribute3 = 'value'
+attribute4 = {{tiddler!!field}}
+attribute5 = <<myMacro arg1 : """value""">>
+attribute6
+>Inline  <my-tag
+  attribute1 = """value"""
+  attribute2 = "value"
+  attribute3 = 'value'
+  attribute4 = {{tiddler!!field}}
+  attribute5 = <<myMacro arg1 : """value""">>
+  attribute6
+  >
+
+  * Block
+  * run
+  </my-tag> Run
+
+  Block
+
+  <$tw.Widget >  </$tw.Widget>
+
+  <$tw.Widget test=`$test$ ${n}$ $(fnord)$`> </$tw.Widget> <!-- No macro $params$ here -->
+
+  <$tw.Widget />
+
+  <$tw.Widget test=`${[[]]}$ $parameter$ $(currentTiddler)$`/> <!-- No macro $params$ here -->
+
+  <$widget attribute="value" a={{b}} a=<<c>> > content </$widget>
+
+  <a-tag> </a-tag>
+  <unrecognized></unrecognized>
+  <$widget attribute="value" a={{b}} a=<<c>> > content </$widget>
+
+</$my-widget>
+<!-- #endregion -->

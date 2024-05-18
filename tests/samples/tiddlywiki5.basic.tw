@@ -1,0 +1,554 @@
+
+<!--#region Tag and Widget Wikitext -->
+
+<div/>
+<div />
+<div></div>
+<div ></div>
+<div > </div>
+
+<div> ''inline'' rule matches element; ''inline'' run for contents </div>
+
+<div>
+''inline'' rule matches element
+''inline'' run for contents
+</div>
+<div>   
+
+  * ''inline'' rule matches element (because in paragraph block here)
+  * ''block'' run for contents
+
+Double EOL turns on block mode for element text node.
+</div>
+
+<div>
+
+  * ''block'' rule matches element
+  * ''block'' run for contents
+
+Double EOL allows block rule match element itself.
+Double EOL turns on block mode for element text node.
+</div>
+
+* Inline <div>Inline run, displayed as block</div> run
+* Inline <span>Inline run, displayed as inline</span> run
+* Inline <div>
+
+  * Block run
+  * displayed as block
+</div> run
+* Inline <span>
+
+  * Block run
+  * displayed as inline
+</span> run
+* <$my-widget
+attribute1 = """value"""
+attribute2 = "value"
+attribute3 = 'value'
+attribute4 = {{tiddler!!field}}
+attribute5 = <<myMacro arg1 : """value""">>
+attribute6
+>
+Inline  <my-tag
+  attribute1 = """value"""
+  attribute2 = "value"
+  attribute3 = 'value'
+  attribute4 = {{tiddler!!field}}
+  attribute5 = <<myMacro arg1 : """value""">>
+  attribute6
+  >
+
+  * Block
+  * run
+  </my-tag> Run
+</$my-widget>
+<!-- #endregion -->
+
+<!-- #region Table Wikitext-->
+||k
+| |k
+|||k
+| Table | class | attribute |k
+
+||c
+| |c
+|||c
+| ''Table caption section'' |c
+
+|						  |Header One	|h
+|!Header One	|Data One	  |
+|!Header Two	|Data Two	  |
+
+||
+| |
+|||
+|td1|td2|
+|''!td1''|''!td2''|
+|!th1|!th2|
+|td1!|td2!|
+|align=left | align=center | align=right|
+|align=left   |   align=center   |   align=right|
+|^^^valign=top|,,,valign=bottom|
+|^ valign=top|, valign=bottom|
+|^t valign=top|,b valign=bottom|
+|^ valign=top, align=left |^  valign=top, align=center |^  valign=top, align=right|
+|1|2|3|4|
+| 1 |<|>| 4 |
+|^ 1|2|3|, 4|
+|~|2|3|~|
+
+||h
+| |h
+|||h
+|^ !''valign=top, align=left'' |^  !valign=top, align=center |^  !valign=top, align=right|h
+| 1 |<|>| 4 |h
+|^ 1|2|3|, 4|h
+|~|2|3|~|h
+
+||f
+| |f
+|||f
+|^ !''valign=top, align=left'' |^  !valign=top, align=center |^  !valign=top, align=right|f
+| 1 |<|>| 4 |f
+|^ 1|2|3|, 4|f
+|~|2|3|~|f
+<!-- #endregion -->
+
+<!-- #region Block Filtered Transclusion Wikitext -->
+{{{}}}
+{{{ }}}
+{{{ [[test]prefix[test]] }}}
+{{{||}}}
+{{{|| }}}
+{{{ || }}}
+{{{||templateTitle}}}
+{{{ || templateTitle }}}
+{{{filter }}}
+{{{ filter }}}
+{{{filter ||}}}
+{{{ filter || templateTitle }}}
+{{{
+
+}}}
+
+Context:
+  {{{
+    [
+        [filter]
+        step<variable>
+        !step:suffix{tiddler}
+    ]
+  }}}
+
+{{{
+  ||
+}}}
+{{{
+  || templateTitle
+}}}
+{{{
+  filter
+  ||
+  templateTitle
+}}}
+{{{
+
+  multiline filter strings
+
+  are legal
+
+  ||
+
+  multiline template titles too,
+
+  but don't use it here anyway
+
+}}}
+{{{
+  tiddler_title
+  'tiddler title'
+  "tiddler title"
+
+  [[tiddler title]]
+  [<variable name>]
+  [{text!!reference}]
+
+  [[tiddler title]<variable name>{text!!reference}]
+  [operator1[tiddler title]operator2<variable name>operator3{text!!reference}]
+  [operator1:suffix1[tiddler title]operator2:suffix2<variable name>operator3:suffix3{text!!reference}]
+
+  [![tiddler title]!<variable name>!{text!!reference}]
+  [!operator1:suffix1[tiddler title]!operator2:suffix2<variable name>!operator3:suffix3{text!!reference}]
+
+  +
+  -
+  +-
+  -+
+  +!
+  -!
+  +!-
+  -!+
+  +tiddler_title
+  +'tiddler title'
+  +"tiddler title"
+  +[!operator1:suffix1[tiddler title]!operator2:suffix2<variable name>!operator3:suffix3{text!!reference}]
+  +[!operator1:suffix1[tiddler title]!operator2:suffix2<variable name>!operator3:suffix3{text!!reference}]
+
+  -[!:suffix1[tiddler title]!operator2:<variable name>!:{text!!reference}]
+
+  "tiddler title" tiddler_title 'tiddler title' [[tiddler title]]
+  +"tiddler title"+tiddler_title+'tiddler title'+[[tiddler title]]
+  +"tiddler title"+'tiddler title'+[[tiddler title]]+tiddler_title
+}}}
+
+<!--#endregion -->
+
+<!--#region Block Transclusion Wikitext -->
+
+{{}}
+{{ }}
+{{title}}
+{{title!!field}}
+{{title##index}}
+{{|| }}
+{{ || }}
+{{||templateTitle}}
+{{title||templateTitle}}
+{{title!!field || templateTitle}}
+{{title##index || templateTitle}}
+{{ long title !! long !! field || long template title}}
+{{
+}}
+{{
+  title  
+}}
+{{
+  title!!field  
+}}
+{{
+  title##index  
+}}
+{{
+  ||
+}}
+{{
+  ||templateTitle
+}}
+{{||templateTitle
+}}
+{{
+  title||templateTitle 
+}}
+{{title!!field || templateTitle}}
+{{title##index || templateTitle}}
+{{ long title !! long !! field || long template title}}
+{{
+  long title !! long !! field
+  ||
+  long template title
+}}
+{{
+
+  multiline text reference
+
+  is illegal
+
+  ||
+
+  multiline template title is not
+
+  but don't use it here anyway
+
+}}
+
+<!--#endregion -->
+
+<!--#region Block CSS Wikitext -->
+
+@@
+
+@@
+
+@@color:blue;background-color:red;
+
+@@
+
+@@.class1.class2
+
+@@
+
+@@color:blue;
+@@background-color:red;
+@@.class1.class2
+
+@@
+
+@@color:blue;
+@@background-color:red;
+@@.class1.class2
+Paragraph
+@@
+
+@@color:blue;
+@@background-color:red;
+@@.class1.class2
+    @@
+
+@@
+@@
+
+@@color:blue;
+@@background-color:red;
+@@.class1.class2
+One paragraph here
+    @@
+
+@@
+@@
+
+@@color:blue;
+@@background-color:red;
+@@.class1.class2
+
+Each individual block run here gets styles and classes specified, so no wrapping HTML element is needed.
+
+* This list should have red background
+* This text should be blue
+
+  @@color:blue;
+@@background-color:red;
+@@.class1.class2
+Yep, looks ugly, but that's a possibility to nest `styleblocks`.
+@@* In TW5 wikitext it's legal to start any block definition here,
+* but currently this possibility is ignored and marked as illegal by this grammar.
+
+  @@background-color:blue;Yep, same ugliness to have a paragraph starting with `styleinline`.@@
+
+@@
+
+@@background-color:blue;
+Here's a ''paragraph'' with inline styling.
+@@
+''Another'' paragraph without styling.
+
+@@background-color:blue; 
+Here's a ''paragraph'' with inline styling.
+@@
+@@background-color:blue;''Same'' paragraph with inline styling.@@
+''Same'' paragraph without styling.
+
+<!--#endregion -->
+
+<!--#region Block Markup Wikitext -->
+
+<<<
+Quoted text
+<<<
+
+<<< Top cite
+Quoted text
+<<< Bottom cite
+
+<<< Top cite
+Quoted text
+<<<
+
+<<<
+Quoted text
+<<< Bottom cite
+
+<<<.class1.class2 Top cite
+Quoted text
+<<< Bottom cite
+
+<<<.class1.class2 """
+''Inline'' run
+for the top cite
+"""
+''Block'' run for the quote body
+
+<<<< Nested top cite
+Nested quotation
+<<<< Nested bottom cite
+
+<<< """
+''Inline'' run
+for the bottom cite
+"""
+
+<<<
+
+<<<
+
+<<<
+<<<
+
+   <<<<<
+  <<<<
+ <<<
+<<<
+<<<<
+<<<<<
+
+<!--#endregion -->
+
+<!--#region Block Macro Wikitext -->
+
+<<myMacro>>
+<<myMacro >>
+<<myMacro
+>>
+  <<myMacro
+>>
+  <<myMacro
+
+  
+
+  >>
+<<myMacro value_for_arg1 value_for_arg2>>
+<<myMacro [["'value_for_arg1'"]]
+[[
+  "'value for arg2'"
+]]>>
+<<myMacro """ "'value_for_arg1'" """
+ """
+  "'value for arg2'"
+""">>
+<<myMacro "'value_for_arg1'"
+"
+  'value for arg2'
+">>
+<<myMacro '"value_for_arg1"'
+'
+  "value for arg2"
+'>>
+<<myMacro arg2:value_for_arg2 value_for_arg1>>
+<<myMacro arg2  :  value_for_arg2 value_for_arg1>>
+<<myMacro arg2  :  [[
+  "'value for arg2'"
+]] [["'value_for_arg1'"]]
+>>
+<<myMacro arg2  :  """
+  "'value for arg2'"
+""" """ "'value_for_arg1'" """
+>>
+<<myMacro arg2  :  "
+  'value for arg2'
+" "'value_for_arg1'"
+>>
+<<myMacro arg2  :  '
+  "value for arg2"
+' '"value_for_arg1"'
+>>
+
+<!--#endregion -->
+
+<!--#region Block Raw/Code Wikitext -->
+
+```
+Raw block
+```
+
+```unknown-language
+Defaults to raw block
+```
+
+```CoFfEe
+1 << i for i in [0..31] when i % 2
+```
+
+$$$.js
+/* Use JS parser */
+ var test = 1 + function(){return 0}
+$$$
+$$$application/javascript
+/* Use JS parser */
+var test = {key: "value"}
+$$$
+$$$.js > type
+/* Use JS parser */
+$$$
+$$$application/javascript > type
+/* Use JS parser */
+$$$
+
+$$$.unknown
+Default to plain text parser.
+$$$
+$$$type/unknown
+Default to plain text parser.
+$$$
+$$$.unknown > type
+Default to plain text parser.
+$$$
+$$$type/unknown > type
+Default to plain text parser.
+$$$
+$$$
+Default to plain text parser.
+$$$
+
+"""
+Here be
+''hard line breaks''
+""" Not
+here """Single line break
+translates to `<br>` in HTML.""" And
+not here
+
+<!--#endregion -->
+
+<!-- #region Conditional Syntax -->
+
+! Major Improvements
+
+!! Conditional Shortcut Syntax
+
+added a new shortcut syntax for concisely expressing if-then-else logic. This is the first of a new type of wikitext syntax based on tokens delimited with <% and %>. We plan to introduce other structures using the same format such as a "case" statement.
+
+These new token-based shortcuts allow a richer structure and expressivity than existing features such as widgets or pragmas. For example:
+
+<% if [<animal>match[Elephant]] %>
+  It is an elephant
+<% elseif [<animal>match[Giraffe]] %>
+	It is a giraffe
+<% else %>
+	It is completely unknown
+<% endif %>
+
+Behind the scenes, the conditional shortcut syntax is rendered as the equivalent ListWidgets.
+
+<!-- #endregion -->
+
+<!--#region Other Wikitext -->
+
+---
+    ---
+        -----
+
+Only blocks and pragmas may be placed at the top level.
+If there are no matching block rules, then things are parsed inline and become wrapped in `HTMLParagraphElement`.
+
+Paragraphs last until two consecutive EOL are met.
+ ''still paragraph''
+
+
+"""
+still
+
+paragraph
+"""
+* List? No, inlines only here... in paragraph
+* Not yet
+
+The previous paragraph is done, say hi to the new one.
+
+<!-- #endregion -->
+
+<!-- #region test -->
+
+hide this
+
+test 
+<!-- #endregion -->

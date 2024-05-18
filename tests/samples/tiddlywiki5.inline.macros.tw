@@ -1,0 +1,50 @@
+<!--#region Inline Macros Wikitext -->
+
+* <<myMacro>>
+* <<myMacro >>
+* <<myMacro
+>>
+* <<myMacro
+>>
+* <<myMacro
+
+  
+
+  >>
+* <<myMacro value_for_arg1 value_for_arg2>>
+* <<myMacro [["'value_for_arg1'"]]
+[[
+  "'value for arg2'"
+]]>>
+* <<myMacro """ "'value_for_arg1'" """
+ """
+  "'value for arg2'"
+""">>
+* <<myMacro "'value_for_arg1'"
+"
+  'value for arg2'
+">>
+* <<myMacro '"value_for_arg1"'
+'
+  "value for arg2"
+'>>
+* <<myMacro arg2:value_for_arg2 value_for_arg1>>
+* <<myMacro arg2  :  value_for_arg2 value_for_arg1>>
+* <<myMacro arg2  :  [[
+  "'value for arg2'"
+]] [["'value_for_arg1'"]]
+>>
+* <<myMacro arg2  :  """
+  "'value for arg2'"
+""" """ "'value_for_arg1'" """
+>>
+* <<myMacro arg2  :  "
+  'value for arg2'
+" "'value_for_arg1'"
+>>
+* <<myMacro arg2  :  '
+  "value for arg2"
+' '"value_for_arg1"'
+>>
+<!--#endregion -->
+

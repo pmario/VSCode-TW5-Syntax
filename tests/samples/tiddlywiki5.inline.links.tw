@@ -1,0 +1,103 @@
+<!--#region Inline Links Wikitext -->
+
+<!-- HTTP Links -->
+
+* http://tiddlywiki.com/
+* ~http://tiddlywiki.com//
+
+<!-- System Links -->
+
+* $:/core/modules/parsers/wikiparser/rules/syslink.js
+* ~$:/core/modules/parsers/wikiparser/rules/syslink.js
+
+<!-- Camel Case Wiki Links -->
+
+* WikiLink
+* ~NotWikiLink
+* notWikiLink
+* ~notWikiLink
+
+<!-- Pretty Links -->
+
+* [[Anything is a link here]]
+* [[http://tiddlywiki.com]]
+* [[~http://tiddlywiki.com]]
+* [[ ~http://tiddlywiki.com ]]
+* [[WikiLink]]
+* [[~WikiLink]]
+* [[  Wiki Link  ]]
+* [[$:/syslink]]
+* [[~$:/syslink]]
+* [[ ~$:/syslink ]]
+* [[http://tiddlywiki.com IsStill $:/wiki/link]]
+* [[ ]]
+* [[]]
+* [[Displayed Link Title|Tiddler Title]]
+* [[Link title|Anything is a link here]]
+* [[ Link title | ~http://tiddlywiki.com ]]
+* [[ Link title |  Wiki Link  ]]
+* [[ Link title | ~$:/syslink ]]
+* [[ Link title |http://tiddlywiki.com IsStill $:/wiki/link]]
+* [[ | ]]
+* [[|]]
+
+<!--External Pretty Links -->
+
+* [ext[Anything is an external link here]]
+* [ext[http://tiddlywiki.com]]
+* [ext[ http://tiddlywiki.com ]]
+* [ext[ ~http://tiddlywiki.com ]]
+* [ext[ ]]
+* [ext[]]
+* [ext[Link title| Anything is an external link here ]]
+* [ext[ Link title |http://tiddlywiki.com]]
+* [ext[ Link title | http://tiddlywiki.com ]]
+* [ext[ Link title | ~http://tiddlywiki.com ]]
+* [ext[ |http://tiddlywiki.com]]
+* [ext[| http://tiddlywiki.com ]]
+* [ext[ | ]]
+* [ext[|]]
+
+
+<!-- Image Links -->
+
+[img[title]]
+
+[img[ ]]
+
+[img [ Tooltip text | http://fakeimg.pl/100/ ]]
+
+[img width=50 [ Tooltip text | http://fakeimg.pl/100/ ]]
+
+* [img[title]]
+* [img[ ]]
+* [img [ ]]
+* [img [Tiddler title]]
+* [img [ Tiddler title ]]
+* [img [|Tiddler title ]]
+* [img [ | Tiddler title ]]
+* [img [Tooltip text| Tiddler title ]]
+* [img [ Tooltip text | Tiddler title ]]
+* [img [ Tooltip text | http://fakeimg.pl/100/ ]]
+* [img width=50 [ Tooltip text | http://fakeimg.pl/100/ ]]
+
+
+  <!-- Multiline Imageblock (is not yet supported)
+  
+  [img 
+width = """50"""
+height = "50"
+source = 'URI'
+alt = {{tiddler!!field}}
+class = <<myMacro
+  arg1 : """
+  value
+""">>
+  [ Tooltip text | http://fakeimg.pl/100/ ]]
+  
+[img [ Tooltip text | http://fakeimg.pl/100/ ]]
+[img width=50 [ After Complex Img | http://fakeimg.pl/100/ ]]
+
+   -->
+
+  <!--#endregion -->
