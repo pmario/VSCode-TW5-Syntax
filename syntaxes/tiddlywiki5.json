@@ -17,6 +17,13 @@
 				{ "include": "#substitute-variable"}
 			]
 		},
+		"text.substituted.attribute.html.tiddlywiki5": {
+			"comment": "Text replacement in text substiitution attributes.",
+			"patterns": [
+				{ "include": "#substitute-variable"},
+				{ "include": "#substitute-filter"}
+			]
+		},
 		"R:text.html - (comment.block, text.html meta.embedded, meta.tag.*.*.html, meta.tag.*.*.*.html, meta.tag.*.*.*.*.html, markup.quote.blockquote.tiddlywiki5)": {
 				"comment": "Uses R: to ensure this matches after any other injections.",
 				"patterns": [
@@ -860,46 +867,50 @@
 					{
 						"begin": "(?=```)",
 						"end": "(?<=```)",
-						"contentName": "text.substituted.attribute.html.tiddlywiki5",
+						"contentName": "text.substituted.triple.attribute.html.tiddlywiki5",
 						"patterns": [
-						  {
-							"match": "(```)(.*?)(```)",
-							"captures": {
-							  "1": {
-								"name": "punctuation.definition.substituted.attribute.begin.tiddlywiki5"
-							  },
-							  "2": { "patterns": [
-								{ "include": "#substitute-variable"},
-								{ "include": "#substitute-filter"},
-								{ "include": "#entities" }
-								] },
-							  "3": { "name": "punctuation.definition.substituted.attribute.end.tiddlywiki5" }
+							{
+								"begin": "(`{3})",
+								"end": "(`{3})",
+								"beginCaptures": {
+								"1": {
+									"name": "punctuation.definition.substituted.triple..attribute.begin.tiddlywiki5"
+								}
+								},
+								"endCaptures": {
+									"1": { "name": "punctuation.definition.substituted.triple.attribute.end.tiddlywiki5" }
+								},
+								"patterns": [
+									{ "include": "#htmlwidget-entities" },
+									{ "include": "#inline" }
+								]
 							}
-						  }
 						]
 					},
 					{
 						"begin": "(?=`{1})",
 						"end": "(?<=`{1})",
-						"contentName": "text.substituted.attribute.html.tiddlywiki5",
+						"contentName": "text.substituted.single.attribute.html.tiddlywiki5",
 						"patterns": [
-						  {
-							"match": "(`{1})(.*?)(`{1})",
-							"captures": {
-							  "1": {
-								"name": "punctuation.definition.substituted.attribute.begin.tiddlywiki5"
-							  },
-							  "2": { "patterns": [
-									{ "include": "#substitute-variable"},
-									{ "include": "#substitute-filter"},
-									{ "include": "#entities" }
-								] },
-							  "3": { "name": "punctuation.definition.substituted.attribute.end.tiddlywiki5" }
+							{
+								"begin": "(`{1})",
+								"end": "(`{1})",
+								"beginCaptures": {
+								"1": {
+									"name": "punctuation.definition.substituted.single.attribute.begin.tiddlywiki5"
+								}
+								},
+								"endCaptures": {
+									"1": { "name": "punctuation.definition.substituted.single.attribute.end.tiddlywiki5" }
+								},
+								"patterns": [
+									{ "include": "#htmlwidget-entities" },
+									{ "include": "#inline" }
+								]
 							}
-						  }
 						]
 					},
-					{ "include": "#string" },
+					{"include": "#string"},
 					{
 						"match": "=",
 						"name": "invalid.illegal.unexpected-equals-sign.html.tiddlywiki5"
@@ -3242,7 +3253,7 @@
         "styleblock": {
           "applyEndPatternLast": 1,
           "begin": "\\s*(?=@@((?:[^\\s]+?\\:.+?;)+)?((?:\\.[^\\s\\.]+)+)?$)",
-          "end": "(?<=^@@)\\s*(.*)$",
+          "end": "(?<=^\\s*@@)\\s*(.*)$",
           "contentName": "markup.other.style.styleblock.tiddlywiki5",
           "endCaptures": { "1": { "name": "invalid.illegal.tiddlywiki5" } },
           "patterns": [
@@ -3261,7 +3272,7 @@
             {
               "comment": "Tokenize body and end marker.",
               "begin": "^",
-              "end": "^(@@)",
+              "end": "^(\\s*@@)",
               "contentName": "meta.styleblock.definition.body.tiddlywiki5",
               "endCaptures": {
                 "0": { "name": "meta.styleblock.definition.end.bottom.tiddlywiki5" },
@@ -3273,7 +3284,7 @@
                 { "include": "#block" },
                 {
                   "begin": "(?!\\s*$)",
-                  "end": "(?:^(?=@@))|^$",
+                  "end": "(?:^(?=\\s*@@))|^$",
                   "name": "markup.other.paragraph.tiddlywiki5",
                   "patterns": [{ "include": "#inline" }]
                 }
@@ -3868,9 +3879,7 @@
                 "1": { "name": "markup.heading.punctuation.definition.tiddlywiki5" },
                 "2": { "patterns": [{ "include": "#classes" }] }
               },
-              "patterns": [
-                { "include": "#inline" }
-              ]
+              "patterns": [{ "include": "#inline" }]
             },
             {
               "begin": "\\s*(!{5})((?:\\.[^\\s\\.]+)+)?",
@@ -3880,9 +3889,7 @@
                 "1": { "name": "markup.heading.punctuation.definition.tiddlywiki5" },
                 "2": { "patterns": [{ "include": "#classes" }] }
               },
-              "patterns": [
-                { "include": "#inline" }
-              ]
+              "patterns": [{ "include": "#inline" }]
             },
             {
               "begin": "\\s*(!{4})((?:\\.[^\\s\\.]+)+)?",
@@ -3892,9 +3899,7 @@
                 "1": { "name": "markup.heading.punctuation.definition.tiddlywiki5" },
                 "2": { "patterns": [{ "include": "#classes" }] }
               },
-              "patterns": [
-                { "include": "#inline" }
-              ]
+              "patterns": [{ "include": "#inline" }]
             },
 			{
 				"begin": "\\s*(!{3})((?:\\.[^\\s\\.]+)+)?",
@@ -3904,9 +3909,7 @@
 					"1": { "name": "markup.heading.punctuation.definition.tiddlywiki5" },
 					"2": { "patterns": [{ "include": "#classes" }] }
 				},
-				"patterns": [
-					{ "include": "#inline" }
-				]
+				"patterns": [{ "include": "#inline" }]
 			},
             {
               "begin": "\\s*(!{2})((?:\\.[^\\s\\.]+)+)?",
@@ -3916,9 +3919,7 @@
                 "1": { "name": "markup.heading.punctuation.definition.tiddlywiki5" },
                 "2": { "patterns": [{ "include": "#classes" }] }
               },
-              "patterns": [
-                { "include": "#inline" }
-              ]
+              "patterns": [{ "include": "#inline" }]
             },
             {
               "begin": "\\s*(!{1})((?:\\.[^\\s\\.]+)+)?",
@@ -3928,9 +3929,7 @@
                 "1": { "name": "markup.heading.punctuation.definition.tiddlywiki5" },
                 "2": { "patterns": [{ "include": "#classes" }] }
               },
-              "patterns": [
-                { "include": "#inline" }
-              ]
+              "patterns": [{ "include": "#inline" }]
             }
           ]
         },    
@@ -4932,11 +4931,7 @@
 						}
 				},
 				"name": "string.quoted.triple.html.tiddlywiki5",
-				"patterns": [
-					{
-						"include": "#inline"
-					}
-				]
+				"patterns": [{ "include": "#inline" }]
 			},
 			{
 				"begin": "\"",
@@ -4952,11 +4947,7 @@
 				}
 				},
 				"name": "string.quoted.double.html.tiddlywiki5",
-				"patterns": [
-					{
-						"include": "#inline"
-					}
-				]
+				"patterns": [{ "include": "#inline" }]
 			},
 			{
 				"begin": "'",
