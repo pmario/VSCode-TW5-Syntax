@@ -23,19 +23,19 @@
 	".text.html.tiddlywiki5": {
 		"Macro Definition Pragma": {
 			"prefix": "\\define",
-			"body": "\\\\define ${1:twMacro}($2)\n$3\n\\\\end ${1}\n"
+			"body": "\\\\define ${1:twMacro}($2)\n$3\n\\\\end\n"
 		},
 		"Function Definition Pragma": {
 			"prefix": "\\function",
-			"body": "\\\\function ${1:twFunc}($2)\n$3\n\\\\end ${1}\n"
+			"body": "\\\\function ${1:twFunc}($2)\n$3\n\\\\end\n"
 		},
 		"Procedure Definition Pragma": {
 			"prefix": "\\procedure",
-			"body": "\\\\procedure ${1:twProc}($2)\n$3\n\\\\end ${1}\n"
+			"body": "\\\\procedure ${1:twProc}($2)\n$3\n\\\\end\n"
 		},
 		"Widget Definition Pragma": {
 			"prefix": "\\widget",
-			"body": "\\\\widget ${1:\\$tw.Widget}($2)\n$3\n\\\\end ${1}\n"
+			"body": "\\\\widget ${1:\\$tw.Widget}($2)\n$3\n\\\\end\n"
 		},
 		"Import Pragma": {
 			"prefix": "\\import",
