@@ -221,19 +221,19 @@
 			"description": "Returns the fields of a selection of tiddlers in CSV form, with one row per tiddler.",
 			"descriptionMoreURL": "http://tiddlywiki.com#csvtiddlers%20Macro",
 			"prefix": "<<csvtiddlers",
-			"body": "<<csvtiddlers \"${1:[is[current]]}\">>$0"
+			"body": "<<csvtiddlers filter:\"${1:[is[current]]}\">>$0"
 		},
 		"Macro Jsontiddlers": {
 			"description": "Returns the fields of a selection of tiddlers in JSON form.",
 			"descriptionMoreURL": "http://tiddlywiki.com#jsontiddlers%20Macro",
 			"prefix": "<<jsontiddlers",
-			"body": "<<jsontiddlers \"${1:[is[current]]}\">>$0"
+			"body": "<<jsontiddlers filter:\"${1:[is[current]]}\">>$0"
 		},
 		"Macro Color": {
 			"description": "Returns the CSS value of the specified color in the current palette.",
 			"descriptionMoreURL": "http://tiddlywiki.com#colour%20Macro",
 			"prefix": "<<color",
-			"body": "<<color \"${1:page-background\">>$0"
+			"body": "<<color name:\"${1:page-background\">>$0"
 		},
 		"Macro Datauri": {
 			"description": "Returns a data URI for the content of the specified tiddler.",
@@ -245,19 +245,19 @@
 			"description": "Takes a piece of text and an associated ContentType, and returns a corresponding data URI.",
 			"descriptionMoreURL": "http://tiddlywiki.com#makedatauri%20Macro",
 			"prefix": "<<makedatauri",
-			"body": "<<makedatauri \"${1:text to encode}\" \"${2:text/plain}\">>$0"
+			"body": "<<makedatauri text:\"${1:text to encode}\" type:\"${2:text/plain}\">>$0"
 		},
 		"Macro Now": {
 			"description": "Returns the current date and time in a specified format.",
 			"descriptionMoreURL": "http://tiddlywiki.com#now%20Macro",
 			"prefix": "<<now",
-			"body": "<<now \"${1:0hh:0mm, DDth MMM YYYY}\">>$0"
+			"body": "<<now format:\"${1:0hh:0mm, DDth MMM YYYY}\">>$0"
 		},
 		"Macro Qualify": {
 			"description": "Returns a unique string that encodes macro call position within the widget tree.",
 			"descriptionMoreURL": "http://tiddlywiki.com#qualify%20Macro",
 			"prefix": "<<qualify",
-			"body": "<<qualify${1: \"${2:prefix}\"}>>$0"
+			"body": "<<qualify${1: title:\"${2:prefix}\"}>>$0"
 		},
 		"Macro Dumpvariables": {
 			"description": "Returns a table showing the values of all variables and macros that exist macro call position in the widget tree.",
@@ -269,7 +269,7 @@
 			"description": "Generates a tag pill for a specified tag.",
 			"descriptionMoreURL": "http://tiddlywiki.com#tag%20Macro",
 			"prefix": "<<tag",
-			"body": "<<tag${1: \"${2:$:/tags/Macro}\"}>>$0"
+			"body": "<<tag${1: tag:\"${2:$:/tags/Macro}\"}>>$0"
 		},
 		"Macro Lingo": {
 			"description": "Returns a text of the specified tiddler in currently selected language plugin.",
