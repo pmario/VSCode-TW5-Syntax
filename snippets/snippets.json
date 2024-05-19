@@ -55,7 +55,7 @@
 		},
 		"Whitespace Pragma": {
 			"prefix": "\\whitespace",
-			"body": "\\\\rules ${1|trim,notrim|}\n"
+			"body": "\\\\whitespace ${1|trim,notrim|}\n"
 		},
 		"Code": {
 			"prefix": "```code",
