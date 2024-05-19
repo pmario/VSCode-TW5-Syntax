@@ -375,23 +375,23 @@
 			"description": "Displays the number of matches to a filter expression.",
 			"descriptionMoreURL": "http://tiddlywiki.com/#CountWidget",
 			"prefix": "<\\$count",
-			"body": "<\\$count filter=\"${1:[is[current]]}\" />$0"
+			"body": "<\\$count filter=\"${1:[is[current]]}\"/>$0"
 		},
 		"Widget View": {
 			"description": "Displays the contents of a tiddler field or index in a specified format.",
 			"descriptionMoreURL": "http://tiddlywiki.com/#ViewWidget",
 			"prefix": "<\\$view",
-			"body": "<\\$view ${1:tiddler=${2:<<currentTiddler>>} }field=\"${3:modified}\" format=\"${4:date}\" template=\"${5:YYYY.0MM.0DD}\" />$0"
+			"body": "<\\$view ${1:tiddler=${2:<<currentTiddler>>} }field=\"${3:modified}\" format=\"${4:date}\" template=\"${5:YYYY.0MM.0DD}\"/>$0"
 		},
 		"Widget Reveal": {
 			"description": "Hides or shows its content depending upon the value of a state tiddler.",
 			"descriptionMoreURL": "http://tiddlywiki.com/#RevealWidget",
 			"prefix": "<\\$reveal",
-			"body": "<\\$reveal type=\"${1:match}\" state=${2:\"$:/state/${3:state}\"}text=\"$4\">\n  $5\n</\\$reveal>$0"
+			"body": "<\\$reveal type=\"${1:match}\" state=${2:\"$:/state/${3:state}\"} text=\"$4\">\n\t$0\n</\\$reveal>"
 		},
 		"Widget Reveal With Popup": {
 			"prefix": "<\\$revealp",
-			"body": "<\\$reveal type=\"popup\" popup=${1:\"$:/state/${2:state}\"}>\n  $3\n</\\$reveal>$0"
+			"body": "<\\$reveal type=\"popup\" popup=${1:\"$:/state/${2:state}\"}>\n\t$0\n</\\$reveal>"
 		},
 		"Widget Scrollable": {
 			"description": "Wraps content in a scrollable frame.",
