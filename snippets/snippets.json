@@ -305,19 +305,19 @@
 			"description": "Generates a simple tree of tiddler links by analysing tags.",
 			"descriptionMohttp://tiddlywiki.com/#Table-of-Contents%20MacrosreURL": "",
 			"prefix": "<<toc",
-			"body": "<<toc \"${1:$:/tags/PageTemplate}\"${2: \"${3:sort[title]}\"}>>$0"
+			"body": "<<toc tag:\"${1:$:/tags/PageTemplate}\"${2: sort:\"${3:sort[title]}\"}>>$0"
 		},
 		"Macro Toc-expandable": {
 			"description": "Generates a tree of tiddler links in which all the branches can be expanded and collapsed.",
 			"descriptionMoreURL": "http://tiddlywiki.com/#Table-of-Contents%20Macros",
 			"prefix": "<<toc-expandable",
-			"body": "<<toc-expandable \"${1:$:/tags/PageTemplate}\"${2: \"${3:sort[title]}\"}>>$0"
+			"body": "<<toc-expandable tag:\"${1:$:/tags/PageTemplate}\"${2: sort:\"${3:sort[title]}\"}>>$0"
 		},
 		"Macro Toc-selective-expandable": {
 			"description": "Generates a tree of tiddler links in which the non-empty branches can be expanded and collapsed.",
 			"descriptionMoreURL": "http://tiddlywiki.com/#Table-of-Contents%20Macros",
 			"prefix": "<<toc-selective-expandable",
-			"body": "<<toc-selective-expandable \"${1:$:/tags/PageTemplate}\"${2: \"${3:sort[title]}\"}>>$0"
+			"body": "<<toc-selective-expandable tag:\"${1:$:/tags/PageTemplate}\"${2: sort:\"${3:sort[title]}\"}>>$0"
 		},
 		"Macro Toc-tabbed-internal-nav": {
 			"description": "Generates a two-panel browser with expandable tree on the left and tiddler content on the right.",
