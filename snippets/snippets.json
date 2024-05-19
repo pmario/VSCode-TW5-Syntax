@@ -269,7 +269,7 @@
 			"description": "Generates a tag pill for a specified tag.",
 			"descriptionMoreURL": "http://tiddlywiki.com#tag%20Macro",
 			"prefix": "<<tag",
-			"body": "<<tag${1: tag:\"${2:$:/tags/Macro}\"}>>$0"
+			"body": "<<tag${1: \"${2:$:/tags/Macro}\"}>>$0"
 		},
 		"Macro Lingo": {
 			"description": "Returns a text of the specified tiddler in currently selected language plugin.",
