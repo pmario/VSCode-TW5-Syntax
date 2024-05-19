@@ -397,19 +397,19 @@
 			"description": "Wraps content in a scrollable frame.",
 			"descriptionMoreURL": "http://tiddlywiki.com/#ScrollableWidget",
 			"prefix": "<\\$scrollable",
-			"body": "<\\$scrollable class=\"${1:tc-scrollable-demo}\">\n  $2\n</\\$scrollable>$0"
+			"body": "<\\$scrollable class=\"${1:tc-scrollable-demo}\">\n\t$0\n</\\$scrollable>"
 		},
 		"Widget EditText": {
 			"description": "Provides a user interface in the browser for editing text tiddler fields and indices.",
 			"descriptionMoreURL": "http://tiddlywiki.com/#EditTextWidget",
 			"prefix": "<\\$edit-text",
-			"body": "<\\$edit-text ${1:tiddler=${2:<<currentTiddler>>} }field=\"${3:text}\" />$0"
+			"body": "<\\$edit-text ${1:tiddler=${2:<<currentTiddler>>} }field=\"${3:text}\"/>$0"
 		},
 		"Widget Select": {
 			"description": "Displays a popup menu based on a HTML `select` element.",
 			"descriptionMoreURL": "http://tiddlywiki.com/#SelectWidget",
 			"prefix": "<\\$select",
-			"body": "<\\$select ${1:tiddler=${2:<<currentTiddler>>} }field=\"${3:text}\">\n  <option${4: value=\"${5:option}\"}>${6:option}</option>\n</\\$select>$0"
+			"body": "<\\$select ${1:tiddler=${2:<<currentTiddler>>} }field=\"${3:text}\">\n\t<option${4: value=\"${5:option}\"}>${6:option}</option>\n</\\$select>$0"
 		},
 		"Widget Checkbox": {
 			"description": "Displays an HTML checkbox input bound to a specified tiddler tag, field or index.",
