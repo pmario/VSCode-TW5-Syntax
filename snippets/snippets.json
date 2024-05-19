@@ -100,7 +100,7 @@
 		"Transclusion Of Field": {
 			"prefix": "{{tf",
 			"body": "{{${1:}!!${2:title}}}$0"
-		},
+		},4
 		"Transclusion Of Data Index": {
 			"prefix": "{{ti",
 			"body": "{{${1:}##${2:index}}}$0"
@@ -111,7 +111,7 @@
 		},
 		"Transclusion Of Field With Template": {
 			"prefix": "{{tft",
-			"body": "{{${1:}!!${2:title}||${3:template}}$0"
+			"body": "{{${1:}!!${2:title}||${3:template}}}$0"
 		},
 		"Transclusion Of Data Index With Template": {
 			"prefix": "{{tit",
