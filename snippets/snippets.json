@@ -365,11 +365,29 @@
 			"description": "Displays a sequence of tiddlers that match a filter expression.",
 			"descriptionMoreURL": "http://tiddlywiki.com/#ListWidget",
 			"prefix": "<\\$list",
-			"body": "<\\$list filter=\"${1:[is[current]]}\">\n  ${2:<<currentTiddler>>}\n</\\$list>$0"
+			"body": "<\\$list filter=\"${1:[all[current]]}\">\n\t${2:<<currentTiddler>>$0}\n</\\$list>"
 		},
 		"Widget List With Custom Variable": {
 			"prefix": "<\\$listv",
-			"body": "<\\$list filter=\"${1:[is[current]]}\" variable=\"${2:item}\">\n  ${3:<<item>>}\n</\\$list>$0"
+			"body": "<\\$list filter=\"${1:[all[current]]}\" variable=\"${2:item}\">\n\t${3:<<${2:item}>>}$0\n</\\$list>"
+		},
+		"Widget List With All Parameters": {
+			"prefix": "<\\$listz",
+			"body": [
+				"<\\$list filter=\"${1:[all[current]]}\"",
+				"\tvariable=\"${2:item}\"",
+				"\tlimit=\"\"",
+				"\ttemplate=\"\"",
+				"\teditTemplate=\"\"",
+				"\tjoin=\"\"",
+				"\tcounter=\"\"",
+				"\temtpyMessage=\"\"",
+				"\tstoryview=\"\"",
+				"\thistory=\"\"",
+				">",
+				"\t<<${2:item}>>"$0,
+				"</\\$list>"
+			]
 		},
 		"Widget Count": {
 			"description": "Displays the number of matches to a filter expression.",
