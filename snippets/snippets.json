@@ -451,7 +451,7 @@
 		},
 		"Shortcut - If Endif": {
 			"prefix": ["<% if endif"],
-			"body": "<% if ${1:[${2:operator}[]]} %>\n${3:Content}\n<% endif %>$0"
+			"body": "<% if ${1:[${2:operator}[]]} %>\n\t${3:Content}\n<% endif %>$0"
 		},
 		"Shortcut - If ElseIf Else EndIf": {
 			"prefix": ["<% if else endif"],
@@ -459,11 +459,11 @@
 		},
 		"Shortcut - Else If": {
 			"prefix": ["<% elseif if"],
-			"body": "<% elseif ${1:[${2:operator}[]] %>\n${3:Content}\n$0"
+			"body": "<% elseif ${1:[${2:operator}[]] %>\n\t${3:Content}\n$0"
 		},
 		"Shortcut - Else": {
 			"prefix": ["<% else no if"],
-			"body": "<% else %>\n${1:Content}\n$0"
+			"body": "<% else %>\n\t${1:Content}\n$0"
 		}
 	},
 	".meta.widget.tw-button.tiddlywiki5 > .meta.body.tiddlywiki5,\n.meta.widget.tw-keyboard.tiddlywiki5 > .meta.body.tiddlywiki5": {
