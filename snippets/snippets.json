@@ -281,7 +281,13 @@
 			"description": "Returns a formatted list of links to a selection of tiddlers.",
 			"descriptionMoreURL": "http://tiddlywiki.com#list-links%20Macro",
 			"prefix": "<<list",
-			"body": "<<list \"${1:[is[current]]}\">>$0"
+			"body": "<<list-links filter:\"${1:[is[current]]}\">>$0"
+		},
+		"Macro List Links Draggable": {
+			"description": "Returns a draggable list of links to a selection of tiddlers.",
+			"descriptionMoreURL": "http://tiddlywiki.com#list-links-draggable%20Macro",
+			"prefix": "<<list draggable",
+			"body": "<<list-links-draggable tiddler:\"${1:tag-title}\">>$0"
 		},
 		"Macro Tabs": {
 			"description": "Returns a set of tabs to a selection of tiddlers.",
