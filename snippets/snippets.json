@@ -8,7 +8,7 @@
                 "tags: ${1:spaceseparator}",
                 "title: ${2:$TM_FILENAME_BASE}",
                 "type: ${3|text/vnd.tiddlywiki,text/css,text/x-markdown,text/html,text/csv,text/plain,application/javascript,application/json,image/svg+xml|}",
-                "$0"
+                "\n$0"
             ],
             "description": "insert tiddler metadata"
         },
