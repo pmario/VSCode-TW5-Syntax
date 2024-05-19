@@ -170,11 +170,11 @@
 			"body": "__$1__$0"
 		},
 		"Superscript": {
-			"prefix": "^^sup",
+			"prefix": "^^ sup",
 			"body": "^^$1^^$0"
 		},
 		"Subscript": {
-			"prefix": ",,sub",
+			"prefix": ",, sub",
 			"body": ",,$1,,$0"
 		},
 		"Strikethrough": {
@@ -182,11 +182,11 @@
 			"body": "~~$1~~$0"
 		},
 		"Code Inline Single Backticks": {
-			"prefix": "`code",
+			"prefix": "`code ic",
 			"body": "`$1`$0"
 		},
 		"Code Inline Double Backticks": {
-			"prefix": "``code",
+			"prefix": "``code ic",
 			"body": "``$1``$0"
 		},
 		"Preformatted Text": {
