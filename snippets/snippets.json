@@ -449,16 +449,20 @@
 			"prefix": "<\\$buttonp",
 			"body": "<\\$button popup=${1:\"$:/state/${2:state}\"}>\n  ${3:Label}\n</\\$button>$0"
 		},
-		"Shortcut Conditional If": {
-			"prefix": "<% if",
-			"body": "<% if ${1:[${2:title}[]] %>\n${3:Content}\n<% endif %>$0"
+		"Shortcut - If Endif": {
+			"prefix": ["<% if endif"],
+			"body": "<% if ${1:[${2:operator}[]]} %>\n${3:Content}\n<% endif %>$0"
 		},
-		"Shortcut Conditional IfElse": {
-			"prefix": "<% ifelse",
-			"body": "<% ifelse ${1:[${2:title}[]] %>\n${3:Content}\n$0"
+		"Shortcut - If ElseIf Else EndIf": {
+			"prefix": ["<% if else endif"],
+			"body": "<% if ${1:[${2:operator}[]]} %>\n\t${3:Content}\n<% elseif ${4:[${5:operator}[]]} %>\n\t${6:Content}\n<% else %>\n\t${7:Content}\n<% endif %>$0"
 		},
-		"Shortcut Conditional Else": {
-			"prefix": "<% else",
+		"Shortcut - Else If": {
+			"prefix": ["<% elseif if"],
+			"body": "<% elseif ${1:[${2:operator}[]] %>\n${3:Content}\n$0"
+		},
+		"Shortcut - Else": {
+			"prefix": ["<% else no if"],
 			"body": "<% else %>\n${1:Content}\n$0"
 		}
 	},
