@@ -13,7 +13,7 @@ Based primarily on the grammars found below, with heavy tweaking and editing.
 * https://github.com/PaulPorfiroff/atom-language-tiddlywiki5
 * https://github.com/roma0104/sublime-tid
 
-`*.tid` and `*.meta` files have their field-names identified (and illegal characters detected). All field content (text field included) is parsed as "text.html.tiddlywiki5" (defined in `./syntaxes/tw5-wikitext.json`).
+`*.tid` and `*.meta` files have their field-names identified (and illegal characters detected). All field content (text field included) is parsed as "text.html.tiddlywiki5" (defined in `./syntaxes/tiddlywiki5.json`).
 
 ## Known Issues
 
