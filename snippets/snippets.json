@@ -87,11 +87,11 @@
 		},
 		"Filtered Transclusion": {
 			"prefix": "{{{ftr",
-			"body": "{{{${1:[is[current]]}}}}$0"
+			"body": "{{{ ${1:[is[current]]} }}}$0"
 		},
 		"Filtered Transclusion With Template": {
 			"prefix": "{{{ftrt",
-			"body": "{{{${1:[is[current]]}||${2:template}}}}$0"
+			"body": "{{{ ${1:[is[current]]}||${2:template} }}}$0"
 		},
 		"Transclusion": {
 			"prefix": "{{tr",
