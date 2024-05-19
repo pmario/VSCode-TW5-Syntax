@@ -131,7 +131,7 @@
 		},
 		"Table With Row And Column Headers": {
 			"prefix": "|tablerc",
-			"body": "|\t\t\t\t\t\t\t|${1:Header One}\t|h\n|!${2:Header One}\t|${3:Data One}\t\t|\n|!${4:Header Two}\t|${5:Data Two}\t\t|"
+			"body": "|            | ${1:Header One} |h\n|!${2:Header One} |${3:Data One}    |\n|!${4:Header Two} |${5:Data Two}    |"
 		},
 		"Quote": {
 			"prefix": ">q",
