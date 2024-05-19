@@ -47,7 +47,7 @@
 		},
 		"Rules Stylesheet Pragma": {
 			"prefix": "\\rulesstyle",
-			"body": "\\\\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline$0\n"
+			"body": "\\\\rules only filteredtranscludeinline transcludeinline macrodef fnprocdef macrocallinline$0\n"
 		},
 		"Rules Plain Text Pragma": {
 			"prefix": "\\rulesoff",
