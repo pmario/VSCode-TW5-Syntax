@@ -415,17 +415,17 @@
 			"description": "Displays an HTML checkbox input bound to a specified tiddler tag, field or index.",
 			"descriptionMoreURL": "http://tiddlywiki.com/#CheckboxWidget",
 			"prefix": "<\\$checkbox",
-			"body": "<\\$checkbox ${1:tiddler=${2:<<currentTiddler>>} }field=\"${3:text}\" checked=\"${4:true}\" unchecked=\"${5:false}\">\n  ${6:Label}\n</\\$checkbox>$0"
+			"body": "<\\$checkbox ${1:tiddler=${2:<<currentTiddler>>} }field=\"${3:text}\" checked=\"${4:yes}\" unchecked=\"${5:no}\">\n\t${6:Label}$0\n</\\$checkbox>"
 		},
 		"Widget Checkbox Bound To Tag": {
 			"prefix": "<\\$checkboxt",
-			"body": "<\\$checkbox ${1:tiddler=${2:<<currentTiddler>>} }tag=\"$3\">\n  ${4:Label}\n</\\$checkbox>$0"
+			"body": "<\\$checkbox ${1:tiddler=${2:<<currentTiddler>>} }tag=\"$3\">\n\t${4:Label}$0\n</\\$checkbox>"
 		},
 		"Widget Radio": {
 			"description": "Displays an HTML radio input bound to a specified tiddler field.",
 			"descriptionMoreURL": "http://tiddlywiki.com/#RadioWidget",
 			"prefix": "<\\$radio",
-			"body": "<\\$radio ${1:tiddler=${2:<<currentTiddler>>} }field=\"${3:text}\" value=\"${4:option}\">\n  ${5:Label}\n</\\$radio>$0'"
+			"body": "<\\$radio ${1:tiddler=${2:<<currentTiddler>>} }field=\"${3:text}\" value=\"${4:option}\">\n\t${5:Label}\n</\\$radio>$0"
 		},
 		"Widget Button": {
 			"description": "Displays an HTML element that can perform a combination of optional actions when clicked.",
