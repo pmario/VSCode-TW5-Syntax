@@ -427,27 +427,34 @@
 			"prefix": "<\\$radio",
 			"body": "<\\$radio ${1:tiddler=${2:<<currentTiddler>>} }field=\"${3:text}\" value=\"${4:option}\">\n  ${5:Label}\n</\\$radio>$0'"
 		},
-		"Widget Button": {
+		"Widget Button Actions": {
 			"description": "Displays an HTML element that can perform a combination of optional actions when clicked.",
 			"descriptionMoreURL": "http://tiddlywiki.com/#ButtonWidget",
 			"prefix": "<\\$button",
-			"body": "<\\$button>\n  ${1:Label}\n</\\$button>$0"
-		},
-		"Widget Button Set Value": {
-			"prefix": "<\\$buttont",
-			"body": "<\\$button set=\"$1!!${2:title}\" setTo=${2:{{$3!!${4:title}\\}\\}}>\n  ${5:Label}\n</\\$button>$0"
+			"body": [
+				"\\procedure ${1:btnActions}()",
+				"$0",
+				"\\end\n",
+				"<\\$button actions=<<${1:btnActions}>> >",
+				"\t{{$:/core/images/spiral}} ${2:Label}",
+				"</\\$button>"
+			]
 		},
 		"Widget Button Send Message": {
 			"prefix": "<\\$buttonm",
-			"body": "<\\$button message=\"${1:tm-notify}\" param=${2:<<currentTiddler>>}>\n  ${3:Label}\n</\\$button>$0"
+			"body": "<\\$button message=\"${1:tm-notify}\" param=\"${2:<<currentTiddler>>}\">\n\t${3:Label}\n</\\$button>$0"
 		},
 		"Widget Button Navigate To": {
 			"prefix": "<\\$buttonn",
-			"body": "<\\$button to=\"{1:<<currentTiddler>>}>\n  ${2:Label}\n</\\$button>$0"
+			"body": "<\\$button to=${1:<<currentTiddler>>}>\n\t${2:Label}\n</\\$button>$0"
 		},
 		"Widget Button With Popup": {
 			"prefix": "<\\$buttonp",
-			"body": "<\\$button popup=${1:\"$:/state/${2:state}\"}>\n  ${3:Label}\n</\\$button>$0"
+			"body": "<\\$button popup=${1:\"$:/state/${2:state}\"}>\n\t${3:Label}\n</\\$button>$0"
+		},
+		"Widget Button Set Value": {
+			"prefix": "<\\$buttont",
+			"body": "<\\$button set=\"$1!!${2:title}\" setTo=\"${2:{{$3!!${4:title}\\}\\}}\">\n\t${5:Label}\n</\\$button>$0"
 		},
 		"Shortcut Conditional If": {
 			"prefix": "<% if",
