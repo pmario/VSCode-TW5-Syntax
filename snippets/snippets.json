@@ -347,7 +347,7 @@
 			"description": "Provides more flexible way for invoking macros.",
 			"descriptionMoreURL": "http://tiddlywiki.com/#MacroCallWidget",
 			"prefix": "<\\$macrocall",
-			"body": "<\\$macrocall $$name=\"${1:variable}\" ${2:param-x}=${3:<<currentTiddler>>} />$0"
+			"body": "<\\$macrocall \\$name=\"${1:variable}\" ${2:param-x}=${3:<<currentTiddler>>} />$0"
 		},
 		"Widget Set": {
 			"description": "Assigns a value to a specified variable.",
