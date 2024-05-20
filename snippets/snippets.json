@@ -100,7 +100,7 @@
 		"Transclusion Of Field": {
 			"prefix": "{{tf",
 			"body": "{{${1:}!!${2:title}}}$0"
-		},4
+		},
 		"Transclusion Of Data Index": {
 			"prefix": "{{ti",
 			"body": "{{${1:}##${2:index}}}$0"
